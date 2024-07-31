@@ -1,0 +1,55 @@
+{
+  "title": "Video",
+  "uid": "video",
+  "schema": [
+    {
+      "display_name": "Title",
+      "uid": "title",
+      "data_type": "text",
+      "mandatory": true,
+      "unique": false,
+      "field_metadata": { "_default": true, "version": 3 },
+      "multiple": false,
+      "non_localizable": false
+    },
+    {
+      "display_name": "Date",
+      "uid": "date",
+      "data_type": "isodate",
+      "mandatory": false,
+      "unique": false,
+      "multiple": false,
+      "non_localizable": false
+    },
+    {
+      "display_name": "Description",
+      "uid": "description",
+      "data_type": "text",
+      "mandatory": false,
+      "unique": false,
+      "field_metadata": { "multiline": true, "version": 3 },
+      "multiple": false,
+      "non_localizable": false
+    },
+    {
+      "display_name": "Image",
+      "uid": "image",
+      "data_type": "text",
+      "mandatory": false,
+      "unique": false,
+      "multiple": false,
+      "non_localizable": false
+    },
+    {
+      "display_name": "Video ID",
+      "uid": "videoid",
+      "data_type": "text",
+      "mandatory": false,
+      "unique": false,
+      "multiple": false,
+      "non_localizable": false
+    }
+  ],
+  "description": "",
+  "options": { "is_page": false, "singleton": false, "title": "title" }
+}
