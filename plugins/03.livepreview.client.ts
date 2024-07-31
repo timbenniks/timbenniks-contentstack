@@ -1,3 +1,4 @@
+import type { Stack } from "@contentstack/delivery-sdk/dist/types/src/lib/stack";
 import ContentstackLivePreview from "@contentstack/live-preview-utils";
 
 export default defineNuxtPlugin((nuxtApp) => {
@@ -5,7 +6,9 @@ export default defineNuxtPlugin((nuxtApp) => {
 
   if ($preview) {
     ContentstackLivePreview.init({
-      stackDetails: $stack as any,
+      stackDetails: {
+        apiKey: ($stack as Stack).config.apiKey,
+      },
     });
   }
 })

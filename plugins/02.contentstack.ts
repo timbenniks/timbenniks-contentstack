@@ -8,27 +8,23 @@ export default defineNuxtPlugin({
     const {
       apiKey,
       deliveryToken,
-      environment,
-      region,
       previewToken,
-      previewHost,
-      appHost
     } = nuxtApp.$config.public;
 
     const stack = contentstack.stack({
       apiKey,
+      host: "eu-app.contentstack.com",
+      endpoint: "eu-api.contentstack.com",
       deliveryToken,
-      environment,
-      region: region === "eu" ? Region.EU : Region.US,
-      //host: appHost,
+      environment: "development",
+      region: Region.EU,
+      locale: "en-us",
       live_preview: {
         enable: $preview ? true : false,
         preview_token: previewToken,
-        host: previewHost,
+        host: "eu-rest-preview.contentstack.com",
       }
     });
-
-    console.log(stack.config)
 
     return {
       provide: {
@@ -37,3 +33,5 @@ export default defineNuxtPlugin({
     };
   },
 });
+
+
