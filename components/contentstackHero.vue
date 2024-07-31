@@ -20,6 +20,9 @@ defineProps({
   image: {
     type: Object,
   },
+  ctas: {
+    type: [],
+  },
 });
 </script>
 <template>
@@ -42,6 +45,14 @@ defineProps({
       />
     </template>
 
-    <template #ctas></template>
+    <template #ctas>
+      <cta
+        v-for="{ cta } in ctas"
+        :key="cta.url.href"
+        :url="cta.url.href"
+        :text="cta.url.title"
+        :target="cta.target"
+      />
+    </template>
   </Hero>
 </template>

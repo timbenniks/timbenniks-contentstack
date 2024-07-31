@@ -12,6 +12,7 @@ export default defineNuxtPlugin({
       region,
       previewToken,
       previewHost,
+      appHost
     } = nuxtApp.$config.public;
 
     const stack = contentstack.stack({
@@ -19,12 +20,15 @@ export default defineNuxtPlugin({
       deliveryToken,
       environment,
       region: region === "eu" ? Region.EU : Region.US,
+      //host: appHost,
       live_preview: {
         enable: $preview ? true : false,
         preview_token: previewToken,
         host: previewHost,
       }
     });
+
+    console.log(stack.config)
 
     return {
       provide: {
