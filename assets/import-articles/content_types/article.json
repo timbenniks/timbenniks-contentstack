@@ -1,0 +1,122 @@
+{
+  "title": "Article",
+  "uid": "article",
+  "schema": [
+    {
+      "data_type": "text",
+      "display_name": "Title",
+      "field_metadata": { "_default": true, "version": 3 },
+      "mandatory": true,
+      "uid": "title",
+      "unique": true,
+      "multiple": false,
+      "non_localizable": false
+    },
+    {
+      "data_type": "text",
+      "display_name": "URL",
+      "uid": "url",
+      "field_metadata": { "_default": true, "version": 3 },
+      "multiple": false,
+      "unique": false,
+      "mandatory": true,
+      "non_localizable": false
+    },
+    {
+      "data_type": "text",
+      "display_name": "Canonical URL",
+      "uid": "canonical_url",
+      "field_metadata": {
+        "description": "",
+        "default_value": "",
+        "version": 3
+      },
+      "format": "",
+      "error_messages": { "format": "" },
+      "mandatory": false,
+      "multiple": false,
+      "non_localizable": false,
+      "unique": false
+    },
+    {
+      "data_type": "text",
+      "display_name": "Description",
+      "uid": "description",
+      "field_metadata": {
+        "description": "",
+        "default_value": "",
+        "multiline": true,
+        "version": 3
+      },
+      "format": "",
+      "error_messages": { "format": "" },
+      "mandatory": false,
+      "multiple": false,
+      "non_localizable": false,
+      "unique": false
+    },
+    {
+      "data_type": "isodate",
+      "display_name": "Date",
+      "uid": "date",
+      "startDate": null,
+      "endDate": null,
+      "field_metadata": { "description": "", "default_value": {} },
+      "mandatory": false,
+      "multiple": false,
+      "non_localizable": false,
+      "unique": false
+    },
+    {
+      "data_type": "text",
+      "display_name": "Image",
+      "uid": "image",
+      "field_metadata": {
+        "description": "",
+        "default_value": "",
+        "version": 3
+      },
+      "format": "",
+      "error_messages": { "format": "" },
+      "mandatory": false,
+      "multiple": false,
+      "non_localizable": false,
+      "unique": false
+    },
+    {
+      "data_type": "text",
+      "display_name": "reading_time",
+      "uid": "reading_time",
+      "field_metadata": {
+        "description": "",
+        "default_value": "",
+        "version": 3
+      },
+      "format": "",
+      "error_messages": { "format": "" },
+      "mandatory": false,
+      "multiple": false,
+      "non_localizable": false,
+      "unique": false
+    },
+    {
+      "data_type": "text",
+      "display_name": "Body",
+      "uid": "body",
+      "field_metadata": { "description": "", "markdown": true, "version": 3 },
+      "mandatory": false,
+      "multiple": false,
+      "non_localizable": false,
+      "unique": false
+    }
+  ],
+  "description": "",
+  "options": {
+    "is_page": true,
+    "singleton": false,
+    "sub_title": [],
+    "title": "title",
+    "url_prefix": "/",
+    "url_pattern": false
+  }
+}

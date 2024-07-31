@@ -1,0 +1,990 @@
+{
+  "article_entry_uid_choosing-the-right-visual-editor": {
+    "date": "2024-06-28T13:05:48Z",
+    "title": "Choosing the right visual editor for your website: Platform-First vs. Code-First",
+    "canonical_url": "https://timbenniks.dev/writing/choosing-the-right-visual-editor",
+    "description": "This post explores two main types of visual editors: platform-first and code-first. I compare their functionalities, pros, and cons to help you choose the right solution for your development needs.",
+    "url": "choosing-the-right-visual-editor",
+    "image": "https://media.dev.to/cdn-cgi/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https://res.cloudinary.com/dwfcofnrd/image/upload/v1719585541/website/poster.png",
+    "reading_time": "3 min read",
+    "uid": "article_entry_uid_choosing-the-right-visual-editor",
+    "locale": "en-us",
+    "tags": [
+      "architecture",
+      "dxp",
+      "dxc",
+      "composable"
+    ],
+    "created_at": "2024-06-28T13:05:48Z",
+    "updated_at": "2024-06-28T13:05:48Z",
+    "created_by": "cs6c7ee2bd00ff9f69",
+    "updated_by": "cs6c7ee2bd00ff9f69",
+    "content_type_uid": "article",
+    "publish_details": [
+      {
+        "environment": "development",
+        "locale": "en-us",
+        "time": "2024-06-28T13:05:48Z"
+      }
+    ],
+    "ACL": {},
+    "_version": 1,
+    "_in_progress": false
+  },
+  "article_entry_uid_create-a-performant-youtube-embed-with-a-native-web-component": {
+    "date": "2021-05-20T13:05:48Z",
+    "title": "Create a performant YouTube embed with a native web component",
+    "canonical_url": "https://cloudinary.com/blog/guest_post/create-a-performant-youtube-embed-with-a-native-web-component",
+    "description": "In this Media Jam you will learn how to create a native web component that replaces the default YouTube iframe embed.",
+    "url": "create-a-performant-youtube-embed-with-a-native-web-component",
+    "image": "https://media.dev.to/cdn-cgi/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https://res.cloudinary.com/dwfcofnrd/image/upload/v1719585541/website/native-yt-player.png",
+    "reading_time": "3 min read",
+    "uid": "article_entry_uid_create-a-performant-youtube-embed-with-a-native-web-component",
+    "locale": "en-us",
+    "tags": [
+      "webdev",
+      "video",
+      "web component"
+    ],
+    "created_at": "2021-05-20T13:05:48Z",
+    "updated_at": "2021-05-20T13:05:48Z",
+    "created_by": "cs6c7ee2bd00ff9f69",
+    "updated_by": "cs6c7ee2bd00ff9f69",
+    "content_type_uid": "article",
+    "publish_details": [
+      {
+        "environment": "development",
+        "locale": "en-us",
+        "time": "2021-05-20T13:05:48Z"
+      }
+    ],
+    "ACL": {},
+    "_version": 1,
+    "_in_progress": false
+  },
+  "article_entry_uid_creating-a-custom-video-player-in-vue": {
+    "date": "2021-05-18T13:05:48Z",
+    "title": "Creating a custom video player in Vue.js",
+    "canonical_url": "https://cloudinary.com/blog/guest_post/creating-a-custom-video-player-in-vue",
+    "description": "In this Media Jam you will learn how to create a video player with custom controls and event handling in Vue.js.",
+    "url": "creating-a-custom-video-player-in-vue",
+    "image": "https://media.dev.to/cdn-cgi/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https://res.cloudinary.com/dwfcofnrd/image/upload/v1719585541/website/vue-video-player-poster.png",
+    "reading_time": "7 min read",
+    "uid": "article_entry_uid_creating-a-custom-video-player-in-vue",
+    "locale": "en-us",
+    "tags": [
+      "webdev",
+      "video",
+      "vue"
+    ],
+    "created_at": "2021-05-18T13:05:48Z",
+    "updated_at": "2021-05-18T13:05:48Z",
+    "created_by": "cs6c7ee2bd00ff9f69",
+    "updated_by": "cs6c7ee2bd00ff9f69",
+    "content_type_uid": "article",
+    "publish_details": [
+      {
+        "environment": "development",
+        "locale": "en-us",
+        "time": "2021-05-18T13:05:48Z"
+      }
+    ],
+    "ACL": {},
+    "_version": 1,
+    "_in_progress": false
+  },
+  "article_entry_uid_different-approaches-to-visual-editing": {
+    "date": "2024-07-25T10:32:48Z",
+    "title": "The different approaches to visual editing in headless CMS",
+    "canonical_url": "https://timbenniks.dev/writing/choosing-the-right-visual-editor",
+    "description": "This article compares different approaches to visual editing in headless CMS platforms, outlining the benefits and tradeoffs of options ranging from basic previews to full WYSIWYG editors.",
+    "url": "different-approaches-to-visual-editing",
+    "image": "https://media.dev.to/cdn-cgi/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https://res.cloudinary.com/dwfcofnrd/image/upload/v1721896213/website/cms_visual_editing_approaches.png",
+    "reading_time": "7 min read",
+    "uid": "article_entry_uid_different-approaches-to-visual-editing",
+    "locale": "en-us",
+    "tags": [
+      "composable",
+      "headless",
+      "visual editing",
+      "CMS"
+    ],
+    "created_at": "2024-07-25T10:32:48Z",
+    "updated_at": "2024-07-25T10:32:48Z",
+    "created_by": "cs6c7ee2bd00ff9f69",
+    "updated_by": "cs6c7ee2bd00ff9f69",
+    "content_type_uid": "article",
+    "publish_details": [
+      {
+        "environment": "development",
+        "locale": "en-us",
+        "time": "2024-07-25T10:32:48Z"
+      }
+    ],
+    "ACL": {},
+    "_version": 1,
+    "_in_progress": false
+  },
+  "article_entry_uid_digital-experience-platforms-the-old-versus-the-new": {
+    "date": "2023-03-18T13:05:48Z",
+    "title": "Digital experience platforms: the old versus the new",
+    "canonical_url": "https://uniform.dev/blogs/digital-experience-composition-dxc/difference-between-dxp-and-dxcp",
+    "description": "Digital experience platforms (DXPs) and the more modern digital experience composition platforms...",
+    "url": "digital-experience-platforms-the-old-versus-the-new",
+    "image": "https://media.dev.to/cdn-cgi/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fk1tc0ds73edh613y9yg6.png",
+    "reading_time": "4 min read",
+    "uid": "article_entry_uid_digital-experience-platforms-the-old-versus-the-new",
+    "locale": "en-us",
+    "tags": [
+      "architecture",
+      "dxp",
+      "composable",
+      "webdev"
+    ],
+    "created_at": "2023-03-18T13:05:48Z",
+    "updated_at": "2023-03-18T13:05:48Z",
+    "created_by": "cs6c7ee2bd00ff9f69",
+    "updated_by": "cs6c7ee2bd00ff9f69",
+    "content_type_uid": "article",
+    "publish_details": [
+      {
+        "environment": "development",
+        "locale": "en-us",
+        "time": "2023-03-18T13:05:48Z"
+      }
+    ],
+    "ACL": {},
+    "_version": 1,
+    "_in_progress": false
+  },
+  "article_entry_uid_fast-personalized-pages-with-vercel-edge-middleware-and-uniform": {
+    "date": "2023-03-18T12:49:56Z",
+    "title": "Fast, personalized pages with Vercel Edge Middleware and Uniform",
+    "canonical_url": "https://uniform.dev/blogs/personalization/blazing-fast-personalized-pages-with-vercel-edge-middleware-and-uniform",
+    "description": "To maintain an engaging relationship with your audience and increase conversions to your site, you...",
+    "url": "fast-personalized-pages-with-vercel-edge-middleware-and-uniform",
+    "image": "https://media.dev.to/cdn-cgi/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fb1yp1gg5ldu4y8tozle7.png",
+    "reading_time": "3 min read",
+    "uid": "article_entry_uid_fast-personalized-pages-with-vercel-edge-middleware-and-uniform",
+    "locale": "en-us",
+    "tags": [
+      "performance",
+      "personalization",
+      "vercel",
+      "edge"
+    ],
+    "created_at": "2023-03-18T12:49:56Z",
+    "updated_at": "2023-03-18T12:49:56Z",
+    "created_by": "cs6c7ee2bd00ff9f69",
+    "updated_by": "cs6c7ee2bd00ff9f69",
+    "content_type_uid": "article",
+    "publish_details": [
+      {
+        "environment": "development",
+        "locale": "en-us",
+        "time": "2023-03-18T12:49:56Z"
+      }
+    ],
+    "ACL": {},
+    "_version": 1,
+    "_in_progress": false
+  },
+  "article_entry_uid_how-i-supercharched-my-websites-speed": {
+    "date": "2024-07-01T13:05:48Z",
+    "title": "How I supercharched my website's speed",
+    "canonical_url": "https://timbenniks.dev/writing/how-i-supercharched-my-websites-speed",
+    "description": "In this blog post, I want to share how I transformed my website into the fastest site I've ever built. I'll walk you through the steps, my unconventional decisions, and the tools I used to achieve this feat.",
+    "url": "how-i-supercharched-my-websites-speed",
+    "image": "https://media.dev.to/cdn-cgi/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https://res.cloudinary.com/dwfcofnrd/image/upload/v1719837465/website/fast-website-poster.jpg",
+    "reading_time": "5 min read",
+    "uid": "article_entry_uid_how-i-supercharched-my-websites-speed",
+    "locale": "en-us",
+    "tags": [
+      "performance",
+      "webdev",
+      "nuxt",
+      "RUM"
+    ],
+    "created_at": "2024-07-01T13:05:48Z",
+    "updated_at": "2024-07-01T13:05:48Z",
+    "created_by": "cs6c7ee2bd00ff9f69",
+    "updated_by": "cs6c7ee2bd00ff9f69",
+    "content_type_uid": "article",
+    "publish_details": [
+      {
+        "environment": "development",
+        "locale": "en-us",
+        "time": "2024-07-01T13:05:48Z"
+      }
+    ],
+    "ACL": {},
+    "_version": 1,
+    "_in_progress": false
+  },
+  "article_entry_uid_how-to-dynamically-stream-video": {
+    "date": "2023-03-18T21:56:45Z",
+    "title": "How to dynamically stream video",
+    "canonical_url": "",
+    "description": "Build it yourself or use Cloudinary   Dynamic video streaming is a video delivery technique...",
+    "url": "how-to-dynamically-stream-video",
+    "image": "https://media.dev.to/cdn-cgi/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F9wx2ix9t60eajoccgjh7.png",
+    "reading_time": "11 min read",
+    "uid": "article_entry_uid_how-to-dynamically-stream-video",
+    "locale": "en-us",
+    "tags": [
+      "video",
+      "cloudinary",
+      "streaming"
+    ],
+    "created_at": "2023-03-18T21:56:45Z",
+    "updated_at": "2023-03-18T21:56:45Z",
+    "created_by": "cs6c7ee2bd00ff9f69",
+    "updated_by": "cs6c7ee2bd00ff9f69",
+    "content_type_uid": "article",
+    "publish_details": [
+      {
+        "environment": "development",
+        "locale": "en-us",
+        "time": "2023-03-18T21:56:45Z"
+      }
+    ],
+    "ACL": {},
+    "_version": 1,
+    "_in_progress": false
+  },
+  "article_entry_uid_how-to-get-your-webcam-to-look-decent-in-a-few-simple-steps": {
+    "date": "2023-03-20T13:01:35Z",
+    "title": "How to get your webcam to look decent in a few simple steps",
+    "canonical_url": "",
+    "description": "If you have used a webcam before you know what it means to look like shit on camera. Even the most...",
+    "url": "how-to-get-your-webcam-to-look-decent-in-a-few-simple-steps",
+    "image": "https://media.dev.to/cdn-cgi/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Finfev45k3ve6i4dgtu2r.png",
+    "reading_time": "9 min read",
+    "uid": "article_entry_uid_how-to-get-your-webcam-to-look-decent-in-a-few-simple-steps",
+    "locale": "en-us",
+    "tags": [
+      "webcam"
+    ],
+    "created_at": "2023-03-20T13:01:35Z",
+    "updated_at": "2023-03-20T13:01:35Z",
+    "created_by": "cs6c7ee2bd00ff9f69",
+    "updated_by": "cs6c7ee2bd00ff9f69",
+    "content_type_uid": "article",
+    "publish_details": [
+      {
+        "environment": "development",
+        "locale": "en-us",
+        "time": "2023-03-20T13:01:35Z"
+      }
+    ],
+    "ACL": {},
+    "_version": 1,
+    "_in_progress": false
+  },
+  "article_entry_uid_how-to-sniff-out-the-glue-monster": {
+    "date": "2023-03-18T13:00:21Z",
+    "title": "How to sniff out the Glue Monster",
+    "canonical_url": "https://uniform.dev/blogs/how-to-sniff-out-the-glue-monster",
+    "description": "Even though you don’t see it, glue code is everywhere. Since the pendulum swung from monolithic...",
+    "url": "how-to-sniff-out-the-glue-monster",
+    "image": "https://media.dev.to/cdn-cgi/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fz8mwj68dscwvzuvcdd4y.png",
+    "reading_time": "5 min read",
+    "uid": "article_entry_uid_how-to-sniff-out-the-glue-monster",
+    "locale": "en-us",
+    "tags": [
+      "javascript",
+      "architecture",
+      "composable",
+      "devops"
+    ],
+    "created_at": "2023-03-18T13:00:21Z",
+    "updated_at": "2023-03-18T13:00:21Z",
+    "created_by": "cs6c7ee2bd00ff9f69",
+    "updated_by": "cs6c7ee2bd00ff9f69",
+    "content_type_uid": "article",
+    "publish_details": [
+      {
+        "environment": "development",
+        "locale": "en-us",
+        "time": "2023-03-18T13:00:21Z"
+      }
+    ],
+    "ACL": {},
+    "_version": 1,
+    "_in_progress": false
+  },
+  "article_entry_uid_undefined": {
+    "title": "Writing",
+    "description": "My articles about composable architectures, headless CMS, Nuxt.js and more",
+    "image": {
+      "src": "https://res.cloudinary.com/dwfcofnrd/image/upload/q_auto,f_auto,w_1280/Office/2.jpg",
+      "alt": "Tim Benniks office",
+      "width": 1280,
+      "height": 800
+    },
+    "uid": "article_entry_uid_undefined",
+    "locale": "en-us",
+    "created_by": "cs6c7ee2bd00ff9f69",
+    "updated_by": "cs6c7ee2bd00ff9f69",
+    "content_type_uid": "article",
+    "publish_details": [
+      {
+        "environment": "development",
+        "locale": "en-us"
+      }
+    ],
+    "ACL": {},
+    "_version": 1,
+    "_in_progress": false
+  },
+  "article_entry_uid_level-up-your-collaboration-game-developer-insights-for-winning-with-marketing-pro": {
+    "date": "2023-05-03T15:49:29Z",
+    "title": "Level up your collaboration game: Developer insights for winning with marketing pros",
+    "canonical_url": "https://uniform.dev/blogs/level-up-your-collaboration-game-developer-insights-for-winning-with",
+    "description": "Building outstanding user experiences takes, first and foremost, effective collaboration between...",
+    "url": "level-up-your-collaboration-game-developer-insights-for-winning-with-marketing-pro",
+    "image": "https://media.dev.to/cdn-cgi/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fjhfuu567f1khlxvglcn0.png",
+    "reading_time": "4 min read",
+    "uid": "article_entry_uid_level-up-your-collaboration-game-developer-insights-for-winning-with-marketing-pro",
+    "locale": "en-us",
+    "tags": [
+      "webdev",
+      "marketing",
+      "collaboration"
+    ],
+    "created_at": "2023-05-03T15:49:29Z",
+    "updated_at": "2023-05-03T15:49:29Z",
+    "created_by": "cs6c7ee2bd00ff9f69",
+    "updated_by": "cs6c7ee2bd00ff9f69",
+    "content_type_uid": "article",
+    "publish_details": [
+      {
+        "environment": "development",
+        "locale": "en-us",
+        "time": "2023-05-03T15:49:29Z"
+      }
+    ],
+    "ACL": {},
+    "_version": 1,
+    "_in_progress": false
+  },
+  "article_entry_uid_mach-versus-monolithic-suites": {
+    "date": "2023-03-13T20:37:36Z",
+    "title": "MACH versus monolithic suites",
+    "canonical_url": "https://uniform.dev/blogs/composable-architecture/mach-versus-monolithic-suites#mach-as-an-evolution-of-monoliths",
+    "description": "Today, with consumers fast becoming digitally advanced, companies realize that old technologies are...",
+    "url": "mach-versus-monolithic-suites",
+    "image": "https://media.dev.to/cdn-cgi/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fxfwuyqdwlw3du1k96z1l.png",
+    "reading_time": "5 min read",
+    "uid": "article_entry_uid_mach-versus-monolithic-suites",
+    "locale": "en-us",
+    "tags": [
+      "mach",
+      "composable",
+      "architecture",
+      "webdev"
+    ],
+    "created_at": "2023-03-13T20:37:36Z",
+    "updated_at": "2023-03-13T20:37:36Z",
+    "created_by": "cs6c7ee2bd00ff9f69",
+    "updated_by": "cs6c7ee2bd00ff9f69",
+    "content_type_uid": "article",
+    "publish_details": [
+      {
+        "environment": "development",
+        "locale": "en-us",
+        "time": "2023-03-13T20:37:36Z"
+      }
+    ],
+    "ACL": {},
+    "_version": 1,
+    "_in_progress": false
+  },
+  "article_entry_uid_make-the-web-greener-luxury-edition": {
+    "date": "2023-03-18T22:30:27Z",
+    "title": "Make the Web Greener, Luxury Edition",
+    "canonical_url": "https://www.valtech.com/insights/make-the-web-greener-luxury-edition/",
+    "description": "If the internet were a country, it would be the world’s sixth biggest polluter.   The...",
+    "url": "make-the-web-greener-luxury-edition",
+    "image": "https://media.dev.to/cdn-cgi/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fi3e00qrk4jojitb5tu06.jpg",
+    "reading_time": "6 min read",
+    "uid": "article_entry_uid_make-the-web-greener-luxury-edition",
+    "locale": "en-us",
+    "tags": [
+      "webdev",
+      "environment"
+    ],
+    "created_at": "2023-03-18T22:30:27Z",
+    "updated_at": "2023-03-18T22:30:27Z",
+    "created_by": "cs6c7ee2bd00ff9f69",
+    "updated_by": "cs6c7ee2bd00ff9f69",
+    "content_type_uid": "article",
+    "publish_details": [
+      {
+        "environment": "development",
+        "locale": "en-us",
+        "time": "2023-03-18T22:30:27Z"
+      }
+    ],
+    "ACL": {},
+    "_version": 1,
+    "_in_progress": false
+  },
+  "article_entry_uid_my-fitness-story": {
+    "date": "2023-03-18T22:39:46Z",
+    "title": "My Fitness Story",
+    "canonical_url": "",
+    "description": "From fat and sick to slim and happy   Aside from a short period in high school I have always...",
+    "url": "my-fitness-story",
+    "image": "https://media.dev.to/cdn-cgi/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F86xayxbotaqwk8get75h.jpg",
+    "reading_time": "3 min read",
+    "uid": "article_entry_uid_my-fitness-story",
+    "locale": "en-us",
+    "tags": [
+      "fitness",
+      "personal"
+    ],
+    "created_at": "2023-03-18T22:39:46Z",
+    "updated_at": "2023-03-18T22:39:46Z",
+    "created_by": "cs6c7ee2bd00ff9f69",
+    "updated_by": "cs6c7ee2bd00ff9f69",
+    "content_type_uid": "article",
+    "publish_details": [
+      {
+        "environment": "development",
+        "locale": "en-us",
+        "time": "2023-03-18T22:39:46Z"
+      }
+    ],
+    "ACL": {},
+    "_version": 1,
+    "_in_progress": false
+  },
+  "article_entry_uid_new-job-alert": {
+    "date": "2023-08-16T13:42:10Z",
+    "title": "New job alert - Hygraph 2023",
+    "canonical_url": "",
+    "description": "After an exciting journey at Uniform, it's time for a new adventure. At Uniform, we thrived during...",
+    "url": "new-job-alert",
+    "image": "https://media.dev.to/cdn-cgi/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fadfg5ciysfamka395zir.png",
+    "reading_time": "2 min read",
+    "uid": "article_entry_uid_new-job-alert",
+    "locale": "en-us",
+    "tags": [
+      "career",
+      "webdev",
+      "devrel"
+    ],
+    "created_at": "2023-08-16T13:42:10Z",
+    "updated_at": "2023-08-16T13:42:10Z",
+    "created_by": "cs6c7ee2bd00ff9f69",
+    "updated_by": "cs6c7ee2bd00ff9f69",
+    "content_type_uid": "article",
+    "publish_details": [
+      {
+        "environment": "development",
+        "locale": "en-us",
+        "time": "2023-08-16T13:42:10Z"
+      }
+    ],
+    "ACL": {},
+    "_version": 1,
+    "_in_progress": false
+  },
+  "article_entry_uid_page-builder-cms-vs-data-modeler-cms": {
+    "date": "2024-03-12T13:05:48Z",
+    "title": "CMS Showdown: do you need a page builder or a data modeler?",
+    "canonical_url": "https://hygraph.com/blog/page-builder-cms-vs-data-modeler-cms",
+    "description": "Explore the differences between page builder and data modeler CMSs, their unique features, and how they cater to varying organizational needs.",
+    "url": "page-builder-cms-vs-data-modeler-cms",
+    "image": "https://media.dev.to/cdn-cgi/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fmedia.graphassets.com%2FNzxmjCxvTRqg3sTb9JFj",
+    "reading_time": "7 min read",
+    "uid": "article_entry_uid_page-builder-cms-vs-data-modeler-cms",
+    "locale": "en-us",
+    "tags": [
+      "architecture",
+      "dxp",
+      "composable"
+    ],
+    "created_at": "2024-03-12T13:05:48Z",
+    "updated_at": "2024-03-12T13:05:48Z",
+    "created_by": "cs6c7ee2bd00ff9f69",
+    "updated_by": "cs6c7ee2bd00ff9f69",
+    "content_type_uid": "article",
+    "publish_details": [
+      {
+        "environment": "development",
+        "locale": "en-us",
+        "time": "2024-03-12T13:05:48Z"
+      }
+    ],
+    "ACL": {},
+    "_version": 1,
+    "_in_progress": false
+  },
+  "article_entry_uid_team-is-key-when-going-headless": {
+    "date": "2024-04-29T13:05:48Z",
+    "title": "Your team is the key to success when going headless",
+    "canonical_url": "https://hygraph.com/blog/page-builder-cms-vs-data-modeler-cms",
+    "description": "People's choices, ability to roll with the punches, and how well they play in the sandbox together bring the magic of headless technology to life.",
+    "url": "team-is-key-when-going-headless",
+    "image": "https://media.dev.to/cdn-cgi/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fmedia.graphassets.com%2FicyDJDb6Shmzx7rhX4bG",
+    "reading_time": "5 min read",
+    "uid": "article_entry_uid_team-is-key-when-going-headless",
+    "locale": "en-us",
+    "tags": [
+      "architecture",
+      "dxp",
+      "composable"
+    ],
+    "created_at": "2024-04-29T13:05:48Z",
+    "updated_at": "2024-04-29T13:05:48Z",
+    "created_by": "cs6c7ee2bd00ff9f69",
+    "updated_by": "cs6c7ee2bd00ff9f69",
+    "content_type_uid": "article",
+    "publish_details": [
+      {
+        "environment": "development",
+        "locale": "en-us",
+        "time": "2024-04-29T13:05:48Z"
+      }
+    ],
+    "ACL": {},
+    "_version": 1,
+    "_in_progress": false
+  },
+  "article_entry_uid_the-2015-paris-maratho": {
+    "date": "2023-03-18T22:45:48Z",
+    "title": "The 2015 Paris marathon",
+    "canonical_url": "",
+    "description": "Exactly one year ago, when we had just moved to Paris, the marathon passed by our apartment in Rue...",
+    "url": "the-2015-paris-maratho",
+    "image": "https://media.dev.to/cdn-cgi/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Furlbqaankzj82uhwrfq7.jpg",
+    "reading_time": "9 min read",
+    "uid": "article_entry_uid_the-2015-paris-maratho",
+    "locale": "en-us",
+    "tags": [
+      "personal",
+      "fitness"
+    ],
+    "created_at": "2023-03-18T22:45:48Z",
+    "updated_at": "2023-03-18T22:45:48Z",
+    "created_by": "cs6c7ee2bd00ff9f69",
+    "updated_by": "cs6c7ee2bd00ff9f69",
+    "content_type_uid": "article",
+    "publish_details": [
+      {
+        "environment": "development",
+        "locale": "en-us",
+        "time": "2023-03-18T22:45:48Z"
+      }
+    ],
+    "ACL": {},
+    "_version": 1,
+    "_in_progress": false
+  },
+  "article_entry_uid_the-content-graph-is-the-future": {
+    "date": "2023-12-05T10:40:00Z",
+    "title": "The content Graph is the future",
+    "canonical_url": "https://hygraph.com/blog/the-content-graph-is-the-future",
+    "description": "Content management is as essential as it is complex, especially at scale. As brands grow, they often...",
+    "url": "the-content-graph-is-the-future",
+    "image": "https://media.dev.to/cdn-cgi/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fn1ilcbgm74yygk14s4g7.png",
+    "reading_time": "6 min read",
+    "uid": "article_entry_uid_the-content-graph-is-the-future",
+    "locale": "en-us",
+    "tags": [],
+    "created_at": "2023-12-05T10:40:00Z",
+    "updated_at": "2023-12-05T10:40:00Z",
+    "created_by": "cs6c7ee2bd00ff9f69",
+    "updated_by": "cs6c7ee2bd00ff9f69",
+    "content_type_uid": "article",
+    "publish_details": [
+      {
+        "environment": "development",
+        "locale": "en-us",
+        "time": "2023-12-05T10:40:00Z"
+      }
+    ],
+    "ACL": {},
+    "_version": 1,
+    "_in_progress": false
+  },
+  "article_entry_uid_the-future-of-headless-cms-content-federation-with-graphql": {
+    "date": "2023-09-28T14:39:16Z",
+    "title": "The future of headless CMS: Content Federation with GraphQL",
+    "canonical_url": "https://hygraph.com/blog/content-federation-with-graphql",
+    "description": "Federation is a popular topic of conversation these days, and for good reason. With the ever-growing...",
+    "url": "the-future-of-headless-cms-content-federation-with-graphql",
+    "image": "https://media.dev.to/cdn-cgi/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F9pk8b2ihfddxqlt3w4tu.jpg",
+    "reading_time": "3 min read",
+    "uid": "article_entry_uid_the-future-of-headless-cms-content-federation-with-graphql",
+    "locale": "en-us",
+    "tags": [
+      "headless",
+      "cms",
+      "graphql",
+      "federation"
+    ],
+    "created_at": "2023-09-28T14:39:16Z",
+    "updated_at": "2023-09-28T14:39:16Z",
+    "created_by": "cs6c7ee2bd00ff9f69",
+    "updated_by": "cs6c7ee2bd00ff9f69",
+    "content_type_uid": "article",
+    "publish_details": [
+      {
+        "environment": "development",
+        "locale": "en-us",
+        "time": "2023-09-28T14:39:16Z"
+      }
+    ],
+    "ACL": {},
+    "_version": 1,
+    "_in_progress": false
+  },
+  "article_entry_uid_the-future-of-jamstack-is-composable": {
+    "date": "2022-02-23T13:04:08Z",
+    "title": "The future of jamstack is composable",
+    "canonical_url": "",
+    "description": "This post is either for developers who want an “at-scale” overview of modern architecture or for...",
+    "url": "the-future-of-jamstack-is-composable",
+    "image": "https://media.dev.to/cdn-cgi/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fso0lvl9w5rea6i7sfp6u.jpeg",
+    "reading_time": "8 min read",
+    "uid": "article_entry_uid_the-future-of-jamstack-is-composable",
+    "locale": "en-us",
+    "tags": [
+      "jamstack",
+      "architecture",
+      "composable",
+      "orchestration"
+    ],
+    "created_at": "2022-02-23T13:04:08Z",
+    "updated_at": "2022-02-23T13:04:08Z",
+    "created_by": "cs6c7ee2bd00ff9f69",
+    "updated_by": "cs6c7ee2bd00ff9f69",
+    "content_type_uid": "article",
+    "publish_details": [
+      {
+        "environment": "development",
+        "locale": "en-us",
+        "time": "2022-02-23T13:04:08Z"
+      }
+    ],
+    "ACL": {},
+    "_version": 1,
+    "_in_progress": false
+  },
+  "article_entry_uid_the-future-of-managing-projects-at-agencie": {
+    "date": "2023-03-18T12:56:10Z",
+    "title": "The future of managing projects at agencies",
+    "canonical_url": "https://uniform.dev/blogs/composable-architecture/the-future-of-managing-projects-at-agencies",
+    "description": "Calling for a revolution in how agencies run tech projects   I spent a lot of time working...",
+    "url": "the-future-of-managing-projects-at-agencie",
+    "image": "https://media.dev.to/cdn-cgi/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fipu6a76iegjp4d19mb0u.png",
+    "reading_time": "8 min read",
+    "uid": "article_entry_uid_the-future-of-managing-projects-at-agencie",
+    "locale": "en-us",
+    "tags": [
+      "composable",
+      "architecture",
+      "agency",
+      "process"
+    ],
+    "created_at": "2023-03-18T12:56:10Z",
+    "updated_at": "2023-03-18T12:56:10Z",
+    "created_by": "cs6c7ee2bd00ff9f69",
+    "updated_by": "cs6c7ee2bd00ff9f69",
+    "content_type_uid": "article",
+    "publish_details": [
+      {
+        "environment": "development",
+        "locale": "en-us",
+        "time": "2023-03-18T12:56:10Z"
+      }
+    ],
+    "ACL": {},
+    "_version": 1,
+    "_in_progress": false
+  },
+  "article_entry_uid_the-lost-promise-of-headless": {
+    "date": "2023-06-26T18:18:19Z",
+    "title": "The lost promise of headless",
+    "canonical_url": "https://uniform.dev/blogs/the-lost-promise-of-headless",
+    "description": "In recent years, headless technology, which boosts performance, developer experience, and...",
+    "url": "the-lost-promise-of-headless",
+    "image": "https://media.dev.to/cdn-cgi/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Flrvfb6a8wh5lt0mbyzat.png",
+    "reading_time": "3 min read",
+    "uid": "article_entry_uid_the-lost-promise-of-headless",
+    "locale": "en-us",
+    "tags": [
+      "headless",
+      "architecture",
+      "mach"
+    ],
+    "created_at": "2023-06-26T18:18:19Z",
+    "updated_at": "2023-06-26T18:18:19Z",
+    "created_by": "cs6c7ee2bd00ff9f69",
+    "updated_by": "cs6c7ee2bd00ff9f69",
+    "content_type_uid": "article",
+    "publish_details": [
+      {
+        "environment": "development",
+        "locale": "en-us",
+        "time": "2023-06-26T18:18:19Z"
+      }
+    ],
+    "ACL": {},
+    "_version": 1,
+    "_in_progress": false
+  },
+  "article_entry_uid_the-mach-monolith": {
+    "date": "2023-03-13T20:20:45Z",
+    "title": "The MACH monolith",
+    "canonical_url": "https://uniform.dev/blogs/composable-architecture/the-mach-monolith",
+    "description": "For years, the headless concept went through the nerd vine at boardrooms, pushing execs to take...",
+    "url": "the-mach-monolith",
+    "image": "https://media.dev.to/cdn-cgi/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fxdj396fv4iyh8zce4rsg.png",
+    "reading_time": "7 min read",
+    "uid": "article_entry_uid_the-mach-monolith",
+    "locale": "en-us",
+    "tags": [
+      "architecture",
+      "composable",
+      "webdev",
+      "javascript"
+    ],
+    "created_at": "2023-03-13T20:20:45Z",
+    "updated_at": "2023-03-13T20:20:45Z",
+    "created_by": "cs6c7ee2bd00ff9f69",
+    "updated_by": "cs6c7ee2bd00ff9f69",
+    "content_type_uid": "article",
+    "publish_details": [
+      {
+        "environment": "development",
+        "locale": "en-us",
+        "time": "2023-03-13T20:20:45Z"
+      }
+    ],
+    "ACL": {},
+    "_version": 1,
+    "_in_progress": false
+  },
+  "article_entry_uid_the-move-from-monolithic-to-composable-architectures": {
+    "date": "2023-03-13T20:42:55Z",
+    "title": "The move from monolithic to composable architectures",
+    "canonical_url": "https://uniform.dev/blogs/composable-architecture/composable-architectures-are-the-future-of-the-digital-sphere",
+    "description": "Success in business can be attributed to many factors, notably team talent and efficacy of products...",
+    "url": "the-move-from-monolithic-to-composable-architectures",
+    "image": "https://media.dev.to/cdn-cgi/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F56u97go8avwyexrr01nx.png",
+    "reading_time": "5 min read",
+    "uid": "article_entry_uid_the-move-from-monolithic-to-composable-architectures",
+    "locale": "en-us",
+    "tags": [
+      "mach",
+      "webdev",
+      "composable",
+      "monolith"
+    ],
+    "created_at": "2023-03-13T20:42:55Z",
+    "updated_at": "2023-03-13T20:42:55Z",
+    "created_by": "cs6c7ee2bd00ff9f69",
+    "updated_by": "cs6c7ee2bd00ff9f69",
+    "content_type_uid": "article",
+    "publish_details": [
+      {
+        "environment": "development",
+        "locale": "en-us",
+        "time": "2023-03-13T20:42:55Z"
+      }
+    ],
+    "ACL": {},
+    "_version": 1,
+    "_in_progress": false
+  },
+  "article_entry_uid_the-real-deal-about-content-management-buzzword": {
+    "date": "2023-09-28T14:43:37Z",
+    "title": "The real deal about content management buzzwords",
+    "canonical_url": "https://hygraph.com/blog/the-real-deal-about-content-management-buzzwords",
+    "description": "Buzzwords are labels that describe tech approaches that become so commonplace over time that the...",
+    "url": "the-real-deal-about-content-management-buzzword",
+    "image": "https://media.dev.to/cdn-cgi/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fpr5frm3ra3q3liidcpev.jpg",
+    "reading_time": "6 min read",
+    "uid": "article_entry_uid_the-real-deal-about-content-management-buzzword",
+    "locale": "en-us",
+    "tags": [
+      "buzzwords",
+      "dxp",
+      "composable",
+      "cms"
+    ],
+    "created_at": "2023-09-28T14:43:37Z",
+    "updated_at": "2023-09-28T14:43:37Z",
+    "created_by": "cs6c7ee2bd00ff9f69",
+    "updated_by": "cs6c7ee2bd00ff9f69",
+    "content_type_uid": "article",
+    "publish_details": [
+      {
+        "environment": "development",
+        "locale": "en-us",
+        "time": "2023-09-28T14:43:37Z"
+      }
+    ],
+    "ACL": {},
+    "_version": 1,
+    "_in_progress": false
+  },
+  "article_entry_uid_this-is-headless-20": {
+    "date": "2023-07-11T07:48:19Z",
+    "title": "This is headless 2.0",
+    "canonical_url": "",
+    "description": "That’s a bold title, but it’s high time to change how we work with headless technology. I wrote about...",
+    "url": "this-is-headless-20",
+    "image": "https://media.dev.to/cdn-cgi/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fr4ykeb6acv0q288ygpaj.png",
+    "reading_time": "5 min read",
+    "uid": "article_entry_uid_this-is-headless-20",
+    "locale": "en-us",
+    "tags": [
+      "webdev",
+      "mach",
+      "headless",
+      "architecture"
+    ],
+    "created_at": "2023-07-11T07:48:19Z",
+    "updated_at": "2023-07-11T07:48:19Z",
+    "created_by": "cs6c7ee2bd00ff9f69",
+    "updated_by": "cs6c7ee2bd00ff9f69",
+    "content_type_uid": "article",
+    "publish_details": [
+      {
+        "environment": "development",
+        "locale": "en-us",
+        "time": "2023-07-11T07:48:19Z"
+      }
+    ],
+    "ACL": {},
+    "_version": 1,
+    "_in_progress": false
+  },
+  "article_entry_uid_uniform-dxcp-the-what-why-and-how": {
+    "date": "2023-03-18T13:03:16Z",
+    "title": "Uniform DXCP: the what, why, and how",
+    "canonical_url": "https://uniform.dev/blogs/uniform-dxcp-the-what-why-and-how",
+    "description": "Nowadays, you’re hard pressed to find an application with all the functionalities you need for...",
+    "url": "uniform-dxcp-the-what-why-and-how",
+    "image": "https://media.dev.to/cdn-cgi/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F0iccm5uux0ndu9ulnc2g.png",
+    "reading_time": "3 min read",
+    "uid": "article_entry_uid_uniform-dxcp-the-what-why-and-how",
+    "locale": "en-us",
+    "tags": [
+      "cdn",
+      "edge",
+      "sitecore",
+      "headless"
+    ],
+    "created_at": "2023-03-18T13:03:16Z",
+    "updated_at": "2023-03-18T13:03:16Z",
+    "created_by": "cs6c7ee2bd00ff9f69",
+    "updated_by": "cs6c7ee2bd00ff9f69",
+    "content_type_uid": "article",
+    "publish_details": [
+      {
+        "environment": "development",
+        "locale": "en-us",
+        "time": "2023-03-18T13:03:16Z"
+      }
+    ],
+    "ACL": {},
+    "_version": 1,
+    "_in_progress": false
+  },
+  "article_entry_uid_uniform-is-nuxt-3-read": {
+    "date": "2023-03-18T13:10:06Z",
+    "title": "Uniform is Nuxt 3 ready",
+    "canonical_url": "https://uniform.dev/blogs/uniforms-latest-sdk-fully-supports-vue-3-and-nuxt-3",
+    "description": "We are excited to announce that the latest iteration of the Uniform SDK is fully compatible with Vue...",
+    "url": "uniform-is-nuxt-3-read",
+    "image": "https://media.dev.to/cdn-cgi/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F96gzr0p69e9frwbj3i8w.png",
+    "reading_time": "2 min read",
+    "uid": "article_entry_uid_uniform-is-nuxt-3-read",
+    "locale": "en-us",
+    "tags": [
+      "webdev",
+      "javascript",
+      "nuxt",
+      "vue"
+    ],
+    "created_at": "2023-03-18T13:10:06Z",
+    "updated_at": "2023-03-18T13:10:06Z",
+    "created_by": "cs6c7ee2bd00ff9f69",
+    "updated_by": "cs6c7ee2bd00ff9f69",
+    "content_type_uid": "article",
+    "publish_details": [
+      {
+        "environment": "development",
+        "locale": "en-us",
+        "time": "2023-03-18T13:10:06Z"
+      }
+    ],
+    "ACL": {},
+    "_version": 1,
+    "_in_progress": false
+  },
+  "article_entry_uid_what-type-of-content-organization-do-you-need": {
+    "date": "2023-11-12T09:03:33Z",
+    "title": "What type of content organization do you need?",
+    "canonical_url": "https://hygraph.com/blog/what-type-of-content-organization-do-you-need",
+    "description": "Different ways of working require different approaches to content design. In this post, I will...",
+    "url": "what-type-of-content-organization-do-you-need",
+    "image": "https://media.dev.to/cdn-cgi/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fd58lvz3nrm8lre4gdtuw.png",
+    "reading_time": "7 min read",
+    "uid": "article_entry_uid_what-type-of-content-organization-do-you-need",
+    "locale": "en-us",
+    "tags": [],
+    "created_at": "2023-11-12T09:03:33Z",
+    "updated_at": "2023-11-12T09:03:33Z",
+    "created_by": "cs6c7ee2bd00ff9f69",
+    "updated_by": "cs6c7ee2bd00ff9f69",
+    "content_type_uid": "article",
+    "publish_details": [
+      {
+        "environment": "development",
+        "locale": "en-us",
+        "time": "2023-11-12T09:03:33Z"
+      }
+    ],
+    "ACL": {},
+    "_version": 1,
+    "_in_progress": false
+  },
+  "article_entry_uid_why-i-didnt-run-the-2016-marathon": {
+    "date": "2023-03-18T22:52:37Z",
+    "title": "Why I didn't run the 2016 marathon",
+    "canonical_url": "",
+    "description": "After four and a half months of full on training I’ve decided not to run the Amsterdam marathon on...",
+    "url": "why-i-didnt-run-the-2016-marathon",
+    "image": "https://media.dev.to/cdn-cgi/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fafpsw3jbsie5bf7w8wp9.jpg",
+    "reading_time": "6 min read",
+    "uid": "article_entry_uid_why-i-didnt-run-the-2016-marathon",
+    "locale": "en-us",
+    "tags": [
+      "personal",
+      "fitness",
+      "running"
+    ],
+    "created_at": "2023-03-18T22:52:37Z",
+    "updated_at": "2023-03-18T22:52:37Z",
+    "created_by": "cs6c7ee2bd00ff9f69",
+    "updated_by": "cs6c7ee2bd00ff9f69",
+    "content_type_uid": "article",
+    "publish_details": [
+      {
+        "environment": "development",
+        "locale": "en-us",
+        "time": "2023-03-18T22:52:37Z"
+      }
+    ],
+    "ACL": {},
+    "_version": 1,
+    "_in_progress": false
+  }
+}
