@@ -7,6 +7,10 @@ export default defineNuxtConfig({
     compatibilityVersion: 4,
   },
 
+  build: {
+    transpile: ['tslib', '@contentstack/delivery-sdk'],
+  },
+
   extends: [
     'github:timbenniks/timbenniks-components'
   ],
