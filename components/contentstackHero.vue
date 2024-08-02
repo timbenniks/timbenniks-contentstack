@@ -50,10 +50,17 @@ defineProps({
     </template>
 
     <template #ctas>
-      <cta
+      <!-- <cta
         v-for="{ cta } in ctas"
         :key="cta.url.href"
         :url="cta.url.href"
+        :text="cta.url.title"
+        :target="cta.target"
+      /> -->
+      <cta
+        v-for="{ cta } in ctas"
+        :key="cta.url.href"
+        url="#"
         :text="cta.url.title"
         :target="cta.target"
       />
