@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { Article } from "~/contentstack/generated";
+
 const props = defineProps(["title", "query", "design"]);
 
 const articles = await useGetListItems({
@@ -9,7 +11,7 @@ const articles = await useGetListItems({
 
 <template>
   <ArticlesList
-    :articles="articles"
+    :articles="(articles as Article[])"
     :small="design.small"
     :firstFeatured="design.first_featured"
     :title="title"

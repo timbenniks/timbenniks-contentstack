@@ -5,6 +5,7 @@ import richtext from "./contentstackRichtext.vue";
 import videos from "./contentstackVideos.vue";
 import talks from "./contentstackTalks.vue"
 import articles from "./contentstackArticles.vue"
+import two_columns from "./contentstackTwoColumn.vue"
 
 type Mapping = {
   [name: string]: Component
@@ -15,7 +16,8 @@ export const mapping: Mapping = {
   richtext,
   videos,
   talks,
-  articles
+  articles,
+  two_columns
 };
 
 export function getComponentForName(name: string) {

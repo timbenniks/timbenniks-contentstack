@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { Video } from "~/contentstack/generated";
+
 const props = defineProps([
   "title",
   "description",
@@ -16,7 +18,7 @@ const videos = await useGetListItems({
 
 <template>
   <videosList
-    :videos="videos"
+    :videos="(videos as Video[])"
     :title="title"
     :description="description"
     :extrasUrl="extra_s_url"

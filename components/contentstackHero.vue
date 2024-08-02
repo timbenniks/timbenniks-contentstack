@@ -21,7 +21,7 @@ defineProps({
     type: Object,
   },
   ctas: {
-    type: [],
+    type: Array,
   },
 });
 </script>
@@ -37,9 +37,13 @@ defineProps({
     <template #image>
       <NuxtImg
         v-if="image && image[0]"
-        :src="
-          image[0]?.secure_url.replace(`v${image?.version}`, 'f_auto,q_auto')
-        "
+        fetchpriority="high"
+        fit="thumbnail"
+        :alt="title"
+        loading="eager"
+        provider="cloudinaryNative"
+        sizes="sm:100vw"
+        :src="image[0].public_id"
         :width="image[0]?.width"
         :height="image[0]?.height"
       />

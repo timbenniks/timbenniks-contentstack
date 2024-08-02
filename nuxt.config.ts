@@ -1,4 +1,3 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
@@ -16,6 +15,25 @@ export default defineNuxtConfig({
   ],
 
   modules: ["@nuxt/image", "@nuxtjs/tailwindcss", "@nuxt/fonts"],
+
+  image: {
+    providers: {
+      cloudinaryFetch: {
+        name: 'cloudinaryFetch',
+        provider: 'cloudinary',
+        options: {
+          baseURL: "https://res.cloudinary.com/dwfcofnrd/image/fetch/"
+        }
+      },
+      cloudinaryNative: {
+        name: 'cloudinaryNative',
+        provider: 'cloudinary',
+        options: {
+          baseURL: "https://res.cloudinary.com/dwfcofnrd/image/upload/"
+        }
+      }
+    }
+  },
 
   runtimeConfig: {
     public: {

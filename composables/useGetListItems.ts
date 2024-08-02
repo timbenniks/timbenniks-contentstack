@@ -1,15 +1,15 @@
 import { QueryOperation } from "@contentstack/delivery-sdk";
 
 type GetListItemProps = {
-  contentTypeUid?: string;
-  limit: number;
+  contentTypeUid: "video" | "talk" | "article";
+  limit?: number;
   tag?: string;
 };
 
 export const useGetListItems = async ({ contentTypeUid, limit, tag }: GetListItemProps) => {
   const { $stack } = useNuxtApp();
 
-  const query = $stack.contentType(contentTypeUid || 'video')
+  const query = $stack.contentType(contentTypeUid)
     .entry()
     .query()
 

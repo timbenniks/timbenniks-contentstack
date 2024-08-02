@@ -17,9 +17,6 @@ const components = props.page?.components.map((obj: any) => {
 
 <template>
   <section class="mb-12" v-if="page && page?.components">
-    <!-- <pre v-for="component in components">
-      {{ component?.name }}
-    </pre> -->
     <component
       v-for="component in components"
       :is="getComponentForName(component?.name)"
