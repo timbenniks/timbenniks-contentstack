@@ -36,6 +36,25 @@ export interface Taxonomy {
   non_localizable: boolean;
 }
 
+export interface Image {
+  /** Version */
+  _version?: 6;
+  /** Image */
+  image?: any;
+  /** alt */
+  alt?: string;
+  /** Fit */
+  fit?: string;
+  /** Height */
+  height?: number | null;
+  /** Width */
+  width?: number | null;
+  /** Size */
+  size?: string;
+  /** Caption */
+  caption?: string;
+}
+
 export interface TwoColumns {
   /** Version */
   _version?: 1;
@@ -141,40 +160,144 @@ export interface Richtext {
   body: string;
 }
 
-export interface TwoColumnComponent {
+/** Lets you create an impressive header for your website with your company logo, main navigation menu, and a notification bar or section. */
+export interface Header {
   /** Version */
-  _version?: 2;
+  _version?: 8;
   /** Title */
   title: string;
-  /** Side b */
-  side_b?: (
+  /** Search Icon */
+  search_icon?: boolean;
+  /** Navigation Menu */
+  navigation_menu?: [
+    {
+      /** copy */
+      copy?: string;
+      /** Link to Page */
+      link_to_page?: Page[];
+      /** Open in new Tab */
+      open_in_new_tab?: boolean;
+    },
+    {
+      /** copy */
+      copy?: string;
+      /** Link to Page */
+      link_to_page?: Page[];
+      /** Open in new Tab */
+      open_in_new_tab?: boolean;
+    },
+    {
+      /** copy */
+      copy?: string;
+      /** Link to Page */
+      link_to_page?: Page[];
+      /** Open in new Tab */
+      open_in_new_tab?: boolean;
+    },
+    {
+      /** copy */
+      copy?: string;
+      /** Link to Page */
+      link_to_page?: Page[];
+      /** Open in new Tab */
+      open_in_new_tab?: boolean;
+    },
+    {
+      /** copy */
+      copy?: string;
+      /** Link to Page */
+      link_to_page?: Page[];
+      /** Open in new Tab */
+      open_in_new_tab?: boolean;
+    },
+    {
+      /** copy */
+      copy?: string;
+      /** Link to Page */
+      link_to_page?: Page[];
+      /** Open in new Tab */
+      open_in_new_tab?: boolean;
+    },
+    {
+      /** copy */
+      copy?: string;
+      /** Link to Page */
+      link_to_page?: Page[];
+      /** Open in new Tab */
+      open_in_new_tab?: boolean;
+    },
+    {
+      /** copy */
+      copy?: string;
+      /** Link to Page */
+      link_to_page?: Page[];
+      /** Open in new Tab */
+      open_in_new_tab?: boolean;
+    },
+    {
+      /** copy */
+      copy?: string;
+      /** Link to Page */
+      link_to_page?: Page[];
+      /** Open in new Tab */
+      open_in_new_tab?: boolean;
+    },
+    {
+      /** copy */
+      copy?: string;
+      /** Link to Page */
+      link_to_page?: Page[];
+      /** Open in new Tab */
+      open_in_new_tab?: boolean;
+    }
+  ];
+}
+
+export interface TwoColumnComponent {
+  /** Version */
+  _version?: 4;
+  /** Title */
+  title: string;
+  /** Side a */
+  side_a?: (
     | {
         richtext: Richtext;
         articles: undefined;
         talks: undefined;
         videos: undefined;
+        image: undefined;
       }
     | {
         articles: Articles;
         richtext: undefined;
         talks: undefined;
         videos: undefined;
+        image: undefined;
       }
     | {
         talks: Talks;
         richtext: undefined;
         articles: undefined;
         videos: undefined;
+        image: undefined;
       }
     | {
         videos: Videos;
         richtext: undefined;
         articles: undefined;
         talks: undefined;
+        image: undefined;
+      }
+    | {
+        image: Image;
+        richtext: undefined;
+        articles: undefined;
+        talks: undefined;
+        videos: undefined;
       }
   )[];
-  /** Side a */
-  side_a?: (
+  /** Side b */
+  side_b?: (
     | {
         richtext: Richtext;
         articles: undefined;
@@ -242,7 +365,7 @@ export interface Talk {
 
 export interface Video {
   /** Version */
-  _version?: 10;
+  _version?: 11;
   /** Title */
   title: string;
   /** Date */
@@ -257,7 +380,7 @@ export interface Video {
 
 export interface Page {
   /** Version */
-  _version?: 16;
+  _version?: 17;
   /** Title */
   title: string;
   /** URL */
@@ -280,6 +403,7 @@ export interface Page {
         talks: undefined;
         articles: undefined;
         two_columns: undefined;
+        image: undefined;
       }
     | {
         richtext: Richtext;
@@ -288,6 +412,7 @@ export interface Page {
         talks: undefined;
         articles: undefined;
         two_columns: undefined;
+        image: undefined;
       }
     | {
         videos: Videos;
@@ -296,6 +421,7 @@ export interface Page {
         talks: undefined;
         articles: undefined;
         two_columns: undefined;
+        image: undefined;
       }
     | {
         talks: Talks;
@@ -304,6 +430,7 @@ export interface Page {
         videos: undefined;
         articles: undefined;
         two_columns: undefined;
+        image: undefined;
       }
     | {
         articles: Articles;
@@ -312,6 +439,7 @@ export interface Page {
         videos: undefined;
         talks: undefined;
         two_columns: undefined;
+        image: undefined;
       }
     | {
         two_columns: TwoColumns;
@@ -320,6 +448,16 @@ export interface Page {
         videos: undefined;
         talks: undefined;
         articles: undefined;
+        image: undefined;
+      }
+    | {
+        image: Image;
+        hero: undefined;
+        richtext: undefined;
+        videos: undefined;
+        talks: undefined;
+        articles: undefined;
+        two_columns: undefined;
       }
   )[];
 }

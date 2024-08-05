@@ -1,20 +1,7 @@
-<script setup>
-const navigation = [
-  {
-    url: "https://timbenniks.dev",
-    copy: "ABOUT",
-  },
-  {
-    url: "https://timbenniks.dev",
-    copy: "VIDEOS",
-  },
-  {
-    url: "https://timbenniks.dev",
-    copy: "WRITING",
-  },
-];
+<script setup lang="ts">
+const navigation = await useGetNavigation();
 </script>
 
 <template>
-  <globalHeader :navigation="navigation" />
+  <globalHeader :navigation="navigation" searchurl="/search" />
 </template>

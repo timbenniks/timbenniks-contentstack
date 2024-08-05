@@ -6,6 +6,8 @@ import videos from "./contentstackVideos.vue";
 import talks from "./contentstackTalks.vue"
 import articles from "./contentstackArticles.vue"
 import two_columns from "./contentstackTwoColumn.vue"
+import image from "./contentstackMedia.vue"
+import title_block from "./contentstackTitleBlock.vue"
 
 type Mapping = {
   [name: string]: Component
@@ -17,7 +19,9 @@ export const mapping: Mapping = {
   videos,
   talks,
   articles,
-  two_columns
+  two_columns,
+  image,
+  title_block
 };
 
 export function getComponentForName(name: string) {
