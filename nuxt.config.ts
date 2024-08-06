@@ -16,6 +16,11 @@ export default defineNuxtConfig({
 
   modules: ["@nuxt/image", "@nuxtjs/tailwindcss", "@nuxt/fonts"],
 
+  features: {
+    noScripts: true,
+    inlineStyles: true
+  },
+
   image: {
     providers: {
       cloudinaryFetch: {
