@@ -1,0 +1,28 @@
+{
+  "name": "timbenniks-components",
+  "type": "module",
+  "version": "0.0.1",
+  "main": "./nuxt.config.ts",
+  "scripts": {
+    "dev": "nuxi dev .playground",
+    "dev:prepare": "nuxt prepare .playground",
+    "build": "nuxt build .playground",
+    "generate": "nuxt generate .playground",
+    "preview": "nuxt preview .playground",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@nuxt/eslint": "latest",
+    "@nuxt/fonts": "^0.7.1",
+    "@nuxt/image": "^1.7.0",
+    "@nuxtjs/tailwindcss": "^6.12.1",
+    "@tailwindcss/typography": "^0.5.13",
+    "eslint": "^9.7.0",
+    "nuxt": "^3.12.4",
+    "typescript": "^5.5.3",
+    "vue": "latest",
+    "date-fns": "^3.6.0"
+  },
+  "packageManager": "pnpm@9.6.0",
+  "dependencies": {}
+}
