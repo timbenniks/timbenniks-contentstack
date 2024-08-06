@@ -14,11 +14,18 @@ const videos = await useGetListItems({
   limit: Number(props.query.limit),
   tag: props.query.tag,
 });
+
+const mappedVideos = videos?.map((video: any) => {
+  return {
+    ...video,
+    videoId: video.videoid,
+  };
+});
 </script>
 
 <template>
   <videosList
-    :videos="(videos as Video[])"
+    :videos="(mappedVideos as Video[])"
     :title="title"
     :description="description"
     :extrasUrl="extra_s_url"

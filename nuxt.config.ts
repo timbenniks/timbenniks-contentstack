@@ -14,7 +14,7 @@ export default defineNuxtConfig({
     'layers/timbenniks-components'
   ],
 
-  modules: ["@nuxt/image", "@nuxtjs/tailwindcss", "@nuxt/fonts"],
+  modules: ["@nuxt/image", "@nuxtjs/tailwindcss", "@nuxt/fonts", "nuxt-jsonld",],
 
   features: {
     noScripts: true,
