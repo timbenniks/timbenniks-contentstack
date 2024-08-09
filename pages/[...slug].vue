@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { LivePreviewQuery } from "@contentstack/delivery-sdk";
-
 const route = useRoute();
 const path = route.path;
 
@@ -16,8 +14,6 @@ $stack.livePreviewQuery({
   entryUid: "blt41315565c6fbd337",
   live_preview: "init",
 });
-
-console.log($stack);
 
 useSeoMeta({
   googleSiteVerification: "hif_cn9hF2RVSnTq5HwjSkKrXqJT9Q6BR_FaBBmr-20",
