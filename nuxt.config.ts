@@ -19,7 +19,7 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "@nuxt/fonts",
     "nuxt-jsonld",
-    "nuxt-security"
+    //"nuxt-security"
   ],
 
   devServer: {
@@ -40,37 +40,15 @@ export default defineNuxtConfig({
     },
   },
 
-  security: {
-    headers: {
-      contentSecurityPolicy: {
-        'img-src': ["'self'", "data:", "http://res.cloudinary.com"],
-        // 'connect-src': [
-        //   "'self'",
-        //   '*.csnonprod.com',
-        //   '*.contentstack.com',
-        //   '*.salesforce-sites.com',
-        //   'https://cdn-personalization.contentstack.com',
-        //   'https://cdn.contentstack.io',
-        //   'https://api.appcues.net',
-        //   'wss://api.appcues.net',
-        //   'https://liveagentcontentstack.secure.force.com',
-        //   'https://api-iam.intercom.io',
-        //   'wss://nexus-websocket-a.intercom.io',
-        //   'wss://ws-mt1.pusher.com',
-        //   'https://widget.usersnap.com',
-        //   'https://api.commandbar.com',
-        //   'https://t.commandbar.com',
-        //   'https://s3.us-west-2.amazonaws.com',
-        //   'https://*.browser-intake-datadoghq.eu',
-        //   'https://timbenniks-contentstack.vercel.app'
-        // ],
-        'connect-src': [
-          "'self'",
-          '*',
-        ]
-      },
-    },
-  },
+  // security: {
+  //   headers: {
+  //     contentSecurityPolicy: {
+  //       'img-src': ["'self'", "data:", "https://res.cloudinary.com"],
+  //       'frame-ancestors': ["'self'", "https://eu-app.contentstack.com/"],
+  //     },
+  //   },
+  // },
+
   features: {
     noScripts: false,
     inlineStyles: true

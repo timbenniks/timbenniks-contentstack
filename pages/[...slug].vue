@@ -9,11 +9,11 @@ const page = await useGetPage({
 
 const { $stack } = useNuxtApp();
 
-$stack.livePreviewQuery({
-  contentTypeUid: "page",
-  entryUid: "blt41315565c6fbd337",
-  live_preview: "init",
-});
+// $stack.livePreviewQuery({
+//   contentTypeUid: "page",
+//   entryUid: "blt41315565c6fbd337",
+//   live_preview: "init",
+// });
 
 useSeoMeta({
   googleSiteVerification: "hif_cn9hF2RVSnTq5HwjSkKrXqJT9Q6BR_FaBBmr-20",
@@ -21,6 +21,18 @@ useSeoMeta({
   description: page?.seo?.description,
   title: page?.title,
   ogImage: page?.seo?.image.secure_url,
+});
+
+onMounted(() => {
+  // ContentstackLivePreview.onEntryChange(() => {
+  //     console.log("onEntryChange")
+  //     //refreshNuxtData();
+  //   })
+
+  //   ContentstackLivePreview.onLiveEdit(() => {
+  //     console.log("onLiveEdit")
+  //   })
+  console.log("######");
 });
 </script>
 <template>
