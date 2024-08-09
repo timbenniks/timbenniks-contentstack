@@ -43,6 +43,7 @@ export default defineNuxtConfig({
   security: {
     headers: {
       contentSecurityPolicy: {
+        'img-src': ["'self'", "data:", "http://res.cloudinary.com"],
         'connect-src': [
           "'self'",
           '*.csnonprod.com',
