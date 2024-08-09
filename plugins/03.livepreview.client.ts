@@ -6,7 +6,7 @@ export default defineNuxtPlugin((nuxtApp) => {
 
   if ($preview) {
     ContentstackLivePreview.init({
-      ssr: false,
+      ssr: true,
       editButton: {
         enable: true,
         position: 'bottom-left',
