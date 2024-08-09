@@ -12,16 +12,17 @@
     "types": "csdx tsgen -a 'delivery' -o 'contentstack/generated.d.ts'"
   },
   "dependencies": {
-    "@contentstack/delivery-sdk": "^4.0.6",
+    "@contentstack/delivery-sdk": "^4.1.0",
     "@contentstack/live-preview-utils": "^2.0.3",
     "@nuxt/fonts": "^0.7.1",
     "@nuxt/image": "^1.7.0",
     "@nuxtjs/tailwindcss": "^6.12.1",
-    "@tailwindcss/typography": "^0.5.13",
+    "@tailwindcss/typography": "^0.5.14",
     "date-fns": "^3.6.0",
     "dotenv": "^16.4.5",
     "nuxt": "^3.12.4",
     "nuxt-jsonld": "^2.0.8",
+    "nuxt-security": "^2.0.0-rc.9",
     "vue": "latest"
   }
 }

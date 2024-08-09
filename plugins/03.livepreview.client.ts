@@ -6,9 +6,16 @@ export default defineNuxtPlugin((nuxtApp) => {
 
   if ($preview) {
     ContentstackLivePreview.init({
+      ssr: true,
       stackDetails: {
         apiKey: ($stack as Stack).config.apiKey,
       },
     });
+
+    ContentstackLivePreview.onEntryChange(() => {
+      console.log("on entry change")
+      //refreshNuxtData();
+    })
   }
 })
+
