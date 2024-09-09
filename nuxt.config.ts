@@ -52,11 +52,6 @@ export default defineNuxtConfig({
     },
   },
 
-  features: {
-    noScripts: false,
-    inlineStyles: true
-  },
-
   image: {
     providers: {
       cloudinaryFetch: {
