@@ -115,3 +115,9 @@ useJsonld({
     <globalFooter />
   </main>
 </template>
+
+<style>
+.title {
+  font-family: "Lato";
+}
+</style>
