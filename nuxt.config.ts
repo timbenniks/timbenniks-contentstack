@@ -46,6 +46,7 @@ export default defineNuxtConfig({
   security: {
     headers: {
       contentSecurityPolicy: {
+        'font-src': ["'self'", "data:"],
         'img-src': ["'self'", "data:", "https://res.cloudinary.com"],
         'frame-ancestors': ["'self'", "https://eu-app.contentstack.com/"],
       },
