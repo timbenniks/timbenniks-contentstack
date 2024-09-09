@@ -6,9 +6,9 @@ export default defineNuxtConfig({
     compatibilityVersion: 4,
   },
 
-  build: {
-    transpile: ['tslib', '@contentstack/delivery-sdk'],
-  },
+  // build: {
+  //   transpile: ['tslib', '@contentstack/delivery-sdk'],
+  // },
 
   extends: [
     'github:timbenniks/timbenniks-components'
@@ -19,7 +19,7 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "@nuxt/fonts",
     "nuxt-jsonld",
-    //"nuxt-security"
+    "nuxt-security"
   ],
 
   devServer: {
@@ -40,14 +40,14 @@ export default defineNuxtConfig({
     },
   },
 
-  // security: {
-  //   headers: {
-  //     contentSecurityPolicy: {
-  //       'img-src': ["'self'", "data:", "https://res.cloudinary.com"],
-  //       'frame-ancestors': ["'self'", "https://eu-app.contentstack.com/"],
-  //     },
-  //   },
-  // },
+  security: {
+    headers: {
+      contentSecurityPolicy: {
+        'img-src': ["'self'", "data:", "https://res.cloudinary.com"],
+        'frame-ancestors': ["'self'", "https://eu-app.contentstack.com/"],
+      },
+    },
+  },
 
   features: {
     noScripts: false,

@@ -28,11 +28,9 @@ onMounted(() => {
   //     console.log("onEntryChange")
   //     //refreshNuxtData();
   //   })
-
   //   ContentstackLivePreview.onLiveEdit(() => {
   //     console.log("onLiveEdit")
   //   })
-  console.log("######");
 });
 </script>
 <template>

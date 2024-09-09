@@ -23,6 +23,8 @@ export default defineNuxtPlugin((nuxtApp) => {
       },
     });
 
+    console.log("⚡️ ContentstackLivePreview initialized")
+
     ContentstackLivePreview.onEntryChange(() => {
       console.log("onEntryChange")
       //refreshNuxtData();
