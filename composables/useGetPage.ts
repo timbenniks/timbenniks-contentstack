@@ -8,7 +8,8 @@ type GetPageProps = {
 };
 
 export const useGetPage = async ({ url, contentTypeUid, cacheBust }: GetPageProps) => {
-  const { data, status, error, refresh, clear } = await useAsyncData(`page-${url}-${cacheBust}`, async () => {
+  const cacheBuster = `page-${cacheBust}`;
+  const { data, status, refresh } = await useAsyncData(cacheBuster, async () => {
     const { $stack } = useNuxtApp();
     const result = await $stack.contentType(contentTypeUid || 'page')
       .entry()
@@ -22,5 +23,5 @@ export const useGetPage = async ({ url, contentTypeUid, cacheBust }: GetPageProp
     }
   });
 
-  return { data, status, error, refresh, clear }
+  return { data, status, refresh, cacheBuster }
 }

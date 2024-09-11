@@ -9,6 +9,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       ssr: false,
       // @ts-ignore
       stackSdk: $stack as Stack,
+      enable: true
     });
 
     console.log("⚡️ ContentstackLivePreview event: initialized")

@@ -3,7 +3,7 @@ import contentstack, { Region } from "@contentstack/delivery-sdk"
 export default defineNuxtPlugin({
   name: "contentstack",
   async setup(nuxtApp) {
-    const { $preview } = nuxtApp
+    // const { $preview } = nuxtApp
 
     const {
       apiKey,
@@ -20,7 +20,7 @@ export default defineNuxtPlugin({
       region: Region.EU,
       locale: "en-us",
       live_preview: {
-        enable: $preview ? true : false,
+        enable: true,
         preview_token: previewToken,
         host: "eu-rest-preview.contentstack.com",
       }
@@ -33,5 +33,3 @@ export default defineNuxtPlugin({
     };
   },
 });
-
-

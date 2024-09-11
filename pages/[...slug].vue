@@ -2,16 +2,12 @@
 const route = useRoute();
 const path = route.path;
 
-const i = ref(0);
+const cacheBust = ref(Date.now());
 
-const {
-  data: page,
-  status,
-  refresh,
-} = await useGetPage({
+const { data: page, refresh } = await useGetPage({
   contentTypeUid: "page",
   url: path,
-  cacheBust: i.value,
+  cacheBust: cacheBust.value,
 });
 
 useSeoMeta({
@@ -26,14 +22,15 @@ onMounted(() => {
   const { $ContentstackLivePreview } = useNuxtApp();
 
   $ContentstackLivePreview.onEntryChange(() => {
-    console.log("⚡️ ContentstackLivePreview event: onEntryChange");
-    // @ts-ignore
-    console.log(page.value);
+    console.log("⚡️ onEntryChange");
+    cacheBust.value = Date.now();
     refresh();
-    i.value = i.value++;
+
+    console.log(page.value);
   });
 });
 </script>
 <template>
-  <ComponentList v-if="page" :page="page" :key="i" />
+  <pre class="text-xs p-2">cache buster: {{ cacheBust }}</pre>
+  <ComponentList v-if="page" :page="page" :key="cacheBust" />
 </template>
