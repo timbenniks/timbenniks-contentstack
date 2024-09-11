@@ -2,12 +2,9 @@
 const route = useRoute();
 const path = route.path;
 
-const cacheBust = ref(Date.now());
-
 const { data: page, refresh } = await useGetPage({
   contentTypeUid: "page",
   url: path,
-  cacheBust: cacheBust.value,
 });
 
 useSeoMeta({
@@ -23,7 +20,6 @@ onMounted(() => {
 
   $ContentstackLivePreview.onEntryChange(() => {
     console.log("⚡️ onEntryChange");
-    cacheBust.value = Date.now();
     refresh();
 
     console.log(page.value);
@@ -31,6 +27,5 @@ onMounted(() => {
 });
 </script>
 <template>
-  <pre class="text-xs p-2">cache buster: {{ cacheBust }}</pre>
-  <ComponentList v-if="page" :page="page" :key="cacheBust" />
+  <ComponentList v-if="page" :page="page" />
 </template>
