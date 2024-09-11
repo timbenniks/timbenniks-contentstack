@@ -13,10 +13,6 @@ export default defineNuxtConfig({
     transpile: transpiles,
   },
 
-  extends: [
-    'github:timbenniks/timbenniks-components'
-  ],
-
   modules: [
     "@nuxt/image",
     "@nuxtjs/tailwindcss",
