@@ -7,6 +7,8 @@ const { data: page, refresh } = await useGetPage({
   url: path,
 });
 
+const cacheBust = ref(Date.now());
+
 useSeoMeta({
   googleSiteVerification: "hif_cn9hF2RVSnTq5HwjSkKrXqJT9Q6BR_FaBBmr-20",
   titleTemplate: "%s - Tim Benniks",
@@ -19,13 +21,13 @@ onMounted(() => {
   const { $ContentstackLivePreview } = useNuxtApp();
 
   $ContentstackLivePreview.onEntryChange(() => {
-    console.log("⚡️ onEntryChange");
-    refresh();
-
-    console.log(page.value);
+    console.log("⚡️ onEntryChange: page");
+    refresh().then(() => {
+      cacheBust.value = Date.now();
+    });
   });
 });
 </script>
 <template>
-  <ComponentList v-if="page" :page="page" />
+  <ComponentList v-if="page" :page="page" :key="cacheBust" />
 </template>

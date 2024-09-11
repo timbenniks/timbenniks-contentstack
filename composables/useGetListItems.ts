@@ -37,23 +37,27 @@ type GetListItemProps = {
 };
 
 export const useGetListItems = async ({ contentTypeUid, limit, tag }: GetListItemProps) => {
-  const { $stack } = useNuxtApp();
+  const { data, status, refresh } = await useAsyncData(`page-${contentTypeUid}`, async () => {
+    const { $stack } = useNuxtApp();
 
-  const query = $stack.ContentType(contentTypeUid).Query()
+    const query = $stack.ContentType(contentTypeUid).Query()
 
-  if (limit) {
-    query.limit(limit)
-  }
+    if (limit) {
+      query.limit(limit)
+    }
 
-  query.descending("date")
+    query.descending("date")
 
-  if (tag) {
-    query.containedIn("tags", [tag])
-  }
+    if (tag) {
+      query.containedIn("tags", [tag])
+    }
 
-  const result = await query.toJSON().find()
+    const result = await query.toJSON().find()
 
-  if (result && result[0]) {
-    return result[0]
-  }
+    if (result && result[0]) {
+      return result[0]
+    }
+  });
+
+  return { data, status, refresh }
 }
