@@ -3,7 +3,7 @@ const transpiles = isProd ? ['tslib', '@contentstack/delivery-sdk'] : []
 
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
-  devtools: { enabled: true },
+  devtools: { enabled: false },
 
   future: {
     compatibilityVersion: 4,
@@ -22,15 +22,7 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "@nuxt/fonts",
     "nuxt-jsonld",
-    "nuxt-security"
   ],
-
-  devServer: {
-    https: {
-      key: './localhost-key.pem',
-      cert: './localhost.pem',
-    },
-  },
 
   fonts: {
     defaults: {
@@ -40,16 +32,6 @@ export default defineNuxtConfig({
       fallbacks: {
         'sans-serif': ['Trebuchet MS']
       }
-    },
-  },
-
-  security: {
-    headers: {
-      contentSecurityPolicy: {
-        'font-src': ["'self'", "data:"],
-        'img-src': ["'self'", "data:", "https://res.cloudinary.com"],
-        'frame-ancestors': ["'self'", "https://eu-app.contentstack.com/"],
-      },
     },
   },
 

@@ -2,37 +2,38 @@
 const route = useRoute();
 const path = route.path;
 
-const page = await useGetPage({
+const i = ref(0);
+
+const {
+  data: page,
+  status,
+  refresh,
+} = await useGetPage({
   contentTypeUid: "page",
   url: path,
-});
-
-const { $stack } = useNuxtApp();
-
-$stack.livePreviewQuery({
-  contentTypeUid: "page",
-  entryUid: "blt41315565c6fbd337",
-  live_preview: "init",
+  cacheBust: i.value,
 });
 
 useSeoMeta({
   googleSiteVerification: "hif_cn9hF2RVSnTq5HwjSkKrXqJT9Q6BR_FaBBmr-20",
   titleTemplate: "%s - Tim Benniks",
-  description: page?.seo?.description,
-  title: page?.title,
-  ogImage: page?.seo?.image.secure_url,
+  description: page.value?.seo?.description,
+  title: page.value?.title,
+  ogImage: page.value?.seo?.image.secure_url,
 });
 
 onMounted(() => {
-  // ContentstackLivePreview.onEntryChange(() => {
-  //     console.log("onEntryChange")
-  //     //refreshNuxtData();
-  //   })
-  //   ContentstackLivePreview.onLiveEdit(() => {
-  //     console.log("onLiveEdit")
-  //   })
+  const { $ContentstackLivePreview } = useNuxtApp();
+
+  $ContentstackLivePreview.onEntryChange(() => {
+    console.log("⚡️ ContentstackLivePreview event: onEntryChange");
+    // @ts-ignore
+    console.log(page.value);
+    refresh();
+    i.value = i.value++;
+  });
 });
 </script>
 <template>
-  <ComponentList v-if="page" :page="page" />
+  <ComponentList v-if="page" :page="page" :key="i" />
 </template>

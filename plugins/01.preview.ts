@@ -6,6 +6,8 @@ export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.hook('page:finish', () => {
       refreshNuxtData();
     });
+
+    console.log("⚡️ Nuxt event: preview initialized")
   }
 
   return { provide: { preview } };

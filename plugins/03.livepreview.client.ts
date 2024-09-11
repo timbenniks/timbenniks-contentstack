@@ -6,33 +6,18 @@ export default defineNuxtPlugin((nuxtApp) => {
 
   if ($preview) {
     ContentstackLivePreview.init({
-      ssr: true,
-      editButton: {
-        enable: true,
-        position: 'bottom-left',
-        includeByQueryParameter: false,
-      },
-      cleanCslpOnProduction: false,
-      clientUrlParams: {
-        host: "eu-app.contentstack.com",
-      },
-      // stackSdk: $stack as Stack,
-      stackDetails: {
-        apiKey: ($stack as Stack).config.apiKey,
-        environment: "development"
-      },
+      ssr: false,
+      // @ts-ignore
+      stackSdk: $stack as Stack,
     });
 
-    console.log("⚡️ ContentstackLivePreview initialized")
-
-    ContentstackLivePreview.onEntryChange(() => {
-      console.log("onEntryChange")
-      //refreshNuxtData();
-    })
-
-    ContentstackLivePreview.onLiveEdit(() => {
-      console.log("onLiveEdit")
-    })
+    console.log("⚡️ ContentstackLivePreview event: initialized")
   }
+
+  return {
+    provide: {
+      ContentstackLivePreview,
+    },
+  };
 })
 
