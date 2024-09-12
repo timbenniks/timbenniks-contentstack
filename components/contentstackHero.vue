@@ -23,9 +23,14 @@ defineProps({
   ctas: {
     type: Array,
   },
+
+  editableTag: {
+    type: Object,
+  },
 });
 </script>
 <template>
+  <pre>{{ editableTag }}</pre>
   <Hero
     :title="title"
     :titletag="titletag"

@@ -9,7 +9,12 @@ export default defineNuxtPlugin((nuxtApp) => {
       ssr: false,
       // @ts-ignore
       stackSdk: $stack as Stack,
-      enable: true
+      enable: true,
+      clientUrlParams: {
+        protocol: "https",
+        host: "eu-app.contentstack.com",
+        port: 443,
+      },
     });
 
     console.log("⚡️ ContentstackLivePreview event: initialized")

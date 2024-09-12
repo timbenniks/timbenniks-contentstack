@@ -4,7 +4,9 @@ import Contentstack from "contentstack"
 export default defineNuxtPlugin({
   name: "contentstack",
   async setup(nuxtApp) {
-    // const { $preview } = nuxtApp
+    const { $preview } = nuxtApp
+
+    Contentstack.Utils.addEditableTags();
 
     const {
       apiKey,
@@ -13,13 +15,14 @@ export default defineNuxtPlugin({
       managementToken
     } = nuxtApp.$config.public;
 
+
     const stack = Contentstack.Stack({
       api_key: apiKey,
       delivery_token: deliveryToken,
       environment: "development",
       region: Contentstack.Region.EU,
       live_preview: {
-        enable: true,
+        enable: $preview ? true : false,
         preview_token: previewToken,
         management_token: managementToken,
         host: "eu-rest-preview.contentstack.com",

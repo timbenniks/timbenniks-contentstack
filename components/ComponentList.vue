@@ -8,10 +8,47 @@ const props = defineProps({
   },
 });
 
+type ComponentProps =
+  | string
+  | number
+  | boolean
+  | null
+  | JsonArray
+  | ComponentPropsNewObject;
+
+interface ComponentPropsNewObject {
+  [key: string]: ComponentProps;
+}
+
+interface JsonArray extends Array<ComponentProps> {}
+
+function replaceEditableTag(obj: ComponentProps): ComponentProps {
+  if (typeof obj !== "object" || obj === null) {
+    return obj;
+  }
+
+  if (Array.isArray(obj)) {
+    return obj.map((item) => replaceEditableTag(item));
+  }
+
+  const newObj: ComponentPropsNewObject = {};
+  for (const key in obj) {
+    if (Object.prototype.hasOwnProperty.call(obj, key)) {
+      if (key === "$") {
+        newObj["editable-tag"] = replaceEditableTag(obj[key] as any);
+      } else {
+        newObj[key] = replaceEditableTag(obj[key] as any);
+      }
+    }
+  }
+  return newObj;
+}
+
 const components = props.page?.components.map((obj: any) => {
   // @ts-ignore
   const [[name, props]] = Object.entries(obj);
-  return { name, props };
+
+  return { name, props: replaceEditableTag(props) };
 });
 </script>
 
