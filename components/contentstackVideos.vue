@@ -7,26 +7,14 @@ const props = defineProps([
   "extra_s_url",
   "query",
   "design",
+  "editabletag",
 ]);
 
-const { data: videos, refresh } = await useGetListItems({
+const { data: videos } = await useGetListItems({
   contentTypeUid: "video",
   limit: Number(props.query.limit),
   tag: props.query.tag,
 });
-
-const cacheBust = ref(Date.now());
-
-// onMounted(() => {
-//   const { $ContentstackLivePreview } = useNuxtApp();
-
-//   $ContentstackLivePreview.onEntryChange(() => {
-//     console.log("⚡️ onEntryChange: useGetListItems");
-//     refresh().then(() => {
-//       cacheBust.value = Date.now();
-//     });
-//   });
-// });
 
 function cleanAndTruncate(text: string, cutoff: number) {
   // Remove all occurrences of \r and \n
@@ -43,12 +31,14 @@ function cleanAndTruncate(text: string, cutoff: number) {
   return cleanedText;
 }
 
-const mappedVideos = videos.value?.map((video: any) => {
-  return {
-    ...video,
-    description: cleanAndTruncate(video.description, 100),
-    videoId: video.videoid,
-  };
+const mappedVideos = computed(() => {
+  return videos.value?.map((video: any) => {
+    return {
+      ...video,
+      description: cleanAndTruncate(video.description, 100),
+      videoId: video.videoid,
+    };
+  });
 });
 </script>
 
@@ -60,6 +50,6 @@ const mappedVideos = videos.value?.map((video: any) => {
     :extrasUrl="extra_s_url"
     :small="design.small"
     :firstFeatured="design.firstFeatured"
-    :key="cacheBust"
+    :editabletag="editabletag"
   />
 </template>

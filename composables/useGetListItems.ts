@@ -1,10 +1,33 @@
-import { QueryOperation } from "@contentstack/delivery-sdk";
+import contentstack, { QueryOperation } from "@contentstack/delivery-sdk";
 
 type GetListItemProps = {
   contentTypeUid: "video" | "talk" | "article";
   limit?: number;
   tag?: string;
 };
+
+
+function replaceEditableTag(obj: any): any {
+  if (typeof obj !== "object" || obj === null) {
+    return obj;
+  }
+
+  if (Array.isArray(obj)) {
+    return obj.map((item) => replaceEditableTag(item));
+  }
+
+  const newObj: any = {};
+  for (const key in obj) {
+    if (Object.prototype.hasOwnProperty.call(obj, key)) {
+      if (key === "$") {
+        newObj["editabletag"] = replaceEditableTag(obj[key] as any);
+      } else {
+        newObj[key] = replaceEditableTag(obj[key] as any);
+      }
+    }
+  }
+  return newObj;
+}
 
 export const useGetListItems = async ({ contentTypeUid, limit, tag }: GetListItemProps) => {
   const { data, status, refresh } = await useAsyncData(`page-${contentTypeUid}`, async () => {
@@ -27,7 +50,12 @@ export const useGetListItems = async ({ contentTypeUid, limit, tag }: GetListIte
     const result = await query.find()
 
     if (result?.entries) {
-      return result?.entries
+      result.entries.map((entry) => {
+        contentstack.Utils.addEditableTags(entry as any, contentTypeUid, true);
+      })
+
+      const mappedEntryForVue = replaceEditableTag(result.entries)
+      return mappedEntryForVue;
     }
   });
 

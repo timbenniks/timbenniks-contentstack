@@ -1,25 +1,12 @@
 <script setup lang="ts">
 import type { Article } from "~/contentstack/generated";
 
-const props = defineProps(["title", "query", "design"]);
+const props = defineProps(["title", "query", "design", "editabletag"]);
 
-const { data: articles, refresh } = await useGetListItems({
+const { data: articles } = await useGetListItems({
   contentTypeUid: "article",
   limit: Number(props.query.limit),
 });
-
-const cacheBust = ref(Date.now());
-
-// onMounted(() => {
-//   const { $ContentstackLivePreview } = useNuxtApp();
-
-//   $ContentstackLivePreview.onEntryChange(() => {
-//     console.log("⚡️ onEntryChange: useGetListItems");
-//     refresh().then(() => {
-//       cacheBust.value = Date.now();
-//     });
-//   });
-// });
 </script>
 
 <template>
@@ -28,6 +15,6 @@ const cacheBust = ref(Date.now());
     :small="design.small"
     :firstFeatured="design.first_featured"
     :title="title"
-    :key="cacheBust"
+    :editabletag="editabletag"
   />
 </template>

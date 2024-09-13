@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { format, getYear, isFuture } from "date-fns";
 
-const props = defineProps(["talks", "small", "title"]);
+const props = defineProps(["talks", "small", "title", "editabletag"]);
 
 const smallOrBigClass = computed(() => {
   return props.small
@@ -24,7 +24,11 @@ function upcoming(date: string) {
 
 <template>
   <div class="px-4 md:px-8 mb-8">
-    <h3 v-if="title" class="title inline-block mb-4">
+    <h3
+      v-if="title"
+      class="title inline-block mb-4"
+      v-bind="editabletag?.title"
+    >
       {{ title }}
     </h3>
 
@@ -37,6 +41,7 @@ function upcoming(date: string) {
         >
           <div
             class="bg-[#0e1029] w-20 h-28 text-center font-black uppercase flex flex-col justify-center date-card"
+            v-bind="talk.editabletag?.date"
           >
             <p class="text-4xl">{{ d(talk.date).day }}</p>
             <p class="text-lg">{{ d(talk.date).month }}</p>
@@ -49,11 +54,18 @@ function upcoming(date: string) {
             >
               UPCOMING
             </p>
-            <p class="font-bold text-xl">{{ talk.conference }}</p>
-            <p class="line-clamp-1">
+            <p class="font-bold text-xl" v-bind="talk.editabletag?.conference">
+              {{ talk.conference }}
+            </p>
+            <p class="line-clamp-1" v-bind="talk.editabletag?.talk">
               {{ talk.talk }}
             </p>
-            <p class="text-sm text-slate-400">{{ talk.location }}</p>
+            <p
+              class="text-sm text-slate-400"
+              v-bind="talk.editabletag?.location"
+            >
+              {{ talk.location }}
+            </p>
           </div>
         </NuxtLink>
       </li>

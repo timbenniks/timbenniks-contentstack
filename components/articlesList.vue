@@ -1,5 +1,11 @@
 <script setup lang="ts">
-const props = defineProps(["articles", "small", "firstFeatured", "title"]);
+const props = defineProps([
+  "articles",
+  "small",
+  "firstFeatured",
+  "title",
+  "editabletag",
+]);
 
 const smallOrBigClass = computed(() => {
   return props.small
@@ -10,7 +16,11 @@ const smallOrBigClass = computed(() => {
 
 <template>
   <div class="px-4 md:px-8 mb-8">
-    <h3 v-if="title" class="title inline-block mb-4">
+    <h3
+      v-if="title"
+      class="title inline-block mb-4"
+      v-bind="editabletag?.title"
+    >
       {{ title }}
     </h3>
 
@@ -20,6 +30,7 @@ const smallOrBigClass = computed(() => {
         :key="articles[0]._path"
         :small="small"
         :featured="true"
+        :editabletag="articles[0].editabletag"
       />
     </ul>
 
@@ -31,6 +42,7 @@ const smallOrBigClass = computed(() => {
         :key="article._path"
         :small="small"
         :featured="false"
+        :editabletag="article.editabletag"
       />
       <article-card
         v-else
@@ -39,6 +51,7 @@ const smallOrBigClass = computed(() => {
         :key="article.id"
         :small="small"
         :featured="false"
+        :editabletag="article.editabletag"
       />
     </ul>
   </div>

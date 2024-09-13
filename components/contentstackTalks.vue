@@ -1,25 +1,12 @@
 <script setup lang="ts">
 import type { Talk } from "~/contentstack/generated";
 
-const props = defineProps(["title", "query", "design"]);
+const props = defineProps(["title", "query", "design", "editabletag"]);
 
 const { data: talks, refresh } = await useGetListItems({
   contentTypeUid: "talk",
   limit: Number(props.query.limit),
 });
-
-const cacheBust = ref(Date.now());
-
-// onMounted(() => {
-//   const { $ContentstackLivePreview } = useNuxtApp();
-
-//   $ContentstackLivePreview.onEntryChange(() => {
-//     console.log("⚡️ onEntryChange: useGetListItems");
-//     refresh().then(() => {
-//       cacheBust.value = Date.now();
-//     });
-//   });
-// });
 </script>
 
 <template>
@@ -27,6 +14,6 @@ const cacheBust = ref(Date.now());
     :talks="(talks as Talk[])"
     :title="title"
     :small="design.small"
-    :key="cacheBust"
+    :editabletag="editabletag"
   />
 </template>

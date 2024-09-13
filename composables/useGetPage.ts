@@ -19,7 +19,7 @@ function replaceEditableTag(obj: any): any {
   for (const key in obj) {
     if (Object.prototype.hasOwnProperty.call(obj, key)) {
       if (key === "$") {
-        newObj["editable-tag"] = replaceEditableTag(obj[key] as any);
+        newObj["editabletag"] = replaceEditableTag(obj[key] as any);
       } else {
         newObj[key] = replaceEditableTag(obj[key] as any);
       }
