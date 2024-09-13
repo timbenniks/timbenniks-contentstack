@@ -48,7 +48,8 @@ const components = props.page?.components.map((obj: any) => {
   // @ts-ignore
   const [[name, props]] = Object.entries(obj);
 
-  return { name, props: replaceEditableTag(props) };
+  //return { name, props: replaceEditableTag(props) };
+  return { name, props: props };
 });
 </script>
 

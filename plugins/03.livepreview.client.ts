@@ -10,6 +10,9 @@ export default defineNuxtPlugin((nuxtApp) => {
       // @ts-ignore
       stackSdk: $stack as Stack,
       enable: true,
+      stackDetails: {
+        apiKey: "blt8699317c576dde05",
+      },
       clientUrlParams: {
         protocol: "https",
         host: "eu-app.contentstack.com",

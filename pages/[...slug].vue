@@ -24,6 +24,8 @@ onMounted(() => {
     console.log("⚡️ onEntryChange: page");
     refresh().then(() => {
       cacheBust.value = Date.now();
+
+      console.log(page.value);
     });
   });
 });

@@ -55,7 +55,8 @@ export default defineNuxtConfig({
       apiKey: process.env.CONTENTSTACK_API_KEY,
       deliveryToken: process.env.CONTENTSTACK_DELIVERY_TOKEN,
       previewToken: process.env.CONTENTSTACK_PREVIEW_TOKEN,
-      managementToken: process.env.CONTENTSTACK_MANAGEMENT_TOKEN
+      managementToken: process.env.CONTENTSTACK_MANAGEMENT_TOKEN,
+      environment: process.env.CONTENTSTACK_ENVIRONMENT
     },
   },
 })

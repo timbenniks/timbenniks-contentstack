@@ -12,10 +12,10 @@
     "types": "csdx tsgen -a 'delivery' -o 'contentstack/generated.d.ts'"
   },
   "dependencies": {
-    "@contentstack/delivery-sdk": "4.2.0",
-    "contentstack": "^3.20.3",
+    "@contentstack/delivery-sdk": "4.3.0",
+    "contentstack": "^3.21.0",
     "@contentstack/live-preview-utils": "1.4.4",
-    "@nuxt/fonts": "^0.7.2",
+    "@nuxt/fonts": "^0.8.0",
     "@nuxt/image": "^1.8.0",
     "@nuxtjs/tailwindcss": "^6.12.1",
     "@tailwindcss/typography": "^0.5.15",
