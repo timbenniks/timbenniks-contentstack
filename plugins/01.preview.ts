@@ -1,10 +1,9 @@
 export default defineNuxtPlugin((nuxtApp) => {
-  // const route = useRoute();
-  // const preview = route.query.preview && route.query.preview === 'true';
+  const {
+    previewMode
+  } = nuxtApp.$config.public;
 
-  const preview = true;
-
-  if (preview) {
+  if (previewMode) {
     nuxtApp.hook('page:finish', () => {
       refreshNuxtData();
     });
@@ -12,5 +11,5 @@ export default defineNuxtPlugin((nuxtApp) => {
     console.log("⚡️ Nuxt event: preview initialized")
   }
 
-  return { provide: { preview } };
+  return { provide: { preview: previewMode } };
 });

@@ -23,14 +23,12 @@ defineProps({
   ctas: {
     type: Array,
   },
-
   editableTag: {
     type: Object,
   },
 });
 </script>
 <template>
-  <pre>{{ editableTag }}</pre>
   <Hero
     :title="title"
     :titletag="titletag"
@@ -38,6 +36,7 @@ defineProps({
     :subtitletag="subtitletag"
     :right="design?.right || false"
     :smallertitle="design?.smallertitle || false"
+    :editabletag="editableTag"
   >
     <template #image>
       <NuxtImg
@@ -52,6 +51,7 @@ defineProps({
         :width="image[0]?.width"
         :height="image[0]?.height"
       />
+      <!-- v-bind="editableTag?.image" -->
     </template>
 
     <template #ctas>
@@ -63,11 +63,12 @@ defineProps({
         :target="cta.target"
       /> -->
       <cta
-        v-for="{ cta } in ctas"
+        v-for="({ cta }, index) in ctas"
         :key="cta.url.href"
         url="#"
         :text="cta.url.title"
         :target="cta.target"
+        v-bind="editableTag && editableTag[`ctas__${index}`]"
       />
     </template>
   </Hero>

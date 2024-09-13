@@ -7,18 +7,23 @@ export default defineNuxtPlugin((nuxtApp) => {
 
   if ($preview) {
     ContentstackLivePreview.init({
-      // ssr: false,
-      // @ts-ignore
-      stackSdk: $stack.config as IStackSdk,
-      // enable: true,
-      // stackDetails: {
-      //   apiKey: "blt8699317c576dde05",
-      // },
-      // clientUrlParams: {
-      //   protocol: "https",
-      //   host: "eu-app.contentstack.com",
-      //   port: 443,
-      // },
+      ssr: false,
+      enable: true,
+      stackSdk: ($stack as Stack).config as IStackSdk,
+      stackDetails: {
+        apiKey: "blt8699317c576dde05",
+        environment: "development",
+        branch: "main"
+      },
+      clientUrlParams: {
+        host: "eu-app.contentstack.com",
+      },
+      editButton: {
+        enable: true,
+        exclude: ["outsideLivePreviewPortal"],
+        includeByQueryParameter: true,
+        position: "top-left"
+      }
     });
 
     console.log("⚡️ ContentstackLivePreview event: initialized")

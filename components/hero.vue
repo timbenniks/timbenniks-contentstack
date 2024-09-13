@@ -21,6 +21,9 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  editabletag: {
+    type: Object,
+  },
 });
 
 const heroclass = computed(() => {
@@ -45,6 +48,7 @@ const alignmentClass = computed(() => {
         v-if="title"
         class="title inline-block"
         :class="heroclass"
+        v-bind="editabletag?.title"
       >
         {{ title }}
       </component>
@@ -52,6 +56,7 @@ const alignmentClass = computed(() => {
         :is="subtitletag"
         v-if="description"
         class="bg-black py-1 px-2 text-lg md:text-2xl font-black"
+        v-bind="editabletag?.sub_title"
       >
         {{ description }}
       </component>

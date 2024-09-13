@@ -18,14 +18,16 @@ useSeoMeta({
 });
 
 onMounted(() => {
-  const { $ContentstackLivePreview } = useNuxtApp();
+  const { $preview, $ContentstackLivePreview } = useNuxtApp();
+
+  if (!$preview) {
+    return;
+  }
 
   $ContentstackLivePreview.onEntryChange(() => {
     console.log("⚡️ onEntryChange: page");
     refresh().then(() => {
       cacheBust.value = Date.now();
-
-      console.log(page.value);
     });
   });
 });

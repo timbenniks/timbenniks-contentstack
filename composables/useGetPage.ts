@@ -1,12 +1,32 @@
-import { QueryOperation } from "@contentstack/delivery-sdk";
+import contentstack, { QueryOperation } from "@contentstack/delivery-sdk";
 import type { Page } from "~/contentstack/generated";
-// import contentstack from "contentstack"
-// contentstack.Utils.addEditableTags();
 
 type GetPageProps = {
   url: string;
   contentTypeUid?: string;
 };
+
+function replaceEditableTag(obj: any): any {
+  if (typeof obj !== "object" || obj === null) {
+    return obj;
+  }
+
+  if (Array.isArray(obj)) {
+    return obj.map((item) => replaceEditableTag(item));
+  }
+
+  const newObj: any = {};
+  for (const key in obj) {
+    if (Object.prototype.hasOwnProperty.call(obj, key)) {
+      if (key === "$") {
+        newObj["editable-tag"] = replaceEditableTag(obj[key] as any);
+      } else {
+        newObj[key] = replaceEditableTag(obj[key] as any);
+      }
+    }
+  }
+  return newObj;
+}
 
 export const useGetPage = async ({ url, contentTypeUid }: GetPageProps) => {
   const { data, status, refresh } = await useAsyncData(`page-${url}`, async () => {
@@ -20,18 +40,10 @@ export const useGetPage = async ({ url, contentTypeUid }: GetPageProps) => {
       .find<Page>();
 
     if (result?.entries) {
-      return result.entries[0] as Page;
+      contentstack.Utils.addEditableTags(result.entries[0] as any, contentTypeUid || 'page', true);
+      const mappedEntryForVue = replaceEditableTag(result.entries[0])
+      return mappedEntryForVue;
     }
-
-    // const query = $stack.ContentType(contentTypeUid || "page").Query()
-    // query.includeReference("components.two_columns.two_column_connection")
-    // query.where("url", url)
-
-    // const result = await query.toJSON().find()
-
-    // contentstack.Utils.addEditableTags(result[0][0], "page", true);
-
-    // return result[0][0]
   });
 
   return { data, status, refresh }
