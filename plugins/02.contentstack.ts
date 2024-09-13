@@ -27,14 +27,14 @@ export default defineNuxtPlugin({
 
     const stack = contentstack.stack({
       apiKey,
-      host: "eu-app.contentstack.com",
-      endpoint: "eu-api.contentstack.com",
+      // host: "eu-cdn.contentstack.com",
+      // endpoint: "eu-api.contentstack.com",
       deliveryToken,
       environment: "development",
       region: Region.EU,
       locale: "en-us",
       live_preview: {
-        enable: $preview ? true : false,
+        enable: true,
         preview_token: previewToken,
         host: "eu-rest-preview.contentstack.com",
       }
