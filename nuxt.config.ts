@@ -1,6 +1,3 @@
-const isProd = process.env.NODE_ENV === 'production'
-const transpiles = isProd ? ['tslib', '@contentstack/delivery-sdk'] : []
-
 export default defineNuxtConfig({
   compatibilityDate: '2024-09-13',
   devtools: { enabled: false },
@@ -10,7 +7,7 @@ export default defineNuxtConfig({
   },
 
   build: {
-    transpile: transpiles,
+    transpile: process.env.NODE_ENV === 'production' ? ['tslib', '@contentstack/delivery-sdk'] : [],
   },
 
   modules: [
@@ -57,7 +54,10 @@ export default defineNuxtConfig({
       previewToken: process.env.CONTENTSTACK_PREVIEW_TOKEN,
       managementToken: process.env.CONTENTSTACK_MANAGEMENT_TOKEN,
       environment: process.env.CONTENTSTACK_ENVIRONMENT,
-      previewMode: process.env.CONTENTSTACK_PREVIEW_MODE === "true"
+      preview: process.env.CONTENTSTACK_PREVIEW === "true",
+      region: process.env.CONTENTSTACK_REGION,
+      previewSdk: process.env.CONTENTSTACK_PREVIEW_SDK,
+      deliverySdk: process.env.CONTENTSTACK_DELIVERY_SDK
     },
   },
 })

@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import "@contentstack/live-preview-utils/dist/main.css";
-
 const route = useRoute();
 useHead({
   link: [

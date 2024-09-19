@@ -1,6 +1,8 @@
 <script setup lang="ts">
 const navigation = await useGetNavigation();
 const { $preview } = useNuxtApp();
+
+const { region, previewSdk, environment } = useNuxtApp().$config.public;
 </script>
 
 <template>
@@ -8,7 +10,8 @@ const { $preview } = useNuxtApp();
     <div class="sticky top-0 p-1 bg-[#256ad1]" v-if="$preview">
       <span class="uppercase text-sm pr-2">⚡️ Preview mode: on</span>
       <span class="text-xs text-slate-300"
-        >Preview sdk v1.4.4. Region: EU. Environment: development</span
+        >Preview sdk v{{ previewSdk }}. Region: {{ region }}. Environment:
+        {{ environment }}</span
       >
     </div>
   </globalHeader>
