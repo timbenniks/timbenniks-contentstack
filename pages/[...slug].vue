@@ -1,13 +1,15 @@
 <script setup lang="ts">
-const route = useRoute();
-const path = route.path;
+const { path } = useRoute();
 
 const { data: page, refresh } = await useGetPage({
   contentTypeUid: "page",
   url: path,
 });
 
-const cacheBust = ref(Date.now());
+onMounted(() => {
+  const { $preview, $ContentstackLivePreview } = useNuxtApp();
+  $preview && $ContentstackLivePreview.onEntryChange(refresh);
+});
 
 useSeoMeta({
   googleSiteVerification: "hif_cn9hF2RVSnTq5HwjSkKrXqJT9Q6BR_FaBBmr-20",
@@ -16,17 +18,7 @@ useSeoMeta({
   title: page.value?.title,
   ogImage: page.value?.seo?.image.secure_url,
 });
-
-onMounted(() => {
-  const { $preview, $ContentstackLivePreview } = useNuxtApp();
-
-  $preview &&
-    $ContentstackLivePreview.onEntryChange(async () => {
-      await refresh();
-      cacheBust.value = Date.now();
-    });
-});
 </script>
 <template>
-  <ComponentList v-if="page" :page="page" :key="cacheBust" />
+  <ComponentList v-if="page" :page="page" />
 </template>

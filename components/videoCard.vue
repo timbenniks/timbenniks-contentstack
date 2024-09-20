@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps(["video", "small", "featured", "editabletag"]);
+defineProps(["video", "small", "featured", "cslp"]);
 </script>
 
 <template>
@@ -12,7 +12,7 @@ defineProps(["video", "small", "featured", "editabletag"]);
     >
       <div class="relative aspect-video" :class="{ 'md:w-64': small }">
         <NuxtImg
-          v-bind="editabletag?.image"
+          v-bind="cslp?.image"
           v-if="video.image !== 'undefined'"
           provider="cloudinaryFetch"
           :src="video.image"
@@ -52,7 +52,7 @@ defineProps(["video", "small", "featured", "editabletag"]);
       <div :class="{ 'max-w-80': small }">
         <p
           class="font-bold"
-          v-bind="editabletag?.title"
+          v-bind="cslp?.title"
           :class="
             featured
               ? 'text-2xl md:text-3xl mb-2 mt-4 md:mt-0 md:absolute bottom-4 left-4 block flowing-title'
@@ -66,7 +66,7 @@ defineProps(["video", "small", "featured", "editabletag"]);
           v-if="small"
           class="text-slate-400 text-sm"
           :class="{ 'line-clamp-3': small }"
-          v-bind="editabletag?.description"
+          v-bind="cslp?.description"
         >
           {{ video.description }}
         </p>

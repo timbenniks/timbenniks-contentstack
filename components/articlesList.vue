@@ -4,7 +4,7 @@ const props = defineProps([
   "small",
   "firstFeatured",
   "title",
-  "editabletag",
+  "cslp",
 ]);
 
 const smallOrBigClass = computed(() => {
@@ -16,11 +16,7 @@ const smallOrBigClass = computed(() => {
 
 <template>
   <div class="px-4 md:px-8 mb-8">
-    <h3
-      v-if="title"
-      class="title inline-block mb-4"
-      v-bind="editabletag?.title"
-    >
+    <h3 v-if="title" class="title inline-block mb-4" v-bind="cslp?.title">
       {{ title }}
     </h3>
 
@@ -30,7 +26,7 @@ const smallOrBigClass = computed(() => {
         :key="articles[0]._path"
         :small="small"
         :featured="true"
-        :editabletag="articles[0].editabletag"
+        :cslp="articles[0].cslp"
       />
     </ul>
 
@@ -42,7 +38,7 @@ const smallOrBigClass = computed(() => {
         :key="article._path"
         :small="small"
         :featured="false"
-        :editabletag="article.editabletag"
+        :cslp="article.cslp"
       />
       <article-card
         v-else
@@ -51,7 +47,7 @@ const smallOrBigClass = computed(() => {
         :key="article.id"
         :small="small"
         :featured="false"
-        :editabletag="article.editabletag"
+        :cslp="article.cslp"
       />
     </ul>
   </div>

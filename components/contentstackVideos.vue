@@ -7,7 +7,7 @@ const props = defineProps([
   "extra_s_url",
   "query",
   "design",
-  "editabletag",
+  "cslp",
 ]);
 
 const { data: videos } = await useGetListItems({
@@ -50,6 +50,6 @@ const mappedVideos = computed(() => {
     :extrasUrl="extra_s_url"
     :small="design.small"
     :firstFeatured="design.firstFeatured"
-    :editabletag="editabletag"
+    :cslp="cslp"
   />
 </template>

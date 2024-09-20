@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getComponentForName } from "./componentMapper";
+import { getComponentForName, mapComponentsToKV } from "~/helpers";
 
 const props = defineProps({
   page: {
@@ -8,10 +8,8 @@ const props = defineProps({
   },
 });
 
-const components = props.page?.components.map((obj: any) => {
-  // @ts-ignore
-  const [[name, props]] = Object.entries(obj);
-  return { name, props: props };
+const components = computed(() => {
+  return mapComponentsToKV(props.page?.components);
 });
 </script>
 

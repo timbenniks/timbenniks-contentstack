@@ -6,7 +6,7 @@ const props = defineProps([
   "description",
   "extrasUrl",
   "firstFeatured",
-  "editabletag",
+  "cslp",
 ]);
 
 const smallOrBigClass = computed(() => {
@@ -30,13 +30,13 @@ const smallOrBigClass = computed(() => {
     <header
       class="mb-2 flex md:space-x-4 space-x-0 md:items-end flex-col md:flex-row items-start"
     >
-      <h2 v-if="title" class="title inline-block" v-bind="editabletag?.title">
+      <h2 v-if="title" class="title inline-block" v-bind="cslp?.title">
         {{ title }}
       </h2>
       <p
         class="uppercase text-sm mt-2"
         v-if="extrasUrl"
-        v-bind="editabletag?.extra_s_url"
+        v-bind="cslp?.extra_s_url"
       >
         <nuxt-link :to="extrasUrl">See all →</nuxt-link>
       </p>
@@ -44,7 +44,7 @@ const smallOrBigClass = computed(() => {
     <div
       class="mb-12 max-w-screen-lg prose prose-invert"
       v-if="description"
-      v-bind="editabletag?.description"
+      v-bind="cslp?.description"
     >
       {{ description }}
     </div>
@@ -58,7 +58,7 @@ const smallOrBigClass = computed(() => {
         :featured="false"
         :video="video"
         :small="small"
-        :editabletag="video.editabletag"
+        :cslp="video.cslp"
       />
 
       <VideoCard
@@ -69,7 +69,7 @@ const smallOrBigClass = computed(() => {
         :featured="false"
         :video="video"
         :small="small"
-        :editabletag="video.editabletag"
+        :cslp="video.cslp"
       />
     </ul>
   </div>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Article } from "~/contentstack/generated";
 
-const props = defineProps(["title", "query", "design", "editabletag"]);
+const props = defineProps(["title", "query", "design", "cslp"]);
 
 const { data: articles } = await useGetListItems({
   contentTypeUid: "article",
@@ -15,6 +15,6 @@ const { data: articles } = await useGetListItems({
     :small="design.small"
     :firstFeatured="design.first_featured"
     :title="title"
-    :editabletag="editabletag"
+    :cslp="cslp"
   />
 </template>

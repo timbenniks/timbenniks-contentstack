@@ -23,7 +23,7 @@ defineProps({
   ctas: {
     type: Array,
   },
-  editabletag: {
+  cslp: {
     type: Object,
   },
 });
@@ -36,7 +36,7 @@ defineProps({
     :subtitletag="subtitletag"
     :right="design?.right || false"
     :smallertitle="design?.smallertitle || false"
-    :editabletag="editabletag"
+    :cslp="cslp"
   >
     <template #image>
       <NuxtImg
@@ -51,7 +51,7 @@ defineProps({
         :width="image[0]?.width"
         :height="image[0]?.height"
       />
-      <!-- v-bind="editabletag?.image" -->
+      <!-- v-bind="cslp?.image" -->
     </template>
 
     <template #ctas>
@@ -68,7 +68,7 @@ defineProps({
         url="#"
         :text="cta.url.title"
         :target="cta.target"
-        v-bind="editabletag && editabletag[`ctas__${index}`]"
+        v-bind="cslp && cslp[`ctas__${index}`]"
       />
     </template>
   </Hero>

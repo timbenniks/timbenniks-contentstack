@@ -1,18 +1,14 @@
 <script setup lang="ts">
-import { getComponentForName } from "./componentMapper";
+import { getComponentForName, mapComponentsToKV } from "~/helpers";
 
 const props = defineProps(["two_column_connection"]);
 
-const componentsA = props.two_column_connection[0].side_a.map((obj: any) => {
-  // @ts-ignore
-  const [[name, props]] = Object.entries(obj);
-  return { name, props };
+const componentsA = computed(() => {
+  return mapComponentsToKV(props.two_column_connection[0].side_a);
 });
 
-const componentsB = props.two_column_connection[0].side_b.map((obj: any) => {
-  // @ts-ignore
-  const [[name, props]] = Object.entries(obj);
-  return { name, props };
+const componentsB = computed(() => {
+  return mapComponentsToKV(props.two_column_connection[0].side_b);
 });
 </script>
 

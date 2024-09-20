@@ -1,32 +1,11 @@
 import contentstack, { QueryOperation } from "@contentstack/delivery-sdk";
 import type { Page } from "~/contentstack/generated";
+import { replaceCslp } from "~/helpers"
 
 type GetPageProps = {
   url: string;
   contentTypeUid?: string;
 };
-
-function replaceEditableTag(obj: any): any {
-  if (typeof obj !== "object" || obj === null) {
-    return obj;
-  }
-
-  if (Array.isArray(obj)) {
-    return obj.map((item) => replaceEditableTag(item));
-  }
-
-  const newObj: any = {};
-  for (const key in obj) {
-    if (Object.prototype.hasOwnProperty.call(obj, key)) {
-      if (key === "$") {
-        newObj["editabletag"] = replaceEditableTag(obj[key] as any);
-      } else {
-        newObj[key] = replaceEditableTag(obj[key] as any);
-      }
-    }
-  }
-  return newObj;
-}
 
 export const useGetPage = async ({ url, contentTypeUid }: GetPageProps) => {
   const { data, status, refresh } = await useAsyncData(`page-${url}`, async () => {
@@ -41,8 +20,11 @@ export const useGetPage = async ({ url, contentTypeUid }: GetPageProps) => {
 
     if (result?.entries) {
       contentstack.Utils.addEditableTags(result.entries[0] as any, contentTypeUid || 'page', true);
-      const mappedEntryForVue = replaceEditableTag(result.entries[0])
+      const mappedEntryForVue = replaceCslp(result.entries[0])
       return mappedEntryForVue;
+    }
+    else {
+      return []
     }
   });
 

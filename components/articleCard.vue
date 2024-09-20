@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps(["article", "small", "featured", "editabletag"]);
+defineProps(["article", "small", "featured", "cslp"]);
 
 function parseImage(imageUrl: string) {
   const decodedUrl = decodeURIComponent(imageUrl);
@@ -38,7 +38,7 @@ function parseImage(imageUrl: string) {
       :class="small || featured ? 'md:flex-row md:space-x-4' : 'flex-col'"
     >
       <Image
-        v-bind="editabletag?.image"
+        v-bind="cslp?.image"
         :provider="parseImage(article.image).provider"
         :src="parseImage(article.image).url"
         :alt="`Poster image for: ${article.title}` || ''"
@@ -62,7 +62,7 @@ function parseImage(imageUrl: string) {
           :class="
             featured ? 'text-3xl mb-2 line-clamp-3' : 'text-xl line-clamp-2'
           "
-          v-bind="editabletag?.title"
+          v-bind="cslp?.title"
         >
           {{ article.title }}
         </p>
@@ -71,14 +71,14 @@ function parseImage(imageUrl: string) {
           v-if="small || featured"
           class="text-slate-400 text-sm"
           :class="{ 'line-clamp-2': small }"
-          v-bind="editabletag?.description"
+          v-bind="cslp?.description"
         >
           {{ article.description }}
         </p>
         <p
           v-if="!featured"
           class="text-sm font-bold text-[#db97bf] mt-1"
-          v-bind="editabletag?.reading_time"
+          v-bind="cslp?.reading_time"
         >
           {{ article.reading_time }}
         </p>
@@ -96,10 +96,7 @@ function parseImage(imageUrl: string) {
             />
             <p class="flex flex-col">
               <span>Tim Benniks</span>
-              <span
-                class="text-sm text-[#db97bf]"
-                v-bind="editabletag?.reading_time"
-              >
+              <span class="text-sm text-[#db97bf]" v-bind="cslp?.reading_time">
                 {{ article.reading_time }}
               </span>
             </p>
