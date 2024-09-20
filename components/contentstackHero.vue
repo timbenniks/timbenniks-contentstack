@@ -35,7 +35,7 @@ defineProps({
     :description="sub_title"
     :subtitletag="subtitletag"
     :right="design?.right || false"
-    :smallertitle="design?.smallertitle || false"
+    :smallertitle="design?.smaller_title || false"
     :cslp="cslp"
   >
     <template #image>
@@ -51,7 +51,6 @@ defineProps({
         :width="image[0]?.width"
         :height="image[0]?.height"
       />
-      <!-- v-bind="cslp?.image" -->
     </template>
 
     <template #ctas>

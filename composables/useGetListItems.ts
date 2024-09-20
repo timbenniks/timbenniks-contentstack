@@ -8,7 +8,7 @@ type GetListItemProps = {
 };
 
 export const useGetListItems = async ({ contentTypeUid, limit, tag }: GetListItemProps) => {
-  const { data, status, refresh } = await useAsyncData(`page-${contentTypeUid}`, async () => {
+  const { data, status, refresh } = await useAsyncData(`page-${contentTypeUid}-${limit}-${tag ? tag : ''}`, async () => {
     const { $stack } = useNuxtApp();
 
     const query = $stack.contentType(contentTypeUid)
@@ -26,7 +26,6 @@ export const useGetListItems = async ({ contentTypeUid, limit, tag }: GetListIte
     }
 
     const result = await query.find()
-
     if (result?.entries) {
       result.entries.map((entry) => {
         contentstack.Utils.addEditableTags(entry as any, contentTypeUid, true);
