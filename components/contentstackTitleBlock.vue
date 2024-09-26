@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps(["tag", "title", "simple", "nospace", "small"]);
+defineProps(["tag", "title", "simple", "nospace", "small", "cslp"]);
 </script>
 <template>
   <titleBlock
@@ -8,5 +8,6 @@ defineProps(["tag", "title", "simple", "nospace", "small"]);
     :simple="simple"
     :nospace="nospace"
     :small="small"
+    :cslp="cslp"
   />
 </template>

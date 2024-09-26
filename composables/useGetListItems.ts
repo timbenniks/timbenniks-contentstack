@@ -26,6 +26,7 @@ export const useGetListItems = async ({ contentTypeUid, limit, tag }: GetListIte
     }
 
     const result = await query.find()
+
     if (result?.entries) {
       result.entries.map((entry) => {
         contentstack.Utils.addEditableTags(entry as any, contentTypeUid, true);

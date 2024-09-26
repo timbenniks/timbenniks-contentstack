@@ -38,6 +38,9 @@ defineProps({
   caption: {
     type: String,
   },
+  cslp: {
+    type: Object,
+  },
 });
 </script>
 
@@ -53,5 +56,6 @@ defineProps({
     :provider="provider"
     :sizes="sizes"
     :caption="caption"
+    v-bind="cslp && cslp.image"
   />
 </template>

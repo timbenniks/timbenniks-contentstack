@@ -13,7 +13,13 @@ export const useGetPage = async ({ url, contentTypeUid }: GetPageProps) => {
 
     const result = await $stack.contentType(contentTypeUid || 'page')
       .entry()
-      .includeReference("components.two_columns.two_column_connection")
+      .includeReference([
+        "components.two_columns.two_column_connection",
+        "components.two_columns.two_column_connection.side_a.faq_connector.reference",
+        "components.two_columns.two_column_connection.side_b.faq_connector.reference",
+        "components.two_columns.two_column_connection.side_a.timeline_connector.reference",
+        "components.two_columns.two_column_connection.side_b.timeline_connector.reference"
+      ])
       .query()
       .where("url", QueryOperation.EQUALS, url)
       .find<Page>();

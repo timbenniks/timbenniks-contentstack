@@ -8,6 +8,8 @@ import articles from "./components/contentstackArticles.vue"
 import two_columns from "./components/contentstackTwoColumn.vue"
 import image from "./components/contentstackMedia.vue"
 import title_block from "./components/contentstackTitleBlock.vue"
+import faq_connector from "./components/contentstackFaq.vue"
+import timeline_connector from "./components/contentstackTimeline.vue"
 
 type Mapping = {
   [name: string]: Component
@@ -21,7 +23,9 @@ export const mapping: Mapping = {
   articles,
   two_columns,
   image,
-  title_block
+  title_block,
+  faq_connector,
+  timeline_connector
 };
 
 export function getComponentForName(name: string) {
