@@ -1,53 +1,37 @@
 <script setup lang="ts">
-defineProps({
-  alt: {
-    type: String,
-    default: "",
-  },
-  image: {
-    type: Object,
-  },
-  fit: {
-    type: String,
-    default: "",
-  },
-  height: {
-    type: Number,
-    default: "",
-  },
-  width: {
-    type: Number,
-    default: "",
-  },
-  provider: {
-    type: String,
-    default: "cloudinaryNative",
-  },
-  sizes: {
-    type: String,
-    default: "sm:100vw",
-  },
-  fetchpriority: {
-    type: String,
-    default: "normal",
-  },
-  loading: {
-    type: String,
-    default: "auto",
-  },
-  caption: {
-    type: String,
-  },
-  cslp: {
-    type: Object,
-  },
+interface Props {
+  image: any;
+  alt: string;
+  fit?: string;
+  height: number;
+  width: number;
+  provider?: string;
+  sizes?: string;
+  fetchpriority?: string;
+  loading?: "lazy" | "eager" | undefined;
+  caption?: string;
+  cslp?: any;
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  alt: "",
+  provider: "cloudinaryNative",
+  sizes: "sm:100vw",
+  fetchpriority: "normal",
+  loading: "lazy",
+});
+
+const imgUrl = computed(() => {
+  if (props.image) {
+    return props.image[0].public_id as string;
+  }
 });
 </script>
 
 <template>
   <Media
-    v-if="image"
-    :src="image[0].public_id"
+    v-if="imgUrl"
+    :src="imgUrl"
     :width="width"
     :height="height"
     :alt="alt"
