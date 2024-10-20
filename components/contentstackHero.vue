@@ -48,8 +48,8 @@ defineProps({
         provider="cloudinaryNative"
         sizes="sm:100vw"
         :src="image[0].public_id"
-        :width="image[0]?.width"
-        :height="image[0]?.height"
+        :width="1280"
+        :height="550"
       />
     </template>
 
