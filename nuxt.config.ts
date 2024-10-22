@@ -1,3 +1,10 @@
+import { fileURLToPath } from 'url'
+import { dirname, join } from 'path'
+import fs from 'fs'
+
+const currentDir = dirname(fileURLToPath(import.meta.url))
+const pkg = JSON.parse(fs.readFileSync(join(currentDir, 'package.json'), 'utf-8'))
+
 export default defineNuxtConfig({
   compatibilityDate: '2024-09-13',
   devtools: { enabled: false },
@@ -56,8 +63,8 @@ export default defineNuxtConfig({
       environment: process.env.CONTENTSTACK_ENVIRONMENT,
       preview: process.env.CONTENTSTACK_PREVIEW === "true",
       region: process.env.CONTENTSTACK_REGION,
-      previewSdk: process.env.CONTENTSTACK_PREVIEW_SDK,
-      deliverySdk: process.env.CONTENTSTACK_DELIVERY_SDK
+      deliverySdk: pkg.dependencies['@contentstack/delivery-sdk'],
+      previewSdk: pkg.dependencies['@contentstack/live-preview-utils']
     },
   },
 })
