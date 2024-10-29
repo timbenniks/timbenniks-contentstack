@@ -24,6 +24,10 @@ export default defineNuxtConfig({
     "nuxt-jsonld",
   ],
 
+  features: {
+    inlineStyles: true
+  },
+
   fonts: {
     defaults: {
       weights: [400, 700, 900],
