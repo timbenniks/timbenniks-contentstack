@@ -8,7 +8,7 @@ type GetPageProps = {
 };
 
 export const useGetPage = async ({ url, contentTypeUid }: GetPageProps) => {
-  const { data, status, refresh } = await useAsyncData(`page-${url}`, async () => {
+  const { data, status, refresh } = await useAsyncData(`${contentTypeUid}-${url}`, async () => {
     const { $stack } = useNuxtApp();
 
     const result = await $stack.contentType(contentTypeUid || 'page')

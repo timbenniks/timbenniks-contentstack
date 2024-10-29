@@ -1,7 +1,6 @@
 <script setup lang="ts">
 const navigation = await useGetNavigation();
 const { $preview } = useNuxtApp();
-
 const { region, previewSdk, environment } = useNuxtApp().$config.public;
 </script>
 

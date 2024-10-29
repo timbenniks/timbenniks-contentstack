@@ -27,7 +27,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   if (preview) {
     ContentstackLivePreview.init({
       ssr: false,
-      enable: !!preview,
+      enable: preview ? true : false,
       stackSdk: (stack as Stack).config as IStackSdk,
       stackDetails: {
         apiKey: apiKey,

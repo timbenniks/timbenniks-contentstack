@@ -10,6 +10,8 @@ import image from "./components/contentstackMedia.vue"
 import title_block from "./components/contentstackTitleBlock.vue"
 import faq_connector from "./components/contentstackFaq.vue"
 import timeline_connector from "./components/contentstackTimeline.vue"
+import speaker_details from "./components/contentstackSpeakerDetails.vue"
+import speaker_media from "./components/contentstackSpeakerMedia.vue"
 
 type Mapping = {
   [name: string]: Component
@@ -25,7 +27,9 @@ export const mapping: Mapping = {
   image,
   title_block,
   faq_connector,
-  timeline_connector
+  timeline_connector,
+  speaker_details,
+  speaker_media
 };
 
 export function getComponentForName(name: string) {
