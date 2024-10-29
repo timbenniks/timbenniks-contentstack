@@ -2,8 +2,6 @@
 
 ## TODO
 
-- Deploy to CS launch
-- Make preview / prod version
 - All talks
 - Make blogposts work
   - SEO stuff

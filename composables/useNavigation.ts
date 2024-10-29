@@ -2,9 +2,9 @@ import { QueryOperation } from "@contentstack/delivery-sdk";
 import type { Header } from "~/contentstack/generated";
 
 export const useGetNavigation = async () => {
-  const { $stack } = useNuxtApp();
+  const { stack } = useNuxtApp().$contentstack;
 
-  const result = await $stack
+  const result = await stack
     .contentType("header")
     .entry()
     .includeReference("navigation_menu.link_to_page")

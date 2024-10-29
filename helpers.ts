@@ -36,28 +36,6 @@ export function getComponentForName(name: string) {
   return mapping[name] ?? NoComponent
 }
 
-export function replaceCslp(obj: any): any {
-  if (typeof obj !== "object" || obj === null) {
-    return obj;
-  }
-
-  if (Array.isArray(obj)) {
-    return obj.map((item) => replaceCslp(item));
-  }
-
-  const newObj: any = {};
-  for (const key in obj) {
-    if (Object.prototype.hasOwnProperty.call(obj, key)) {
-      if (key === "$") {
-        newObj["cslp"] = replaceCslp(obj[key] as any);
-      } else {
-        newObj[key] = replaceCslp(obj[key] as any);
-      }
-    }
-  }
-  return newObj;
-}
-
 export function mapComponentsToKV(components: any) {
   return components.map((obj: any) => {
     // @ts-ignore
