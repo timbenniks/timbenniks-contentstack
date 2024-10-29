@@ -1,14 +1,9 @@
 <script setup lang="ts">
 const { path } = useRoute();
 
-const { data: page, refresh } = await useGetPage({
+const { data: page } = await useGetPage({
   contentTypeUid: "page",
   url: path,
-});
-
-onMounted(() => {
-  const { $preview, $ContentstackLivePreview } = useNuxtApp();
-  $preview && $ContentstackLivePreview.onEntryChange(refresh);
 });
 
 useSeoMeta({

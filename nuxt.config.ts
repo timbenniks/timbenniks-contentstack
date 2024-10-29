@@ -6,8 +6,8 @@ const currentDir = dirname(fileURLToPath(import.meta.url))
 const pkg = JSON.parse(fs.readFileSync(join(currentDir, 'package.json'), 'utf-8'))
 
 export default defineNuxtConfig({
-  compatibilityDate: '2024-09-13',
-  devtools: { enabled: false },
+  compatibilityDate: '2024-10-29',
+  devtools: { enabled: true },
 
   future: {
     compatibilityVersion: 4,

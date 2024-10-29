@@ -43,19 +43,6 @@ useHead({
   htmlAttrs: {
     lang: "en",
   },
-
-  // script: [
-  //   {
-  //     type: "speculationrules",
-  //     innerHTML: `
-  //       {
-  //         "prerender": [{
-  //           "urls": ["/", "/about", "/videos", "/writing", "/speaking", "/livestreams", "/presskit", "/alive-and-kicking", "/uses"]
-  //         }]
-  //       }
-  //     `,
-  //   },
-  // ],
 });
 
 useSeoMeta({

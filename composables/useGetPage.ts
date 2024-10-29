@@ -1,4 +1,5 @@
 import contentstack, { QueryOperation } from "@contentstack/delivery-sdk";
+import ContentstackLivePreview from "@contentstack/live-preview-utils";
 import type { Page } from "~/contentstack/generated";
 import { replaceCslp } from "~/helpers"
 
@@ -8,8 +9,8 @@ type GetPageProps = {
 };
 
 export const useGetPage = async ({ url, contentTypeUid }: GetPageProps) => {
+  const { $stack, $preview } = useNuxtApp();
   const { data, status, refresh } = await useAsyncData(`${contentTypeUid}-${url}`, async () => {
-    const { $stack } = useNuxtApp();
 
     const result = await $stack.contentType(contentTypeUid || 'page')
       .entry()
@@ -26,13 +27,16 @@ export const useGetPage = async ({ url, contentTypeUid }: GetPageProps) => {
 
     if (result?.entries) {
       contentstack.Utils.addEditableTags(result.entries[0] as any, contentTypeUid || 'page', true);
-      const mappedEntryForVue = replaceCslp(result.entries[0])
-      return mappedEntryForVue;
+      return replaceCslp(result.entries[0])
     }
     else {
       return []
     }
   });
+
+  if ($preview && import.meta.client) {
+    ContentstackLivePreview.onEntryChange(refresh)
+  }
 
   return { data, status, refresh }
 }
