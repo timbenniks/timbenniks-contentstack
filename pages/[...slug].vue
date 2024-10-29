@@ -32,10 +32,24 @@ if (path !== "/") {
   });
 }
 
-const { data: page } = await useGetPage({
-  contentTypeUid: "page",
-  url: path,
-});
+const { data: page } = await useGetEntryByUrl(
+  "page",
+  path,
+  [
+    "components.two_columns.two_column_connection",
+    "components.two_columns.two_column_connection.side_a.faq_connector.reference",
+    "components.two_columns.two_column_connection.side_b.faq_connector.reference",
+    "components.two_columns.two_column_connection.side_a.timeline_connector.reference",
+    "components.two_columns.two_column_connection.side_b.timeline_connector.reference",
+  ],
+  [],
+  "en-us"
+);
+
+// const { data: page } = await useGetPage({
+//   contentTypeUid: "page",
+//   url: path,
+// });
 
 let FAQ = false;
 

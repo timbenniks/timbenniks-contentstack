@@ -1,5 +1,5 @@
 import contentstack, { QueryOperation } from "@contentstack/delivery-sdk";
-import { replaceCslp } from "~/helpers"
+import { replaceCslp } from "~/modules/contentstack/utils"
 
 type GetListItemProps = {
   contentTypeUid: "video" | "talk" | "article";
@@ -9,9 +9,9 @@ type GetListItemProps = {
 
 export const useGetListItems = async ({ contentTypeUid, limit, tag }: GetListItemProps) => {
   const { data, status, refresh } = await useAsyncData(`page-${contentTypeUid}-${limit}-${tag ? tag : ''}`, async () => {
-    const { $stack } = useNuxtApp();
+    const { stack } = useNuxtApp().$contentstack;
 
-    const query = $stack.contentType(contentTypeUid)
+    const query = stack.contentType(contentTypeUid)
       .entry()
       .query()
 
