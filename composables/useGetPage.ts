@@ -9,7 +9,9 @@ type GetPageProps = {
 };
 
 export const useGetPage = async ({ url, contentTypeUid }: GetPageProps) => {
-  const { $stack, $preview } = useNuxtApp();
+  const { $stack } = useNuxtApp();
+  const { preview } = useNuxtApp().$config.public;
+
   const { data, status, refresh } = await useAsyncData(`${contentTypeUid}-${url}`, async () => {
 
     const result = await $stack.contentType(contentTypeUid || 'page')
@@ -34,7 +36,7 @@ export const useGetPage = async ({ url, contentTypeUid }: GetPageProps) => {
     }
   });
 
-  if ($preview && import.meta.client) {
+  if (preview && import.meta.client) {
     ContentstackLivePreview.onEntryChange(refresh)
   }
 

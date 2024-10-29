@@ -14,7 +14,7 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    preset: 'node-server'
+    preset: process.env.NO_SCRIPTS === "true" ? 'static' : 'node-server'
   },
 
   build: {
@@ -29,6 +29,7 @@ export default defineNuxtConfig({
   ],
 
   features: {
+    noScripts: process.env.NO_SCRIPTS === "true" ? true : false,
     inlineStyles: true
   },
 
