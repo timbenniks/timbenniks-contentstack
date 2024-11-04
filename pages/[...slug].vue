@@ -46,11 +46,6 @@ const { data: page } = await useGetEntryByUrl(
   "en-us"
 );
 
-// const { data: page } = await useGetPage({
-//   contentTypeUid: "page",
-//   url: path,
-// });
-
 let FAQ = false;
 
 if (path === "/about") {
@@ -139,6 +134,7 @@ useJsonld({
 
 useSeoMeta({
   googleSiteVerification: "hif_cn9hF2RVSnTq5HwjSkKrXqJT9Q6BR_FaBBmr-20",
+  algoliaSiteVerification: "315ACC06D73AB3EA",
   titleTemplate: "%s - Tim Benniks",
   description: page.value?.seo?.description,
   title: page.value?.title,

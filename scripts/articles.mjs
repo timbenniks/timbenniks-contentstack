@@ -23,7 +23,7 @@ async function getTalks() {
       title: article.title,
       canonical_url: article.canonical_url,
       description: article.description,
-      url: article.url,
+      url: `/writing/${article.url}`,
       image: article.image,
       reading_time: article.reading_time,
       uid: `article_entry_uid_${article.url}`,
@@ -34,6 +34,8 @@ async function getTalks() {
       created_by: "cs6c7ee2bd00ff9f69",
       updated_by: "cs6c7ee2bd00ff9f69",
       content_type_uid: "article",
+      body: article.body,
+      tocs: article.tocs,
       publish_details: [
         {
           environment: "development",

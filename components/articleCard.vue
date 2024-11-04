@@ -2,17 +2,11 @@
 defineProps(["article", "small", "featured", "cslp"]);
 
 function parseImage(imageUrl: string) {
-  const decodedUrl = decodeURIComponent(imageUrl);
-
-  const parsedImage = decodedUrl.split(
-    "https://media.dev.to/cdn-cgi/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/"
-  )[1];
-
-  let url = null;
   let provider = "cloudinaryNative";
+  let url = null;
 
-  if (parsedImage?.includes("cloudinary")) {
-    const id = parsedImage.split(
+  if (imageUrl?.includes("cloudinary")) {
+    const id = imageUrl.split(
       "https://res.cloudinary.com/dwfcofnrd/image/upload/"
     )[1];
 
@@ -20,7 +14,7 @@ function parseImage(imageUrl: string) {
     url = id;
   } else {
     provider = "cloudinaryFetch";
-    url = parsedImage;
+    url = imageUrl;
   }
 
   return {
@@ -33,7 +27,7 @@ function parseImage(imageUrl: string) {
 <template>
   <li :class="featured ? 'mb-12' : 'mb-4'">
     <NuxtLink
-      :to="article._path"
+      :to="article.url"
       class="md:flex"
       :class="small || featured ? 'md:flex-row md:space-x-4' : 'flex-col'"
     >

@@ -3,10 +3,11 @@
 ## TODO
 
 - All talks
-- Make blogposts work
-  - SEO stuff
+  - build dashboard app for this
+- Blogposts
+  - FAQs
+  - feed.xml
+  - sitemap.xml
 - Make videos pages work
-  - SEO stuff
+  - sitemap.xml
 - Add automations for content sync
-- Real sitemap
-- Real feed

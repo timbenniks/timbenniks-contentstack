@@ -8,8 +8,26 @@ export default defineEventHandler(async (event) => {
     feed_url: `https://timbenniks.dev/feed.xml`,
   });
 
-  const docs = [{
+  // const { stack } = useNuxtApp().$contentstack;
 
+  // const { entries } = await stack
+  //   .contentType("article")
+  //   .entry()
+  //   .query()
+
+
+  // const docs = entries.map((entry) => {
+  //   return {
+  //     title: entry.title,
+  //     url: `https://timbenniks.dev/${entry.url}`,
+  //     description: entry.description,
+  //     date: entry.date,
+  //     categories: entry.tags,
+  //     author: "Tim Benniks",
+  //   };
+  // });
+
+  const docs = [{
     title: "title",
     _path: `https://timbenniks.dev/writing/test`,
     description: "title",
