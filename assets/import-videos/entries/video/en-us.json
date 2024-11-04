@@ -1,17 +1,18 @@
 {
-  "video_entry_uid_AUQIE6TOx40": {
-    "date": "2024-07-18T15:59:49Z",
-    "title": "Adding serverside rendering to Astro with Tim Benniks & Bryan Robinson",
-    "description": "Tim and Bryan are taking a static Astro e-commerce shop and converting it to be server-rendered. They're using the newly empowered site to push data from the user to Hygraph via GraphQL Mutations so tune in!\r\n\r\nJoin the slack to become part of our community and ask us any questions: https://slack.hygraph.com",
-    "image": "https://i.ytimg.com/vi/AUQIE6TOx40/maxresdefault.jpg",
-    "videoid": "AUQIE6TOx40",
+  "video_entry_uid_hhPiTREYobI": {
+    "date": "2023-08-12T10:05:11Z",
+    "title": "The story behind Alive and kicking",
+    "description": "After a guitar hiatus of 10 years, I played a gig in front of 1000 people, without a band, all on my own. The browser controlled everything, from the backing tracks to the visualization, to the guitar amp presets. Users could live-vote on which song I played next.\n\nTech used:\n* Vue.js\n* Nuxtjs\n* Pinia\n* Vercel\n* Supabase\n* Webmidi.js\n* Cloudinary\n\nFollow me here:\nWebsite: https://timbenniks.dev\nTwitter: https://twitter.com/timbenniks\nGithub: https://github.com/timbenniks",
+    "image": "https://i.ytimg.com/vi/hhPiTREYobI/maxresdefault.jpg",
+    "videoid": "hhPiTREYobI",
     "tags": [
-      "live-hygraph"
+      "alive-and-kicking"
     ],
-    "uid": "video_entry_uid_AUQIE6TOx40",
+    "subject": "alive-and-kicking",
+    "uid": "video_entry_uid_hhPiTREYobI",
     "locale": "en-us",
-    "created_at": "2024-07-18T15:59:49Z",
-    "updated_at": "2024-07-18T15:59:49Z",
+    "created_at": "2023-08-12T10:05:11Z",
+    "updated_at": "2023-08-12T10:05:11Z",
     "created_by": "cs6c7ee2bd00ff9f69",
     "updated_by": "cs6c7ee2bd00ff9f69",
     "content_type_uid": "video",
@@ -19,26 +20,27 @@
       {
         "environment": "development",
         "locale": "en-us",
-        "time": "2024-07-18T15:59:49Z"
+        "time": "2023-08-12T10:05:11Z"
       }
     ],
     "ACL": {},
     "_version": 1,
     "_in_progress": false
   },
-  "video_entry_uid_NOKIdin2gd8": {
-    "date": "2024-06-27T08:01:43Z",
-    "title": "Exploring the Composable Commerce Accelerator by datrycs",
-    "description": "Are you ready to revolutionise your commerce strategy?\r\n\r\nMarkus Lorenz and Reinhard Joswig will be joining Tim Benniks to dive into the world of Composable Commerce to understand its complexities and advantages!\r\n\r\nWe'll also get an exclusive behind-the-scenes look at the technology driving datrycs' Composable Commerce Accelerator and explore key components, architecture, real-world applications to understand the advantages it offers and who it’s suitable for.\r\n\r\nRSVP here to catch us live and check out the accelerator through the link below. https://www.datrycs.com/accelerators/composable-commerce\r\n\r\nJoin the slack to become part of our community and ask us any questions: https://slack.hygraph.com",
-    "image": "https://i.ytimg.com/vi/NOKIdin2gd8/maxresdefault.jpg",
-    "videoid": "NOKIdin2gd8",
+  "video_entry_uid_mvq-_s20NDk": {
+    "date": "2024-06-15T14:39:24Z",
+    "title": "72 hours in Austin, TX",
+    "description": "The folks at ContentCon asked me if I wanted to be the entertainment and open their annual conference with my Alive & Kicking guitar talk. Austin, Texas was awesome. Thanks for having me!\n\nFollow me here:\nWebsite: https://timbenniks.dev\nTwitter: https://twitter.com/timbenniks\nGithub: https://github.com/timbenniks",
+    "image": "https://i.ytimg.com/vi/mvq-_s20NDk/maxresdefault.jpg",
+    "videoid": "mvq-_s20NDk",
     "tags": [
-      "live-hygraph"
+      "alive-and-kicking"
     ],
-    "uid": "video_entry_uid_NOKIdin2gd8",
+    "subject": "alive-and-kicking",
+    "uid": "video_entry_uid_mvq-_s20NDk",
     "locale": "en-us",
-    "created_at": "2024-06-27T08:01:43Z",
-    "updated_at": "2024-06-27T08:01:43Z",
+    "created_at": "2024-06-15T14:39:24Z",
+    "updated_at": "2024-06-15T14:39:24Z",
     "created_by": "cs6c7ee2bd00ff9f69",
     "updated_by": "cs6c7ee2bd00ff9f69",
     "content_type_uid": "video",
@@ -46,26 +48,27 @@
       {
         "environment": "development",
         "locale": "en-us",
-        "time": "2024-06-27T08:01:43Z"
+        "time": "2024-06-15T14:39:24Z"
       }
     ],
     "ACL": {},
     "_version": 1,
     "_in_progress": false
   },
-  "video_entry_uid_eyDsTeDp-v4": {
-    "date": "2024-05-31T18:29:23Z",
-    "title": "Exploring the latest Svelte stuff while connecting Hygraph CMS w/ Scott Spence",
-    "description": "Svelte is hot right now and we have invited Scott Spence to join Tim Benniks and show us how to use it with Headless CMS!\r\n\r\nTune in on Wednesday, at 4 PM CEST. \r\nJoin our slack community and feel free to ask us any questions: https://slack.hygraph.com",
-    "image": "https://i.ytimg.com/vi/eyDsTeDp-v4/maxresdefault.jpg",
-    "videoid": "eyDsTeDp-v4",
+  "video_entry_uid_M0MrLIGs6I0": {
+    "date": "2023-08-12T10:05:17Z",
+    "title": "Vue.js guitar karaoke: how I built it",
+    "description": "In this video, I explain how I created a Vue.js guitar karaoke system in which the browser controls everything. #vuejs and #nuxtjs deal with backing tracks, visualization, and guitar amp presets with midi. Users live-vote on which song I play next using #supabase.\n\nThe talk is called Alive and Kicking, a Vue into rock & roll. I did this talk in front of 1000 people at @VuejsAmsterdam in February 2023.\n\nThe code is open source: https://github.com/timbenniks/AliveAndKickingTalk\n\n00:00 Introduction\n00:57 Signal chain\n02:50 Webmidi controls the guitar amp\n07:26 Live-voting with Supabase\n11:49 Animated avatars for real-time votes\n14:17 Ending\n\nFollow me here:\nWebsite: https://timbenniks.dev\nTwitter: https://twitter.com/timbenniks\nGithub: https://github.com/timbenniks",
+    "image": "https://i.ytimg.com/vi/M0MrLIGs6I0/maxresdefault.jpg",
+    "videoid": "M0MrLIGs6I0",
     "tags": [
-      "live-hygraph"
+      "alive-and-kicking"
     ],
-    "uid": "video_entry_uid_eyDsTeDp-v4",
+    "subject": "alive-and-kicking",
+    "uid": "video_entry_uid_M0MrLIGs6I0",
     "locale": "en-us",
-    "created_at": "2024-05-31T18:29:23Z",
-    "updated_at": "2024-05-31T18:29:23Z",
+    "created_at": "2023-08-12T10:05:17Z",
+    "updated_at": "2023-08-12T10:05:17Z",
     "created_by": "cs6c7ee2bd00ff9f69",
     "updated_by": "cs6c7ee2bd00ff9f69",
     "content_type_uid": "video",
@@ -73,26 +76,27 @@
       {
         "environment": "development",
         "locale": "en-us",
-        "time": "2024-05-31T18:29:23Z"
+        "time": "2023-08-12T10:05:17Z"
       }
     ],
     "ACL": {},
     "_version": 1,
     "_in_progress": false
   },
-  "video_entry_uid__Iah2t5g02o": {
-    "date": "2024-05-31T18:29:16Z",
-    "title": "How to integrate Cloudinary with headless CMS w/ Colby Fayock",
-    "description": "This Thursday we'll have Colby Fayock from Cloudinary join Tim Benniks for an exclusive livestream to talk about integrating Cloudinary with Hygraph as a headless CMS.\n\nMost people think media on the web is not at all a concern, an image is an image right?\nWell, nope! It's actually incredibly hard to serve images in the right context:\n- Is a user on mobile?\n- How fast is their internet?\n- Do we lazy load?\n- Do we need different image formats for different screen sizes?\n- We do we have art direction for the images?\n- Where do we store the default source and where do we serve the derived images with transformations from?\n- Do we use a CDN?\n- What if an image has to be offline after a certain date due to contracts?\n- What about image quality?\n\nNeed I go on? I can, I have about 10 more problems to throw at you and we haven't even discussed videos yet... \n\nWant to know more? Join ColbyFayock and Tim Benniks on our livestream TODAY where we demo industry leader Cloudinary and how they work together with Hygraph.\r\n\r\nJoin our slack community and feel free to ask us any questions: https://slack.hygraph.com",
-    "image": "https://i.ytimg.com/vi/_Iah2t5g02o/maxresdefault.jpg",
-    "videoid": "_Iah2t5g02o",
+  "video_entry_uid_p3pm_0p8lZ4": {
+    "date": "2024-06-15T14:39:08Z",
+    "title": "Tim Benniks - A Vue into Rock & Roll part 2 - Vuejs Amsterdam 2024",
+    "description": "",
+    "image": "https://i.ytimg.com/vi/p3pm_0p8lZ4/maxresdefault.jpg",
+    "videoid": "p3pm_0p8lZ4",
     "tags": [
-      "live-hygraph"
+      "alive-and-kicking"
     ],
-    "uid": "video_entry_uid__Iah2t5g02o",
+    "subject": "alive-and-kicking",
+    "uid": "video_entry_uid_p3pm_0p8lZ4",
     "locale": "en-us",
-    "created_at": "2024-05-31T18:29:16Z",
-    "updated_at": "2024-05-31T18:29:16Z",
+    "created_at": "2024-06-15T14:39:08Z",
+    "updated_at": "2024-06-15T14:39:08Z",
     "created_by": "cs6c7ee2bd00ff9f69",
     "updated_by": "cs6c7ee2bd00ff9f69",
     "content_type_uid": "video",
@@ -100,26 +104,27 @@
       {
         "environment": "development",
         "locale": "en-us",
-        "time": "2024-05-31T18:29:16Z"
+        "time": "2024-06-15T14:39:08Z"
       }
     ],
     "ACL": {},
     "_version": 1,
     "_in_progress": false
   },
-  "video_entry_uid_fy_w2youSBo": {
-    "date": "2024-05-31T18:29:09Z",
-    "title": "Combining WordPress with Headless CMS",
-    "description": "Want to see the magic of combining WordPress with Hygraph for ultimate power? \r\nWordPress expert Maciek joins Tim on the stream where they explore how to combine forces between WordPress and Hygraph.\r\n\r\nAsk us any questions in the chat or join the community: https://slack.hygraph.com",
-    "image": "https://i.ytimg.com/vi/fy_w2youSBo/maxresdefault.jpg",
-    "videoid": "fy_w2youSBo",
+  "video_entry_uid_-4m4TIJ0z20": {
+    "date": "2023-08-12T10:06:20Z",
+    "title": "Tim Benniks - Alive and Kicking. A Vue into Rock& Roll! - Vuejs Amsterdam 2023",
+    "description": "Rock & roll is alive and kicking and in this talk I will showcase that Vue is so versatile it can be used to do audio visualisations while rock guitar soars through the browser. The audience will have access to a vue application which allows them to vote for a song to be played live on stage. The screen shows all the votes and I play them as they come up. While playing music meta data is shown and an audio visualisation plays while I’m rocking on stage. The more votes a song gets, the higher it shows on the list and the more chance I’ll play it. The whole experience is created using Vue and Uniform. Next to waking the audience up with some spicy rock& roll, I will explain how the software was build and why Vue is such an important technology for composable architectures with multiple channels.\n\nhttps://www.jsworldconference.com/newsletter\n\nPowered by https://passionatepeople.io\n\n#jsworld #jsworldconference #frontendlove #frontenddeveloperlove #javascript #reactjs #angular #react #vuejs #vue #vue3 #typescript #graphql #jamstack #amsterdam #conference #svelte #sveltejs #next #nextjs #staticsite #css #html #nuxt",
+    "image": "https://i.ytimg.com/vi/-4m4TIJ0z20/maxresdefault.jpg",
+    "videoid": "-4m4TIJ0z20",
     "tags": [
-      "live-hygraph"
+      "alive-and-kicking"
     ],
-    "uid": "video_entry_uid_fy_w2youSBo",
+    "subject": "alive-and-kicking",
+    "uid": "video_entry_uid_-4m4TIJ0z20",
     "locale": "en-us",
-    "created_at": "2024-05-31T18:29:09Z",
-    "updated_at": "2024-05-31T18:29:09Z",
+    "created_at": "2023-08-12T10:06:20Z",
+    "updated_at": "2023-08-12T10:06:20Z",
     "created_by": "cs6c7ee2bd00ff9f69",
     "updated_by": "cs6c7ee2bd00ff9f69",
     "content_type_uid": "video",
@@ -127,358 +132,7 @@
       {
         "environment": "development",
         "locale": "en-us",
-        "time": "2024-05-31T18:29:09Z"
-      }
-    ],
-    "ACL": {},
-    "_version": 1,
-    "_in_progress": false
-  },
-  "video_entry_uid_JGx1dYTfLVQ": {
-    "date": "2024-05-31T18:29:03Z",
-    "title": "Exploring localisation & translation with headless CMS",
-    "description": "In this week's livestream Niki and Tim explore localisation & translation with a headless CMS. The dynamic duo is back again!\r\n\r\nAsk us any questions in the chat or join the community: https://slack.hygraph.com",
-    "image": "https://i.ytimg.com/vi/JGx1dYTfLVQ/maxresdefault.jpg",
-    "videoid": "JGx1dYTfLVQ",
-    "tags": [
-      "live-hygraph"
-    ],
-    "uid": "video_entry_uid_JGx1dYTfLVQ",
-    "locale": "en-us",
-    "created_at": "2024-05-31T18:29:03Z",
-    "updated_at": "2024-05-31T18:29:03Z",
-    "created_by": "cs6c7ee2bd00ff9f69",
-    "updated_by": "cs6c7ee2bd00ff9f69",
-    "content_type_uid": "video",
-    "publish_details": [
-      {
-        "environment": "development",
-        "locale": "en-us",
-        "time": "2024-05-31T18:29:03Z"
-      }
-    ],
-    "ACL": {},
-    "_version": 1,
-    "_in_progress": false
-  },
-  "video_entry_uid_OmBPIXxX-3E": {
-    "date": "2024-05-31T18:28:55Z",
-    "title": "Customizing Hygraph data with external services",
-    "description": "For this livestream follow Tim and Niki to learn how to customize data with Hygraph and third party services!\n\n\rAsk us any questions in the chat and join the community: https://slack.hygraph.com",
-    "image": "https://i.ytimg.com/vi/OmBPIXxX-3E/maxresdefault.jpg",
-    "videoid": "OmBPIXxX-3E",
-    "tags": [
-      "live-hygraph"
-    ],
-    "uid": "video_entry_uid_OmBPIXxX-3E",
-    "locale": "en-us",
-    "created_at": "2024-05-31T18:28:55Z",
-    "updated_at": "2024-05-31T18:28:55Z",
-    "created_by": "cs6c7ee2bd00ff9f69",
-    "updated_by": "cs6c7ee2bd00ff9f69",
-    "content_type_uid": "video",
-    "publish_details": [
-      {
-        "environment": "development",
-        "locale": "en-us",
-        "time": "2024-05-31T18:28:55Z"
-      }
-    ],
-    "ACL": {},
-    "_version": 1,
-    "_in_progress": false
-  },
-  "video_entry_uid_Ht-scjKem9Q": {
-    "date": "2024-05-31T18:28:50Z",
-    "title": "Exploring the Hygraph Asset Manager",
-    "description": "In this stream, Fabian and Tim explore the features of the all-new asset manager in Hygraph. Upload via API, transform assets via GraphQL, and more!\n\r\n\rAsk us any questions in the chat and join the community: https://slack.hygraph.com",
-    "image": "https://i.ytimg.com/vi/Ht-scjKem9Q/maxresdefault.jpg",
-    "videoid": "Ht-scjKem9Q",
-    "tags": [
-      "live-hygraph"
-    ],
-    "uid": "video_entry_uid_Ht-scjKem9Q",
-    "locale": "en-us",
-    "created_at": "2024-05-31T18:28:50Z",
-    "updated_at": "2024-05-31T18:28:50Z",
-    "created_by": "cs6c7ee2bd00ff9f69",
-    "updated_by": "cs6c7ee2bd00ff9f69",
-    "content_type_uid": "video",
-    "publish_details": [
-      {
-        "environment": "development",
-        "locale": "en-us",
-        "time": "2024-05-31T18:28:50Z"
-      }
-    ],
-    "ACL": {},
-    "_version": 1,
-    "_in_progress": false
-  },
-  "video_entry_uid_qeGf6RERiFw": {
-    "date": "2024-05-31T18:29:56Z",
-    "title": "Hygraph Studio Launch - Workshop: Hygraph Asset Management",
-    "description": "Developer Relations Lead Tim Benniks will walk you through the most important elements of the new and improved Hygraph Asset Management, which has been revamped for improved performance and reliability. Of course, he won’t stop there; join him for a hands-on code-along!\nLinkedIn: https://www.linkedin.com/in/timbenniks/ \nTwitter: https://twitter.com/timbenniks \n\nCode along!\nNuxt: https://github.com/hygraph/hygraph-stock-library-starter-nuxt \nNext: https://github.com/hygraph/hygraph-stock-library-starter-next \nHygraph project: https://app.hygraph.com/clone/6b3636b3c7914fe5904fd41e364bc1cf?name=Asset%20Management%20Workshop \nDemo URL: https://hygraph-stock-library-starter-nuxt.vercel.app \n\nJoin our Hygraph Community slack channel and give your feedback here: https://bit.ly/hygraph-studio-feedback \n#HygraphStudio",
-    "image": "https://i.ytimg.com/vi/qeGf6RERiFw/maxresdefault.jpg",
-    "videoid": "qeGf6RERiFw",
-    "tags": [
-      "live-hygraph"
-    ],
-    "uid": "video_entry_uid_qeGf6RERiFw",
-    "locale": "en-us",
-    "created_at": "2024-05-31T18:29:56Z",
-    "updated_at": "2024-05-31T18:29:56Z",
-    "created_by": "cs6c7ee2bd00ff9f69",
-    "updated_by": "cs6c7ee2bd00ff9f69",
-    "content_type_uid": "video",
-    "publish_details": [
-      {
-        "environment": "development",
-        "locale": "en-us",
-        "time": "2024-05-31T18:29:56Z"
-      }
-    ],
-    "ACL": {},
-    "_version": 1,
-    "_in_progress": false
-  },
-  "video_entry_uid_Etie3ZYgonE": {
-    "date": "2024-05-31T18:29:49Z",
-    "title": "Hygraph Studio Launch - DevX: Performance Gains",
-    "description": "In this session, our Product Managers Alexey Orlovskiy and  Fabian Beliza walk you through new features and improvements around developer experience and performance. You will learn about Hygraph Studio, Hygraph Asset Management, and some under-the-hood improvements to Content and Management API. Then our Sr. Technical Writer, Romina Soledad Soto, will talk about our approach to documentation and where you can find all information related to Hygraph Studio Docs. \nhttps://www.linkedin.com/in/aorlovskiy/ \nhttps://www.linkedin.com/in/fabianbeliza/\nhttps://www.linkedin.com/in/romina-soto-098b4139/\n\nAsset Docs: https://hygraph.com/docs/api-reference/assets/assets-overview \nBlog post about new Asset System: https://hygraph.com/blog/new-digital-asset-management-system \nCaching Docs: https://hygraph.com/docs/api-reference/basics/caching \nStudio Docs: https://studio-docs.hygraph.com/ \n\nJoin our Hygraph Community slack channel and give your feedback here: https://bit.ly/hygraph-studio-feedback \n#HygraphStudio",
-    "image": "https://i.ytimg.com/vi/Etie3ZYgonE/maxresdefault.jpg",
-    "videoid": "Etie3ZYgonE",
-    "tags": [
-      "live-hygraph"
-    ],
-    "uid": "video_entry_uid_Etie3ZYgonE",
-    "locale": "en-us",
-    "created_at": "2024-05-31T18:29:49Z",
-    "updated_at": "2024-05-31T18:29:49Z",
-    "created_by": "cs6c7ee2bd00ff9f69",
-    "updated_by": "cs6c7ee2bd00ff9f69",
-    "content_type_uid": "video",
-    "publish_details": [
-      {
-        "environment": "development",
-        "locale": "en-us",
-        "time": "2024-05-31T18:29:49Z"
-      }
-    ],
-    "ACL": {},
-    "_version": 1,
-    "_in_progress": false
-  },
-  "video_entry_uid_PhCXH2M7OzM": {
-    "date": "2024-05-31T18:28:43Z",
-    "title": "How to build a live-voting experience with Hygraph, Nuxt and Supabase",
-    "description": "Tim did a conference talk last week where he created a guitar karaoke experience in which the audience could live-vote what 4-song mashup he'd play. In this live stream we deep dive into how this was built with Supabase, Hygraph and Nuxt.\n\nAsk us any questions in the chat and join the community: https://slack.hygraph.com",
-    "image": "https://i.ytimg.com/vi/PhCXH2M7OzM/maxresdefault.jpg",
-    "videoid": "PhCXH2M7OzM",
-    "tags": [
-      "live-hygraph"
-    ],
-    "uid": "video_entry_uid_PhCXH2M7OzM",
-    "locale": "en-us",
-    "created_at": "2024-05-31T18:28:43Z",
-    "updated_at": "2024-05-31T18:28:43Z",
-    "created_by": "cs6c7ee2bd00ff9f69",
-    "updated_by": "cs6c7ee2bd00ff9f69",
-    "content_type_uid": "video",
-    "publish_details": [
-      {
-        "environment": "development",
-        "locale": "en-us",
-        "time": "2024-05-31T18:28:43Z"
-      }
-    ],
-    "ACL": {},
-    "_version": 1,
-    "_in_progress": false
-  },
-  "video_entry_uid_PzC527rZ7Es": {
-    "date": "2024-05-31T18:28:39Z",
-    "title": "Building Content Models for Devs and Editors w/ Lo & Bryan",
-    "description": "For this week's livestream we'll have Lo and Bryan build content models for devs & editors. We'll take a look at web.dev from Google and discuss how we'd structure content models for that design and the real-world ramifications.\n\nAsk us any questions in the chat and join the community: https://slack.hygraph.com",
-    "image": "https://i.ytimg.com/vi/PzC527rZ7Es/maxresdefault.jpg",
-    "videoid": "PzC527rZ7Es",
-    "tags": [
-      "live-hygraph"
-    ],
-    "uid": "video_entry_uid_PzC527rZ7Es",
-    "locale": "en-us",
-    "created_at": "2024-05-31T18:28:39Z",
-    "updated_at": "2024-05-31T18:28:39Z",
-    "created_by": "cs6c7ee2bd00ff9f69",
-    "updated_by": "cs6c7ee2bd00ff9f69",
-    "content_type_uid": "video",
-    "publish_details": [
-      {
-        "environment": "development",
-        "locale": "en-us",
-        "time": "2024-05-31T18:28:39Z"
-      }
-    ],
-    "ACL": {},
-    "_version": 1,
-    "_in_progress": false
-  },
-  "video_entry_uid_t00uXBjsDUM": {
-    "date": "2024-05-31T18:28:31Z",
-    "title": "Bryan teaches Tim Next.js with GraphQL and Hygraph",
-    "description": "See Tim learn on the spot as Bryan teaches him Next.js 14 app directory with GraphQL and \"load more\" functionality with Hygraph.\n\nAsk us any questions in the chat and join the community: https://slack.hygraph.com",
-    "image": "https://i.ytimg.com/vi/t00uXBjsDUM/maxresdefault.jpg",
-    "videoid": "t00uXBjsDUM",
-    "tags": [
-      "live-hygraph"
-    ],
-    "uid": "video_entry_uid_t00uXBjsDUM",
-    "locale": "en-us",
-    "created_at": "2024-05-31T18:28:31Z",
-    "updated_at": "2024-05-31T18:28:31Z",
-    "created_by": "cs6c7ee2bd00ff9f69",
-    "updated_by": "cs6c7ee2bd00ff9f69",
-    "content_type_uid": "video",
-    "publish_details": [
-      {
-        "environment": "development",
-        "locale": "en-us",
-        "time": "2024-05-31T18:28:31Z"
-      }
-    ],
-    "ACL": {},
-    "_version": 1,
-    "_in_progress": false
-  },
-  "video_entry_uid_O_dVLRWPeBk": {
-    "date": "2024-05-31T18:28:26Z",
-    "title": "Pagination with Astro and Hygraph",
-    "description": "Want to learn more about pagination in Astro and Hygraph? Join Bryan and Tim on their mission to asynchronously load more content via pagination or a load more button. Astro rocks!\n\nAsk us any questions in the chat and join the community: https://slack.hygraph.com",
-    "image": "https://i.ytimg.com/vi/O_dVLRWPeBk/maxresdefault.jpg",
-    "videoid": "O_dVLRWPeBk",
-    "tags": [
-      "live-hygraph"
-    ],
-    "uid": "video_entry_uid_O_dVLRWPeBk",
-    "locale": "en-us",
-    "created_at": "2024-05-31T18:28:26Z",
-    "updated_at": "2024-05-31T18:28:26Z",
-    "created_by": "cs6c7ee2bd00ff9f69",
-    "updated_by": "cs6c7ee2bd00ff9f69",
-    "content_type_uid": "video",
-    "publish_details": [
-      {
-        "environment": "development",
-        "locale": "en-us",
-        "time": "2024-05-31T18:28:26Z"
-      }
-    ],
-    "ACL": {},
-    "_version": 1,
-    "_in_progress": false
-  },
-  "video_entry_uid_VRrZgly1n5c": {
-    "date": "2024-05-31T18:28:21Z",
-    "title": "How to use Rich Text in a Headless CMS",
-    "description": "Join Bryan and Tim from Hygraph as they explore how to use a Rich Text editor in a Headless CMS. Learn about features and ways of implementing them in your front-end!\n\r\n\rAsk us any questions in the chat and join the community: https://slack.hygraph.com",
-    "image": "https://i.ytimg.com/vi/VRrZgly1n5c/maxresdefault.jpg",
-    "videoid": "VRrZgly1n5c",
-    "tags": [
-      "live-hygraph"
-    ],
-    "uid": "video_entry_uid_VRrZgly1n5c",
-    "locale": "en-us",
-    "created_at": "2024-05-31T18:28:21Z",
-    "updated_at": "2024-05-31T18:28:21Z",
-    "created_by": "cs6c7ee2bd00ff9f69",
-    "updated_by": "cs6c7ee2bd00ff9f69",
-    "content_type_uid": "video",
-    "publish_details": [
-      {
-        "environment": "development",
-        "locale": "en-us",
-        "time": "2024-05-31T18:28:21Z"
-      }
-    ],
-    "ACL": {},
-    "_version": 1,
-    "_in_progress": false
-  },
-  "video_entry_uid_M5XaMvlqh1g": {
-    "date": "2024-05-31T18:28:16Z",
-    "title": "Add multi-tenancy to a Headless CMS",
-    "description": "Hygraph's Lo Etheridge and Tim Benniks deep-dive into setting up multi-tenancy inside Hygraph using the SKNCRE starter. Can two brands live in one project? Yes! Find out on the stream.\n\nAsk us any questions in the chat and join the community: https://slack.hygraph.com",
-    "image": "https://i.ytimg.com/vi/M5XaMvlqh1g/maxresdefault.jpg",
-    "videoid": "M5XaMvlqh1g",
-    "tags": [
-      "live-hygraph"
-    ],
-    "uid": "video_entry_uid_M5XaMvlqh1g",
-    "locale": "en-us",
-    "created_at": "2024-05-31T18:28:16Z",
-    "updated_at": "2024-05-31T18:28:16Z",
-    "created_by": "cs6c7ee2bd00ff9f69",
-    "updated_by": "cs6c7ee2bd00ff9f69",
-    "content_type_uid": "video",
-    "publish_details": [
-      {
-        "environment": "development",
-        "locale": "en-us",
-        "time": "2024-05-31T18:28:16Z"
-      }
-    ],
-    "ACL": {},
-    "_version": 1,
-    "_in_progress": false
-  },
-  "video_entry_uid_JC09S5zmW_k": {
-    "date": "2024-05-31T18:28:10Z",
-    "title": "Programmatically import data into the Hygraph Headless CMS",
-    "description": "Niki and Tim explore how to import data that lives in external systems into Hygraph. Join us for a chill vibe where we explore SDK's and chat data.\n\nAsk us any questions in the chat and join the community: https://slack.hygraph.com\n#headlesscms #javascript #jamstack",
-    "image": "https://i.ytimg.com/vi/JC09S5zmW_k/maxresdefault.jpg",
-    "videoid": "JC09S5zmW_k",
-    "tags": [
-      "live-hygraph"
-    ],
-    "uid": "video_entry_uid_JC09S5zmW_k",
-    "locale": "en-us",
-    "created_at": "2024-05-31T18:28:10Z",
-    "updated_at": "2024-05-31T18:28:10Z",
-    "created_by": "cs6c7ee2bd00ff9f69",
-    "updated_by": "cs6c7ee2bd00ff9f69",
-    "content_type_uid": "video",
-    "publish_details": [
-      {
-        "environment": "development",
-        "locale": "en-us",
-        "time": "2024-05-31T18:28:10Z"
-      }
-    ],
-    "ACL": {},
-    "_version": 1,
-    "_in_progress": false
-  },
-  "video_entry_uid_AieTLJMxmxM": {
-    "date": "2024-05-31T18:28:02Z",
-    "title": "Building an e-commerce site with Hygraph and Astro",
-    "description": "We have invited Elian from the Astro core team to join Tim on a chill stream in which they convert the skncre Nuxt starter for Hygraph to Astro. Along the way you will learn the core concepts of Astro and Hygraph, all while diving deep into the code.\n\nAsk us any questions in the chat and join the community: https://slack.hygraph.com",
-    "image": "https://i.ytimg.com/vi/AieTLJMxmxM/maxresdefault.jpg",
-    "videoid": "AieTLJMxmxM",
-    "tags": [
-      "live-hygraph"
-    ],
-    "uid": "video_entry_uid_AieTLJMxmxM",
-    "locale": "en-us",
-    "created_at": "2024-05-31T18:28:02Z",
-    "updated_at": "2024-05-31T18:28:02Z",
-    "created_by": "cs6c7ee2bd00ff9f69",
-    "updated_by": "cs6c7ee2bd00ff9f69",
-    "content_type_uid": "video",
-    "publish_details": [
-      {
-        "environment": "development",
-        "locale": "en-us",
-        "time": "2024-05-31T18:28:02Z"
+        "time": "2023-08-12T10:06:20Z"
       }
     ],
     "ACL": {},

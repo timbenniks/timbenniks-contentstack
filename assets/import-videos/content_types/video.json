@@ -48,6 +48,15 @@
       "unique": false,
       "multiple": false,
       "non_localizable": false
+    },
+    {
+      "display_name": "Subject",
+      "uid": "subject",
+      "data_type": "select",
+      "mandatory": false,
+      "unique": false,
+      "multiple": false,
+      "non_localizable": false
     }
   ],
   "description": "",

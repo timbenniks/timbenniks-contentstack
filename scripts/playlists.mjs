@@ -46,6 +46,7 @@ async function getPlaylist(playlist_id, folder) {
       image: video.snippet.thumbnails?.maxres?.url,
       videoid: video.snippet.resourceId.videoId,
       tags: [folder],
+      subject: folder,
       uid: `video_entry_uid_${video.snippet.resourceId.videoId}`,
       locale: "en-us",
       created_at: video.snippet.publishedAt,
@@ -85,12 +86,12 @@ async function executePlaylistFetches() {
   try {
     // await getPlaylist("PLordIU6tK3nVRzSDaRITfSwBwy7N4JzBf", "headless-creator");
     // await getPlaylist("UULFbQu3ix36SHZjcD57BK7KUQ", "tim");
-    // await getPlaylist("UULFtNZi1LgSHY1dzSUazplEPg", "mp");
+    await getPlaylist("UULFtNZi1LgSHY1dzSUazplEPg", "mp");
     // await getPlaylist("PLcoeeDyxakhXjJQe4r2b9JRXKUmbW4XOU", "uniform");
     // await getPlaylist("PLcoeeDyxakhWEB0yoQXy6OYbl9LbAo4J2", "hygraph");
     // await getPlaylist("PLcoeeDyxakhWMU9JIKXAQIfwoPwM-TZ93", "live-uniform");
     // await getPlaylist("PLcoeeDyxakhVM-xWfqWZ6TFpqC1Aw5__N", "misc-streams");
-    await getPlaylist("PLcoeeDyxakhWoTjzmqTJXvBcov71Am8QG", "live-hygraph");
+    // await getPlaylist("PLcoeeDyxakhWoTjzmqTJXvBcov71Am8QG", "live-hygraph");
     // await getPlaylist(
     //   "PLcoeeDyxakhUdkUvZm8qld1YuInOKOLqT",
     //   "alive-and-kicking"

@@ -76,7 +76,7 @@ export default defineNuxtConfig({
   },
 
   contentstack: {
-    debug: true,
+    debug: false,
     deliverySdkOptions: {
       apiKey: process.env.CONTENTSTACK_API_KEY,
       deliveryToken: process.env.CONTENTSTACK_DELIVERY_TOKEN,
