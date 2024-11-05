@@ -35,12 +35,12 @@
   }
 
   .title {
-    @apply font-title text-3xl md:text-3xl text-white uppercase font-black py-2 px-3;
+    @apply font-title text-3xl md:text-3xl text-white font-black py-2 px-3;
     background: linear-gradient(89.87deg, #256ad1 7.57%, #d1258c 95.58%);
   }
 
   .tag {
-    @apply text-white uppercase font-black text-xs py-1 px-2 rounded-sm;
+    @apply text-white font-black text-xs py-1 px-2 rounded-sm;
     background: linear-gradient(89.87deg, #256ad1 7.57%, #d1258c 95.58%);
   }
 
@@ -53,7 +53,7 @@
   }
 
   .text-fancy-bg {
-    @apply font-title text-white uppercase font-black py-2 px-3;
+    @apply font-title text-white font-black py-2 px-3;
     background: linear-gradient(89.87deg, #256ad1 7.57%, #d1258c 95.58%);
   }
 
@@ -64,7 +64,7 @@
       #256ad1 7.57%,
       #d1258c 95.58%
     );
-    @apply bg-black text-sm border-2 px-[.9rem] py-2 uppercase font-black text-white text-center underline;
+    @apply bg-black text-sm border-2 px-[.9rem] py-2 font-black text-white text-center underline;
   }
 
   header {

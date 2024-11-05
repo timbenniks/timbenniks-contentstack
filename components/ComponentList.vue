@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { getComponentForName, mapComponentsToKV } from "~/helpers";
+import { VB_EmptyBlockParentClass } from "@contentstack/live-preview-utils";
 
 const props = defineProps({
   page: {
@@ -14,7 +15,12 @@ const components = computed(() => {
 </script>
 
 <template>
-  <section class="mb-12" v-if="page && page?.components">
+  <section
+    class="mb-12"
+    v-if="page && page?.components"
+    v-bind="page.cslp.components"
+    :class="page?.components.length === 0 ? VB_EmptyBlockParentClass : ''"
+  >
     <component
       v-for="component in components"
       :is="getComponentForName(component?.name)"
