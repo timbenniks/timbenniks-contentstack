@@ -20,7 +20,7 @@ export default defineEventHandler(async (event) => {
 
   Personalize.setEdgeApiUrl(`https://${host}`)
   // Initialize Personalize with converted Request
-  await Personalize.init(projectUid, { request });
+  projectUid && await Personalize.init(projectUid, { request });
 
   // figure out variants
   const variantParam = Personalize.getVariantParam();
@@ -43,18 +43,30 @@ export default defineEventHandler(async (event) => {
   // Loop over the cookies array and parse them
   cookies.forEach(cookie => {
     const [nameValue, ...options] = cookie.split('; ')
-    const [name, value] = nameValue.split('=')
 
-    const cookieOptions: Record<string, string | number> = {}
-    options.forEach(option => {
-      const [key, val] = option.split('=')
-      cookieOptions[key.toLowerCase()] = key === 'Max-Age' ? parseInt(val) : val
-    })
+    if (nameValue) {
+      const [name, value] = nameValue.split('=')
 
-    // do not encodeURIComponent the cookie
-    cookieOptions.encode = ((v: string | number) => v) as unknown as string | number;
+      if (!name || !value) {
+        return false
+      }
 
-    // add the extracted cookies to the real Response in Nuxt
-    setCookie(event, name, value, cookieOptions)
+      const cookieOptions: Record<string, string | number | undefined> = {}
+      options.forEach(option => {
+        const [key, val] = option.split('=')
+
+        if (!key || !val) {
+          return false
+        }
+
+        cookieOptions[key.toLowerCase()] = key === 'Max-Age' ? parseInt(val) : val
+      })
+
+      // do not encodeURIComponent the cookie
+      cookieOptions.encode = ((v: string | number) => v) as unknown as string | number;
+
+      // add the extracted cookies to the real Response in Nuxt
+      setCookie(event, name, value, cookieOptions)
+    }
   })
 });

@@ -18,9 +18,10 @@ const components = computed(() => {
     <component
       v-for="component in components"
       :is="getComponentForName(component?.name)"
-      :key="(component?.props._metadata.uid as string)"
+      :key="(component?.props?._metadata.uid as string)"
       v-bind="component.props"
       :name="component?.name"
+      :data-cslp="component.cslp['data-cslp']"
     />
   </section>
 </template>

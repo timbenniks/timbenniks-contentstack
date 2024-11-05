@@ -1,5 +1,5 @@
 import contentstack from '@contentstack/delivery-sdk'
-import { ContentstackLivePreview, type IStackSdk } from '@contentstack/live-preview-utils'
+import ContentstackLivePreview, { type IStackSdk } from '@contentstack/live-preview-utils'
 import type { Plugin } from 'nuxt/app'
 import Personalize from '@contentstack/personalize-edge-sdk'
 import type { LivePreviewSdkOptions, DeliverySdkOptions, PersonalizeSdkOptions } from '../utils'
@@ -18,7 +18,7 @@ const contentstackPlugin: Plugin = (_nuxtApp) => {
   const { editableTags } = livePreviewSdkOptions
   const { enable: personalizationEnabled, host: personalizationHost, projectUid: personalizationProjectUid } = personalizeSdkOptions
 
-  if (livePreviewEnabled) {
+  if (livePreviewEnabled && import.meta.client) {
     ContentstackLivePreview.init({
       ...livePreviewSdkOptions,
       stackSdk: stack.config as IStackSdk,
@@ -31,7 +31,7 @@ const contentstackPlugin: Plugin = (_nuxtApp) => {
 
   const variantAlias = useState('variantAlias', () => '')
 
-  if (personalizationEnabled) {
+  if (personalizationEnabled && personalizationProjectUid) {
     Personalize.setEdgeApiUrl(`https://${personalizationHost}`)
     Personalize.init(personalizationProjectUid)
 
