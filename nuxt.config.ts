@@ -8,7 +8,7 @@ const pkg = JSON.parse(fs.readFileSync(join(currentDir, 'package.json'), 'utf-8'
 
 export default defineNuxtConfig({
   compatibilityDate: '2024-10-29',
-  devtools: { enabled: true },
+  devtools: { enabled: false },
 
   future: {
     compatibilityVersion: 4,

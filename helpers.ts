@@ -36,40 +36,6 @@ export function getComponentForName(name: string) {
   return mapping[name] ?? NoComponent
 }
 
-// interface ComponentEntry {
-//   [key: string]: {
-//     [key: string]: any;
-//   };
-// }
-
-// export function mapComponentsToKV(components: ComponentEntry[]) {
-//   return components.map((obj: any) => {
-
-//     const entries = Object.entries(obj);
-//     const componentNameAndProps = entries && entries[0]
-//     const componentCslp = entries && entries[1]
-
-//     let name = ""
-//     let props = null
-//     let cslp = null
-
-//     if (componentNameAndProps && componentNameAndProps[0]) {
-//       name = componentNameAndProps[0]
-//     }
-
-//     if (componentNameAndProps && componentNameAndProps[1]) {
-//       props = componentNameAndProps[1]
-//     }
-
-//     if (componentCslp && name !== '') {
-//       const cslpObj = componentCslp[1] as { [key: string]: any };
-//       cslp = cslpObj[name];
-//     }
-
-//     return { name, props, cslp };
-//   });
-// }
-
 interface ComponentEntry {
   [key: string]: {
     [key: string]: any;
@@ -77,23 +43,21 @@ interface ComponentEntry {
 }
 
 export function mapComponentsToKV(components: ComponentEntry[]) {
-  return components.map((obj) => {
+  return components.map((obj: any) => {
     const entries = Object.entries(obj);
-    let name = '';
-    let props = null;
-    let cslp = null;
+    const componentNameAndProps = entries && entries[0]
 
-    if (entries.length > 0) {
-      const [firstEntry, secondEntry] = entries;
-      if (firstEntry) {
-        [name, props] = firstEntry;
-      }
-      if (secondEntry && name) {
-        const [, cslpObj] = secondEntry;
-        cslp = (cslpObj as { [key: string]: any })?.[name] ?? null;
-      }
+    let name = ""
+    let props = null
+
+    if (componentNameAndProps && componentNameAndProps[0]) {
+      name = componentNameAndProps[0]
     }
 
-    return { name, props, cslp };
+    if (componentNameAndProps && componentNameAndProps[1]) {
+      props = componentNameAndProps[1]
+    }
+
+    return { name, props };
   });
 }

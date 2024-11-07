@@ -3,14 +3,18 @@ import ContentstackLivePreview from '@contentstack/live-preview-utils'
 import type { EmbeddedItem } from '@contentstack/utils/dist/types/Models/embedded-object'
 import type { LivePreviewQuery } from '@contentstack/delivery-sdk'
 import { toRaw } from 'vue'
-import { useRuntimeConfig, useAsyncData, useNuxtApp, useRoute, type AsyncData } from '#app'
+import { useAsyncData, useNuxtApp, useRoute, type AsyncData } from '#app'
 import { replaceCslp } from '../../utils'
 
 export const useGetEntryByUrl = async <T>(contentTypeUid: string, url: string, referenceFieldPath?: string[], jsonRtePath?: string[], locale: string = 'en-us'): Promise<AsyncData<T | null, Error>> => {
+  //@ts-ignore
   const { editableTags, stack, livePreviewEnabled, variantAlias } = useNuxtApp().$contentstack
-  const { contentstack: opts } = useRuntimeConfig().public
-  const route = useRoute()
-  const qs = toRaw(route.query)
+
+  if (livePreviewEnabled) {
+    const route = useRoute()
+    const qs = toRaw(route.query)
+    stack.livePreviewQuery(qs as unknown as LivePreviewQuery)
+  }
 
   const { data, status, refresh } = await useAsyncData(`${contentTypeUid}-${url}-${locale}`, async () => {
     let result: { entries: T[] } | null = null
@@ -53,7 +57,6 @@ export const useGetEntryByUrl = async <T>(contentTypeUid: string, url: string, r
       }
 
       const cleanedData = replaceCslp(data)
-
       return cleanedData
     }
   })
@@ -62,11 +65,7 @@ export const useGetEntryByUrl = async <T>(contentTypeUid: string, url: string, r
     if (import.meta.client) {
       ContentstackLivePreview.onEntryChange(refresh)
     }
-
-    if (opts.livePreviewSdkOptions.ssr) {
-      stack.livePreviewQuery(qs as unknown as LivePreviewQuery)
-    }
   }
-
+  //@ts-ignore
   return { data, status, refresh }
 }

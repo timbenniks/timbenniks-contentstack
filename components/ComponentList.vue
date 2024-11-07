@@ -22,12 +22,12 @@ const components = computed(() => {
     :class="page?.components.length === 0 ? VB_EmptyBlockParentClass : ''"
   >
     <component
-      v-for="component in components"
+      v-for="(component, index) in components"
       :is="getComponentForName(component?.name)"
       :key="(component?.props?._metadata.uid as string)"
       v-bind="component.props"
       :name="component?.name"
-      :data-cslp="component.cslp['data-cslp']"
+      :data-cslp="page.cslp[`components__${index}`]['data-cslp']"
     />
   </section>
 </template>
