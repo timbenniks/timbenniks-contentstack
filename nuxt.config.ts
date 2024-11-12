@@ -18,16 +18,12 @@ export default defineNuxtConfig({
     preset: process.env.NO_SCRIPTS === "true" ? 'static' : 'node-server'
   },
 
-  build: {
-    transpile: process.env.NODE_ENV === 'production' ? ['tslib', '@contentstack/delivery-sdk'] : [],
-  },
-
   modules: [
     "@nuxt/image",
     "@nuxtjs/tailwindcss",
     "@nuxt/fonts",
     "nuxt-jsonld",
-    './modules/contentstack',
+    './modules/contentstack/module',
   ],
 
   features: {
@@ -78,10 +74,10 @@ export default defineNuxtConfig({
   contentstack: {
     debug: false,
     deliverySdkOptions: {
-      apiKey: process.env.CONTENTSTACK_API_KEY,
-      deliveryToken: process.env.CONTENTSTACK_DELIVERY_TOKEN,
+      apiKey: process.env.CONTENTSTACK_API_KEY as string,
+      deliveryToken: process.env.CONTENTSTACK_DELIVERY_TOKEN as string,
       region: process.env.CONTENTSTACK_REGION === 'EU' ? Region.EU : Region.US,
-      environment: process.env.CONTENTSTACK_ENVIRONMENT,
+      environment: process.env.CONTENTSTACK_ENVIRONMENT as string,
       live_preview: {
         preview_token: process.env.CONTENTSTACK_PREVIEW_TOKEN,
         enable: process.env.CONTENTSTACK_PREVIEW === "true",
