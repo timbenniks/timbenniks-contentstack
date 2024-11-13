@@ -261,71 +261,72 @@ export interface TwoColumnComponent {
   /** Side a */
   side_a?: (
     | {
-        richtext: Richtext;
-        articles: undefined;
-        talks: undefined;
-        videos: undefined;
-        image: undefined;
-      }
+      richtext: Richtext;
+      articles: undefined;
+      talks: undefined;
+      videos: undefined;
+      image: undefined;
+    }
     | {
-        articles: Articles;
-        richtext: undefined;
-        talks: undefined;
-        videos: undefined;
-        image: undefined;
-      }
+      articles: Articles;
+      richtext: undefined;
+      talks: undefined;
+      videos: undefined;
+      image: undefined;
+    }
     | {
-        talks: Talks;
-        richtext: undefined;
-        articles: undefined;
-        videos: undefined;
-        image: undefined;
-      }
+      talks: Talks;
+      richtext: undefined;
+      articles: undefined;
+      videos: undefined;
+      image: undefined;
+    }
     | {
-        videos: Videos;
-        richtext: undefined;
-        articles: undefined;
-        talks: undefined;
-        image: undefined;
-      }
+      videos: Videos;
+      richtext: undefined;
+      articles: undefined;
+      talks: undefined;
+      image: undefined;
+    }
     | {
-        image: Image;
-        richtext: undefined;
-        articles: undefined;
-        talks: undefined;
-        videos: undefined;
-      }
+      image: Image;
+      richtext: undefined;
+      articles: undefined;
+      talks: undefined;
+      videos: undefined;
+    }
   )[];
   /** Side b */
   side_b?: (
     | {
-        richtext: Richtext;
-        articles: undefined;
-        talks: undefined;
-        videos: undefined;
-      }
+      richtext: Richtext;
+      articles: undefined;
+      talks: undefined;
+      videos: undefined;
+    }
     | {
-        articles: Articles;
-        richtext: undefined;
-        talks: undefined;
-        videos: undefined;
-      }
+      articles: Articles;
+      richtext: undefined;
+      talks: undefined;
+      videos: undefined;
+    }
     | {
-        talks: Talks;
-        richtext: undefined;
-        articles: undefined;
-        videos: undefined;
-      }
+      talks: Talks;
+      richtext: undefined;
+      articles: undefined;
+      videos: undefined;
+    }
     | {
-        videos: Videos;
-        richtext: undefined;
-        articles: undefined;
-        talks: undefined;
-      }
+      videos: Videos;
+      richtext: undefined;
+      articles: undefined;
+      talks: undefined;
+    }
   )[];
 }
 
 export interface Article {
+  uid: string
   /** Version */
   _version?: 16;
   /** Title */
@@ -344,6 +345,14 @@ export interface Article {
   reading_time?: string;
   /** Body */
   body?: string;
+  tags: string[]
+  cslp: any
+  tocs: [{
+    toc: {
+      html_id: string
+      text: string
+    }
+  }]
 }
 
 export interface Talk {
@@ -397,67 +406,67 @@ export interface Page {
   /** Components */
   components?: (
     | {
-        hero: Hero;
-        richtext: undefined;
-        videos: undefined;
-        talks: undefined;
-        articles: undefined;
-        two_columns: undefined;
-        image: undefined;
-      }
+      hero: Hero;
+      richtext: undefined;
+      videos: undefined;
+      talks: undefined;
+      articles: undefined;
+      two_columns: undefined;
+      image: undefined;
+    }
     | {
-        richtext: Richtext;
-        hero: undefined;
-        videos: undefined;
-        talks: undefined;
-        articles: undefined;
-        two_columns: undefined;
-        image: undefined;
-      }
+      richtext: Richtext;
+      hero: undefined;
+      videos: undefined;
+      talks: undefined;
+      articles: undefined;
+      two_columns: undefined;
+      image: undefined;
+    }
     | {
-        videos: Videos;
-        hero: undefined;
-        richtext: undefined;
-        talks: undefined;
-        articles: undefined;
-        two_columns: undefined;
-        image: undefined;
-      }
+      videos: Videos;
+      hero: undefined;
+      richtext: undefined;
+      talks: undefined;
+      articles: undefined;
+      two_columns: undefined;
+      image: undefined;
+    }
     | {
-        talks: Talks;
-        hero: undefined;
-        richtext: undefined;
-        videos: undefined;
-        articles: undefined;
-        two_columns: undefined;
-        image: undefined;
-      }
+      talks: Talks;
+      hero: undefined;
+      richtext: undefined;
+      videos: undefined;
+      articles: undefined;
+      two_columns: undefined;
+      image: undefined;
+    }
     | {
-        articles: Articles;
-        hero: undefined;
-        richtext: undefined;
-        videos: undefined;
-        talks: undefined;
-        two_columns: undefined;
-        image: undefined;
-      }
+      articles: Articles;
+      hero: undefined;
+      richtext: undefined;
+      videos: undefined;
+      talks: undefined;
+      two_columns: undefined;
+      image: undefined;
+    }
     | {
-        two_columns: TwoColumns;
-        hero: undefined;
-        richtext: undefined;
-        videos: undefined;
-        talks: undefined;
-        articles: undefined;
-        image: undefined;
-      }
+      two_columns: TwoColumns;
+      hero: undefined;
+      richtext: undefined;
+      videos: undefined;
+      talks: undefined;
+      articles: undefined;
+      image: undefined;
+    }
     | {
-        image: Image;
-        hero: undefined;
-        richtext: undefined;
-        videos: undefined;
-        talks: undefined;
-        articles: undefined;
-        two_columns: undefined;
-      }
+      image: Image;
+      hero: undefined;
+      richtext: undefined;
+      videos: undefined;
+      talks: undefined;
+      articles: undefined;
+      two_columns: undefined;
+    }
   )[];
 }

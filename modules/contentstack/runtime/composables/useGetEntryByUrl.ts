@@ -7,8 +7,12 @@ import { useAsyncData, useNuxtApp, useRoute, type AsyncData } from '#app'
 import { replaceCslp } from '../../utils'
 
 export const useGetEntryByUrl = async <T>(contentTypeUid: string, url: string, referenceFieldPath?: string[], jsonRtePath?: string[], locale: string = 'en-us'): Promise<AsyncData<T | null, Error>> => {
-  //@ts-ignore
-  const { editableTags, stack, livePreviewEnabled, variantAlias } = useNuxtApp().$contentstack
+  const { editableTags, stack, livePreviewEnabled, variantAlias } = useNuxtApp().$contentstack as {
+    editableTags: boolean,
+    stack: any,
+    livePreviewEnabled: boolean,
+    variantAlias: { value: string }
+  }
 
   if (livePreviewEnabled) {
     const route = useRoute()

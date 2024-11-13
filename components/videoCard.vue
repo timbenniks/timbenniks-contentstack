@@ -1,5 +1,9 @@
 <script setup lang="ts">
 defineProps(["video", "small", "featured", "cslp"]);
+
+const { livePreviewEnabled } = useNuxtApp().$contentstack as {
+  livePreviewEnabled: boolean;
+};
 </script>
 
 <template>
@@ -12,7 +16,6 @@ defineProps(["video", "small", "featured", "cslp"]);
     >
       <div class="relative aspect-video" :class="{ 'md:w-64': small }">
         <NuxtImg
-          v-bind="cslp?.image"
           v-if="video.image !== 'undefined'"
           provider="cloudinaryFetch"
           :src="video.image"
@@ -41,6 +44,16 @@ defineProps(["video", "small", "featured", "cslp"]);
         >
           <tim class="w-16 opacity-50" />
         </div>
+
+        <p
+          class="my-4 text-xs"
+          v-if="livePreviewEnabled && video.image !== 'undefined'"
+        >
+          <span class="text-slate-400 block"
+            >Edit image URL in visual builder</span
+          >
+          <span v-bind="cslp && cslp?.image">{{ video?.image }}</span>
+        </p>
 
         <div id="playButton" v-if="featured" />
         <div

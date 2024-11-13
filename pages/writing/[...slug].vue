@@ -23,7 +23,7 @@ useHead({
 
 const route = useRoute();
 const slug = route.params.slug && route.params.slug[0];
-const { data: post } = await useGetEntryByUrl(
+const { data: post } = await useGetEntryByUrl<Article>(
   "article",
   `/writing/${slug}`,
   [],
@@ -47,7 +47,7 @@ const listItemElements = [
   {
     "@type": "ListItem",
     position: 3,
-    name: slug.replaceAll("-", " "),
+    name: slug && slug.replaceAll("-", " "),
     item: `https://timbenniks.dev/writing/${slug}`,
   },
 ];
@@ -58,7 +58,7 @@ useJsonld({
     {
       "@type": "BreadcrumbList",
       "@id": "https://timbenniks.dev/#breadcrumb",
-      itemListElement: listItemElements,
+      itemListElement: listItemElements as any,
     },
   ],
 });
@@ -68,16 +68,18 @@ useJsonld({
   "@graph": [
     {
       "@type": "BlogPosting",
-      headline: post.value.title,
-      image: post.value.image,
-      keywords: post.value.tags.join(", "),
+      headline: post.value?.title ?? "",
+      image: post.value?.image ?? "",
+      keywords: post.value?.tags?.join(", ") ?? "",
       mainEntityOfPage: `https://timbenniks.dev/writing/${slug}`,
       url: `https://timbenniks.dev/writing/${slug}`,
-      datePublished: post.value.date,
-      dateCreated: post.value.date,
-      dateModified: post.value.date,
-      description: post.value.description,
-      timeRequired: `PT${post.value.reading_time.split(" min read")[0]}M`,
+      datePublished: post.value?.date ?? "",
+      dateCreated: post.value?.date ?? "",
+      dateModified: post.value?.date ?? "",
+      description: post.value?.description ?? "",
+      timeRequired: `PT${
+        post.value?.reading_time?.split(" min read")[0] ?? "0"
+      }M`,
       author: {
         "@type": "Person",
         "@id": "https://timbenniks.dev/about#Person",
@@ -110,7 +112,7 @@ const { data: relatedPosts } = await useAsyncData(
   async () => {
     if (!post.value || !post.value.tags) return [];
 
-    const { stack } = useNuxtApp().$contentstack;
+    const { stack } = useNuxtApp().$contentstack as { stack: any };
 
     const { entries } = await stack
       .contentType("article")
@@ -121,13 +123,13 @@ const { data: relatedPosts } = await useAsyncData(
       .limit(3)
       .find();
 
-    entries.map((entry) => {
+    entries.map((entry: Article) => {
       contentstack.Utils.addEditableTags(entry as any, "article", true);
     });
 
     const mappedEntries = replaceCslp(entries);
 
-    const result = mappedEntries.map((entry) => {
+    const result = mappedEntries.map((entry: Article) => {
       return {
         uid: entry.uid,
         title: entry.title,
@@ -155,15 +157,19 @@ const { data: relatedPosts } = await useAsyncData(
     return result;
   }
 );
+
+const { livePreviewEnabled } = useNuxtApp().$contentstack as {
+  livePreviewEnabled: boolean;
+};
 </script>
 
 <template>
   <div class="p-8 md:p-0 md:pb-12">
     <Head>
-      <Meta name="keywords" :content="post.tags.join(', ')" />
+      <Meta name="keywords" :content="post?.tags.join(', ')" />
     </Head>
 
-    <Head v-if="post.canonical_url">
+    <Head v-if="post?.canonical_url">
       <Link rel="canonical" :href="post.canonical_url" />
     </Head>
 
@@ -186,19 +192,36 @@ const { data: relatedPosts } = await useAsyncData(
             All posts
           </nuxt-link>
         </p>
-        <h1 class="font-bold mb-4 text-3xl md:text-5xl !leading-tight">
-          {{ post.title }}
+        <h1
+          class="font-bold mb-4 text-3xl md:text-5xl !leading-tight"
+          v-bind="post.cslp && post?.cslp.title"
+        >
+          {{ post?.title }}
         </h1>
 
         <p class="text-sm mb-2">
           Published on
-          <time :datetime="format(new Date(post.date), 'MMM dd, yyyy')">{{
-            format(new Date(post.date), "MMM dd, yyyy")
-          }}</time>
+          <time
+            v-if="post?.date"
+            :datetime="format(new Date(post.date), 'MMM dd, yyyy')"
+            v-bind="post.cslp && post?.cslp.date"
+            >{{ format(new Date(post.date), "MMM dd, yyyy") }}</time
+          >
         </p>
 
-        <ul class="flex space-x-2">
-          <li v-for="tag in post.tags" :key="tag" class="tag">{{ tag }}</li>
+        <ul
+          class="flex space-x-2"
+          v-if="post?.tags"
+          v-bind="post?.cslp && post?.cslp.tags"
+        >
+          <li
+            v-for="(tag, index) in post.tags"
+            :key="tag"
+            class="tag"
+            v-bind="post?.cslp && post?.cslp[`tags__${index}`]"
+          >
+            {{ tag }}
+          </li>
         </ul>
       </header>
 
@@ -206,18 +229,23 @@ const { data: relatedPosts } = await useAsyncData(
         <article
           class="prose prose-invert lg:prose-lg prose-headings:font-bold"
         >
-          <div v-html="post.body" />
+          <div
+            v-if="post?.body"
+            v-html="post?.body"
+            v-bind="post?.cslp && post?.cslp.body"
+          />
 
           <p
             class="text-xs mt-4 mb-12 text-slate-300"
-            v-if="post.canonical_url"
+            v-if="post?.canonical_url"
           >
             Originally published at:
             <a
               class="text-slate-300"
-              :href="post.canonical_url"
+              :href="post?.canonical_url"
               target="_blank"
-              >{{ post.canonical_url }}</a
+              v-bind="post?.cslp && post?.cslp.canonical_url"
+              >{{ post?.canonical_url }}</a
             >
           </p>
         </article>
@@ -236,6 +264,7 @@ const { data: relatedPosts } = await useAsyncData(
               Tim Benniks
             </div>
             <NuxtImg
+              v-if="post?.image"
               provider="cloudinaryFetch"
               :src="post.image"
               :alt="post.title"
@@ -248,19 +277,37 @@ const { data: relatedPosts } = await useAsyncData(
               class="my-8 fancy-image-alt"
             />
 
-            <p class="font-bold text-[#db97bf] mb-2">
+            <p class="mb-4 text-xs" v-if="livePreviewEnabled">
+              <span class="text-slate-400 block"
+                >Edit image URL in visual builder</span
+              >
+              <span v-bind="post?.cslp && post?.cslp.image">{{
+                post?.image
+              }}</span>
+            </p>
+
+            <p
+              class="font-bold text-[#db97bf] mb-2"
+              v-if="post?.reading_time"
+              v-bind="post?.cslp && post?.cslp.reading_time"
+            >
               {{ post.reading_time }}
             </p>
 
-            <ul v-if="post.tocs" class="bg-[#0e1029] p-8 pb-2">
+            <ul
+              v-if="post?.tocs"
+              class="bg-[#0e1029] p-8 pb-2"
+              v-bind="post.cslp && post?.cslp.tocs"
+            >
               <li
-                v-for="item in post.tocs"
+                v-for="(item, index) in post.tocs"
                 :key="item.toc.html_id"
                 class="mb-6"
               >
                 <a
                   class="hover:underline text-slate-200"
                   :href="`#${item.toc.html_id}`"
+                  v-bind="post.cslp && post?.cslp[`tocs__${index}`]"
                   >{{ item.toc.text }}</a
                 >
               </li>
