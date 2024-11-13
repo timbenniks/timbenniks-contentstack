@@ -1,10 +1,4 @@
-import { fileURLToPath } from 'url'
-import { dirname, join } from 'path'
-import fs from 'fs'
 import { Region } from '@contentstack/delivery-sdk'
-
-const currentDir = dirname(fileURLToPath(import.meta.url))
-const pkg = JSON.parse(fs.readFileSync(join(currentDir, 'package.json'), 'utf-8'))
 
 export default defineNuxtConfig({
   compatibilityDate: '2024-10-29',
@@ -61,18 +55,8 @@ export default defineNuxtConfig({
     }
   },
 
-  runtimeConfig: {
-    public: {
-      environment: process.env.CONTENTSTACK_ENVIRONMENT,
-      preview: process.env.CONTENTSTACK_PREVIEW === "true",
-      region: process.env.CONTENTSTACK_REGION,
-      deliverySdk: pkg.dependencies['@contentstack/delivery-sdk'],
-      previewSdk: pkg.dependencies['@contentstack/live-preview-utils']
-    },
-  },
-
-  contentstack: {
-    debug: false,
+  'contentstack': {
+    debug: true,
     deliverySdkOptions: {
       apiKey: process.env.CONTENTSTACK_API_KEY as string,
       deliveryToken: process.env.CONTENTSTACK_DELIVERY_TOKEN as string,
@@ -87,7 +71,7 @@ export default defineNuxtConfig({
       editableTags: true,
       mode: "builder",
       editButton: {
-        enable: true,
+        enable: false,
       },
     },
     personalizeSdkOptions: {

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { Page } from "~/contentstack/generated";
+
 const route = useRoute();
 const path = route.path;
 
@@ -32,21 +34,22 @@ if (path !== "/") {
   });
 }
 
-const { data: page } = await useGetEntryByUrl(
-  "page",
-  path,
-  [
+const { data: page } = await useGetEntryByUrl<Page>({
+  contentTypeUid: "page",
+  url: path,
+  referenceFieldPath: [
     "components.two_columns.two_column_connection",
     "components.two_columns.two_column_connection.side_a.faq_connector.reference",
     "components.two_columns.two_column_connection.side_b.faq_connector.reference",
     "components.two_columns.two_column_connection.side_a.timeline_connector.reference",
     "components.two_columns.two_column_connection.side_b.timeline_connector.reference",
   ],
-  [],
-  "en-us"
-);
+  jsonRtePath: [],
+  locale: "en-us",
+  replaceHtmlCslp: true,
+});
 
-let FAQ = false;
+let FAQ: object = {};
 
 if (path === "/about") {
   FAQ = {
@@ -126,9 +129,9 @@ useJsonld({
     {
       "@type": "BreadcrumbList",
       "@id": "https://timbenniks.dev/#breadcrumb",
-      itemListElement: listItemElements,
+      itemListElement: listItemElements as any,
     },
-    FAQ,
+    FAQ as any,
   ],
 });
 

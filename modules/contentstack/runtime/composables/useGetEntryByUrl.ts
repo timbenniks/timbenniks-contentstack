@@ -1,16 +1,32 @@
 import contentstack from '@contentstack/delivery-sdk'
-import ContentstackLivePreview from '@contentstack/live-preview-utils'
+import ContentstackLivePreview, { type IStackSdk } from '@contentstack/live-preview-utils'
 import type { EmbeddedItem } from '@contentstack/utils/dist/types/Models/embedded-object'
 import type { LivePreviewQuery } from '@contentstack/delivery-sdk'
 import { toRaw } from 'vue'
 import { useAsyncData, useNuxtApp, useRoute, type AsyncData } from '#app'
 import { replaceCslp } from '../../utils'
 
-export const useGetEntryByUrl = async <T>(contentTypeUid: string, url: string, referenceFieldPath?: string[], jsonRtePath?: string[], locale: string = 'en-us'): Promise<AsyncData<T | null, Error>> => {
+export const useGetEntryByUrl = async <T>(options: {
+  contentTypeUid: string
+  url: string
+  referenceFieldPath?: string[]
+  jsonRtePath?: string[]
+  locale?: string
+  replaceHtmlCslp?: boolean
+}): Promise<AsyncData<T | null, Error>> => {
+  const {
+    contentTypeUid,
+    url,
+    referenceFieldPath = [],
+    jsonRtePath = [],
+    locale = 'en-us',
+    replaceHtmlCslp = false,
+  } = options
+
   const { editableTags, stack, livePreviewEnabled, variantAlias } = useNuxtApp().$contentstack as {
-    editableTags: boolean,
-    stack: any,
-    livePreviewEnabled: boolean,
+    editableTags: boolean
+    stack: IStackSdk
+    livePreviewEnabled: boolean
     variantAlias: { value: string }
   }
 
@@ -20,7 +36,7 @@ export const useGetEntryByUrl = async <T>(contentTypeUid: string, url: string, r
     stack.livePreviewQuery(qs as unknown as LivePreviewQuery)
   }
 
-  const { data, status, refresh } = await useAsyncData(`${contentTypeUid}-${url}-${locale}`, async () => {
+  const { data, status, refresh } = await useAsyncData(`${contentTypeUid}-${url}-${locale}-${variantAlias.value ? variantAlias.value : ''}`, async () => {
     let result: { entries: T[] } | null = null
 
     const entryQuery = stack.contentType(contentTypeUid)
@@ -32,7 +48,9 @@ export const useGetEntryByUrl = async <T>(contentTypeUid: string, url: string, r
 
     if (variantAlias && variantAlias.value !== '') {
       const variants = toRaw(variantAlias.value)
+
       entryQuery.addParams({ include_applied_variants: true })
+      entryQuery.addParams({ include_dimension: true })
       entryQuery.variants(variants)
     }
 
@@ -60,8 +78,15 @@ export const useGetEntryByUrl = async <T>(contentTypeUid: string, url: string, r
         contentstack.Utils.addEditableTags(data, contentTypeUid, true, locale)
       }
 
-      const cleanedData = replaceCslp(data)
-      return cleanedData
+      let finalData
+      if (replaceHtmlCslp) {
+        finalData = replaceCslp(data)
+      }
+      else {
+        finalData = data
+      }
+
+      return finalData
     }
   })
 
@@ -70,6 +95,7 @@ export const useGetEntryByUrl = async <T>(contentTypeUid: string, url: string, r
       ContentstackLivePreview.onEntryChange(refresh)
     }
   }
-  //@ts-ignore
+
+  // @ts-expect-error doesnt export all useAsyncData props
   return { data, status, refresh }
 }

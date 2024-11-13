@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { format } from "date-fns";
 import contentstack, { QueryOperation } from "@contentstack/delivery-sdk";
-import { replaceCslp } from "~/modules/contentstack/utils";
+import { replaceCslp } from ".././../helpers";
 import type { Article } from "~/contentstack/generated";
 
 useHead({
@@ -23,13 +23,13 @@ useHead({
 
 const route = useRoute();
 const slug = route.params.slug && route.params.slug[0];
-const { data: post } = await useGetEntryByUrl<Article>(
-  "article",
-  `/writing/${slug}`,
-  [],
-  [],
-  "en-us"
-);
+
+const { data: post } = await useGetEntryByUrl({
+  contentTypeUid: "article",
+  url: `/writing/${slug}`,
+  locale: "en-us",
+  replaceHtmlCslp: true,
+});
 
 const listItemElements = [
   {

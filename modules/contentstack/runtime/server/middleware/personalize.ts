@@ -27,6 +27,7 @@ export default defineEventHandler(async (event) => {
 
   // create variant aliases that the SDK can understand
   const variantAlias = Personalize.variantParamToVariantAliases(variantParam).join(",");
+
   // Save variant aliases in request context for later use
   // See ~/plugins/personalize.ts to learn how `variantAlias` is added to 
   // the context so the client can also read it.

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getComponentForName, mapComponentsToKV } from "~/helpers";
+import { getComponentForName, mapComponentsToKV, replaceCslp } from "~/helpers";
 import { VB_EmptyBlockParentClass } from "@contentstack/live-preview-utils";
 
 const props = defineProps({

@@ -1,17 +1,21 @@
 <script setup lang="ts">
+import type { Page } from "~/contentstack/generated";
+
 const route = useRoute();
 const path = route.path;
 
-const title = computed(() => {
-  let title = "";
-
-  if (path === "/") {
-    title = "home";
-  } else {
-    title = route.path.replace("/", "");
-  }
-
-  return title;
+const { data: page } = await useGetEntryByUrl<Page>({
+  contentTypeUid: "page",
+  url: path,
+  referenceFieldPath: [
+    "components.two_columns.two_column_connection",
+    "components.two_columns.two_column_connection.side_a.faq_connector.reference",
+    "components.two_columns.two_column_connection.side_b.faq_connector.reference",
+    "components.two_columns.two_column_connection.side_a.timeline_connector.reference",
+    "components.two_columns.two_column_connection.side_b.timeline_connector.reference",
+  ],
+  locale: "en-us",
+  replaceHtmlCslp: true,
 });
 
 const listItemElements = [
@@ -21,30 +25,13 @@ const listItemElements = [
     name: "home",
     item: "https://timbenniks.dev/",
   },
-];
-
-if (path !== "/") {
-  listItemElements.push({
+  {
     "@type": "ListItem",
     position: 2,
-    name: title.value,
+    name: "writing",
     item: `https://timbenniks.dev${route.path}`,
-  });
-}
-
-const { data: page } = await useGetEntryByUrl(
-  "page",
-  path,
-  [
-    "components.two_columns.two_column_connection",
-    "components.two_columns.two_column_connection.side_a.faq_connector.reference",
-    "components.two_columns.two_column_connection.side_b.faq_connector.reference",
-    "components.two_columns.two_column_connection.side_a.timeline_connector.reference",
-    "components.two_columns.two_column_connection.side_b.timeline_connector.reference",
-  ],
-  [],
-  "en-us"
-);
+  },
+];
 
 useJsonld({
   "@context": "https://schema.org",
@@ -52,7 +39,7 @@ useJsonld({
     {
       "@type": "BreadcrumbList",
       "@id": "https://timbenniks.dev/#breadcrumb",
-      itemListElement: listItemElements,
+      itemListElement: listItemElements as any,
     },
   ],
 });

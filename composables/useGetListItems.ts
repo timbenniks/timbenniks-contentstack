@@ -1,5 +1,5 @@
 import contentstack, { QueryOperation } from "@contentstack/delivery-sdk";
-import { replaceCslp } from "~/modules/contentstack/utils"
+import { replaceCslp } from "../helpers"
 
 type GetListItemProps = {
   contentTypeUid: "video" | "talk" | "article";

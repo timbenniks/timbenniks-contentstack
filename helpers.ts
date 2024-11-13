@@ -1,4 +1,5 @@
 import type { Component } from 'vue'
+
 import NoComponent from "./components/NoComponent.vue";
 import hero from "./components/contentstackHero.vue";
 import richtext from "./components/contentstackRichtext.vue";
@@ -61,3 +62,5 @@ export function mapComponentsToKV(components: ComponentEntry[]) {
     return { name, props };
   });
 }
+
+export { replaceCslp } from './modules/contentstack/utils';
