@@ -1,26 +1,31 @@
 <script setup lang="ts">
 defineProps(["faqs", "big", "title"]);
+
+const { livePreviewEnabled } = useNuxtApp().$contentstack as {
+  livePreviewEnabled: boolean;
+};
 </script>
 
 <template>
   <div itemscope itemtype="https://schema.org/FAQPage">
     <template v-if="!big">
-      <h4 class="title inline-block small mb-4">
+      <h4 v-if="title" class="title inline-block small mb-4">
         {{ title }}
       </h4>
       <ul class="bg-[#0e1029] pt-4 pb-1 px-4">
         <li
           v-for="faq in faqs"
           :key="faq.question"
+          v-bind="faq.wrapperCslp && faq.wrapperCslp"
           itemscope
           itemprop="mainEntity"
           itemtype="https://schema.org/Question"
         >
-          <details class="mb-4">
+          <details class="mb-4" :open="livePreviewEnabled">
             <summary
               class="bg-[#1b1d39] hover:opacity-90 py-2 px-4 cursor-pointer font-bold"
               itemprop="name"
-              v-bind="faq.cslp && faq.cslp.question"
+              v-bind="faq.innerCslp && faq.innerCslp.question"
             >
               {{ faq.question }}
             </summary>
@@ -34,7 +39,7 @@ defineProps(["faqs", "big", "title"]);
               <div
                 itemprop="text"
                 v-html="faq.answer"
-                v-bind="faq.cslp && faq.cslp.answer"
+                v-bind="faq.innerCslp && faq.innerCslp.answer"
               />
             </div>
           </details>
@@ -50,6 +55,7 @@ defineProps(["faqs", "big", "title"]);
           <li
             v-for="faq in faqs"
             :key="faq.question"
+            v-bind="faq.wrapperCslp && faq.wrapperCslp"
             itemscope
             itemprop="mainEntity"
             itemtype="https://schema.org/Question"
@@ -57,7 +63,7 @@ defineProps(["faqs", "big", "title"]);
           >
             <h4
               class="font-black text-2xl mb-4"
-              v-bind="faq.cslp && faq.cslp.question"
+              v-bind="faq.innerCslp && faq.innerCslp.question"
             >
               {{ faq.question }}
             </h4>
@@ -70,7 +76,7 @@ defineProps(["faqs", "big", "title"]);
               <div
                 itemprop="text"
                 v-html="faq.answer"
-                v-bind="faq.cslp && faq.cslp.answer"
+                v-bind="faq.innerCslp && faq.innerCslp.answer"
               />
             </div>
           </li>

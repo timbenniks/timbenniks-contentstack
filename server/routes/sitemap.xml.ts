@@ -1,29 +1,26 @@
 import { SitemapStream, streamToPromise } from 'sitemap'
-// import { serverQueryContent } from '#content/server'
+import contentstack, { Region } from '@contentstack/delivery-sdk'
 
 export default defineEventHandler(async (event) => {
+  const config = useRuntimeConfig()
+  const { apiKey, deliveryToken, environment, region } = config.public.contentstack.deliverySdkOptions;
+  const stack = contentstack.stack({
+    apiKey,
+    deliveryToken,
+    environment,
+    region: region === 'eu' ? Region.EU : Region.US,
+  });
+
+  const { entries: articles } = await stack.contentType('article').entry().query().find()
+
+
   const sitemap = new SitemapStream({
     hostname: 'https://timbenniks.dev'
   })
 
-  // const docs = await serverQueryContent(event, "/writing").find()
-
-  const docs = [{ _path: '/writing/test' }]
-
-  const writing = docs.map((doc) => {
-    return doc._path
+  const writing = articles && articles.map((doc) => {
+    return doc.url
   })
-
-  // const videos = await serverQueryContent(event, 'videos').only(['_path']).where({ '_path': /^\/videos\/.*\// }).find();
-  const videos = [{ _path: '/videos/test' }]
-
-  const videoFolders = [...new Set(videos.map(({ _path }) => {
-    const parts = _path?.split('/');
-
-    if (parts) {
-      return `/${parts[1]}/${parts[2]}/`;
-    }
-  }))];
 
   const urls = [
     '/',
@@ -37,7 +34,6 @@ export default defineEventHandler(async (event) => {
   ]
 
   urls.push(...writing)
-  urls.push(...videoFolders)
 
   for (const doc of urls) {
     sitemap.write({

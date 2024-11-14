@@ -22,7 +22,7 @@ export default defineNuxtConfig({
 
   features: {
     noScripts: process.env.NO_SCRIPTS === "true" ? true : false,
-    inlineStyles: true
+    inlineStyles: true,
   },
 
   fonts: {
@@ -56,7 +56,7 @@ export default defineNuxtConfig({
   },
 
   'contentstack': {
-    debug: true,
+    debug: false,
     deliverySdkOptions: {
       apiKey: process.env.CONTENTSTACK_API_KEY as string,
       deliveryToken: process.env.CONTENTSTACK_DELIVERY_TOKEN as string,

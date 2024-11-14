@@ -347,6 +347,14 @@ export interface Article {
   body?: string;
   tags: string[]
   cslp: any
+  faqs: [{
+    faq: [{
+      qa: [{
+        question: string
+        answer: string
+      }]
+    }]
+  }]
   tocs: [{
     toc: {
       html_id: string

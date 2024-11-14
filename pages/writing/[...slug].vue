@@ -24,9 +24,10 @@ useHead({
 const route = useRoute();
 const slug = route.params.slug && route.params.slug[0];
 
-const { data: post } = await useGetEntryByUrl({
+const { data: post } = await useGetEntryByUrl<Article>({
   contentTypeUid: "article",
   url: `/writing/${slug}`,
+  referenceFieldPath: ["faqs"],
   locale: "en-us",
   replaceHtmlCslp: true,
 });
@@ -161,6 +162,22 @@ const { data: relatedPosts } = await useAsyncData(
 const { livePreviewEnabled } = useNuxtApp().$contentstack as {
   livePreviewEnabled: boolean;
 };
+
+const faqs = computed(() => {
+  let result: any[] = [];
+
+  post &&
+    post.value?.faqs[0].qas.map((qa) => {
+      result.push({
+        question: qa.qa.question,
+        answer: qa.qa.answer,
+        wrapperCslp: qa.cslp.qa,
+        innerCslp: qa.qa.cslp,
+      });
+    });
+
+  return result;
+});
 </script>
 
 <template>
@@ -277,7 +294,10 @@ const { livePreviewEnabled } = useNuxtApp().$contentstack as {
               class="my-8 fancy-image-alt"
             />
 
-            <p class="mb-4 text-xs" v-if="livePreviewEnabled">
+            <p
+              class="mb-4 text-xs max-w-96 break-words"
+              v-if="livePreviewEnabled"
+            >
               <span class="text-slate-400 block"
                 >Edit image URL in visual builder</span
               >
@@ -330,7 +350,13 @@ const { livePreviewEnabled } = useNuxtApp().$contentstack as {
         </ul>
       </div>
 
-      <!-- <faq v-if="post.faqs" :faqs="post.faqs" /> -->
+      <faq
+        v-bind="post?.cslp && post?.cslp.faqs"
+        v-if="faqs"
+        :faqs="faqs"
+        :big="false"
+        title="Frequently asked questions"
+      />
     </div>
   </div>
 </template>
