@@ -166,8 +166,9 @@ const { livePreviewEnabled } = useNuxtApp().$contentstack as {
 const faqs = computed(() => {
   let result: any[] = [];
 
-  post &&
-    post.value?.faqs[0].qas.map((qa) => {
+  post.value &&
+    post.value?.faqs &&
+    post.value?.faqs[0]?.qas.map((qa) => {
       result.push({
         question: qa.qa.question,
         answer: qa.qa.answer,
@@ -352,7 +353,7 @@ const faqs = computed(() => {
 
       <faq
         v-bind="post?.cslp && post?.cslp.faqs"
-        v-if="faqs"
+        v-if="faqs.length > 0"
         :faqs="faqs"
         :big="false"
         title="Frequently asked questions"
