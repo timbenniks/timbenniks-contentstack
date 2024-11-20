@@ -2,5 +2,6 @@
 
 ## TODO
 
+- Homepage personalization
 - Blogposts
   - FAQs content

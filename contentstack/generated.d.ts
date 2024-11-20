@@ -345,6 +345,7 @@ export interface Article {
   reading_time?: string;
   /** Body */
   body?: string;
+  content?: string;
   tags: string[]
   cslp: any
   faqs: [{

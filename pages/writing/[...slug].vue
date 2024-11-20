@@ -28,6 +28,7 @@ const { data: post } = await useGetEntryByUrl<Article>({
   contentTypeUid: "article",
   url: `/writing/${slug}`,
   referenceFieldPath: ["faqs"],
+  jsonRtePath: ["content"],
   locale: "en-us",
   replaceHtmlCslp: true,
 });
@@ -247,8 +248,15 @@ const faqs = computed(() => {
         <article
           class="prose prose-invert lg:prose-lg prose-headings:font-bold"
         >
+          <!-- <pre>{{ post?.content }}</pre> -->
           <div
-            v-if="post?.body"
+            v-if="post?.content && post?.body"
+            v-html="post?.content"
+            v-bind="post?.cslp && post?.cslp.content"
+          />
+
+          <div
+            v-if="!post?.content && post?.body"
             v-html="post?.body"
             v-bind="post?.cslp && post?.cslp.body"
           />

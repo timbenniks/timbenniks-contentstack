@@ -4,7 +4,7 @@ import type { EmbeddedItem } from '@contentstack/utils/dist/types/Models/embedde
 import type { LivePreviewQuery } from '@contentstack/delivery-sdk'
 import { toRaw } from 'vue'
 import { useAsyncData, useNuxtApp, useRoute, type AsyncData } from '#app'
-import { replaceCslp } from '../../utils'
+import { replaceCslp, renderOption } from '../../utils'
 
 export const useGetEntryByUrl = async <T>(options: {
   contentTypeUid: string
@@ -71,6 +71,7 @@ export const useGetEntryByUrl = async <T>(options: {
         contentstack.Utils.jsonToHTML({
           entry: data,
           paths: jsonRtePath,
+          renderOption
         })
       }
 

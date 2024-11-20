@@ -12,8 +12,8 @@
     "types": "csdx tsgen -a 'delivery' -o 'contentstack/generated.d.ts'"
   },
   "dependencies": {
-    "@contentstack/delivery-sdk": "4.4.1",
-    "@contentstack/live-preview-utils": "3.0.0",
+    "@contentstack/delivery-sdk": "^4.4.2",
+    "@contentstack/live-preview-utils": "^3.0.1",
     "@contentstack/personalize-edge-sdk": "^1.0.3",
     "@nuxt/fonts": "^0.10.2",
     "@nuxt/image": "^1.8.1",
