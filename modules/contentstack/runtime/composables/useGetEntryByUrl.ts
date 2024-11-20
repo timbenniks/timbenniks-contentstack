@@ -1,10 +1,9 @@
 import contentstack from '@contentstack/delivery-sdk'
-import ContentstackLivePreview, { type IStackSdk } from '@contentstack/live-preview-utils'
 import type { EmbeddedItem } from '@contentstack/utils/dist/types/Models/embedded-object'
 import type { LivePreviewQuery } from '@contentstack/delivery-sdk'
 import { toRaw } from 'vue'
 import { useAsyncData, useNuxtApp, useRoute, type AsyncData } from '#app'
-import { replaceCslp, renderOption } from '../../utils'
+import { replaceCslp, renderOption, type IStackSdk } from '../../utils'
 
 export const useGetEntryByUrl = async <T>(options: {
   contentTypeUid: string
@@ -23,11 +22,12 @@ export const useGetEntryByUrl = async <T>(options: {
     replaceHtmlCslp = false,
   } = options
 
-  const { editableTags, stack, livePreviewEnabled, variantAlias } = useNuxtApp().$contentstack as {
+  const { editableTags, stack, livePreviewEnabled, variantAlias, ContentstackLivePreview } = useNuxtApp().$contentstack as {
     editableTags: boolean
     stack: IStackSdk
     livePreviewEnabled: boolean
-    variantAlias: { value: string }
+    variantAlias: { value: string },
+    ContentstackLivePreview: any
   }
 
   if (livePreviewEnabled) {
@@ -93,7 +93,7 @@ export const useGetEntryByUrl = async <T>(options: {
 
   if (livePreviewEnabled) {
     if (import.meta.client) {
-      ContentstackLivePreview.onEntryChange(refresh)
+      ContentstackLivePreview && ContentstackLivePreview.onEntryChange(refresh)
     }
   }
 

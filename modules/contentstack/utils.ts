@@ -35,6 +35,14 @@ export type Urls = {
   personalize?: string
 }
 
+export type IStackSdk = {
+  live_preview: {
+    [key: string]: any;
+  };
+  [key: string]: any;
+  environment: string;
+}
+
 export function getURLsforRegion(region: Region = Region.US) {
   let urls: Urls = {}
 
