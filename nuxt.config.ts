@@ -9,7 +9,8 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    preset: process.env.NO_SCRIPTS === "true" ? 'static' : 'node-server'
+    //preset: process.env.NO_SCRIPTS === "true" ? 'static' : 'node-server',
+    preset: 'node-server'
   },
 
   modules: [
@@ -75,8 +76,8 @@ export default defineNuxtConfig({
       },
     },
     personalizeSdkOptions: {
-      enable: false,
-      projectUid: '',
+      enable: true,
+      projectUid: process.env.CONTENTSTACK_PERSONALIZE_PROJECT_ID as string,
     },
   },
 })

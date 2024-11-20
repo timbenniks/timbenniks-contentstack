@@ -54,17 +54,10 @@ defineProps({
     </template>
 
     <template #ctas>
-      <!-- <cta
-        v-for="{ cta } in ctas"
-        :key="cta.url.href"
-        :url="cta.url.href"
-        :text="cta.url.title"
-        :target="cta.target"
-      /> -->
       <cta
         v-for="({ cta }, index) in ctas"
         :key="cta.url.href"
-        url="#"
+        :url="cta.url.href"
         :text="cta.url.title"
         :target="cta.target"
         v-bind="cslp && cslp[`ctas__${index}`]"
