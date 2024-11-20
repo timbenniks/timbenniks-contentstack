@@ -18,7 +18,7 @@ const components = computed(() => {
   <section
     class="mb-12"
     v-if="page && page?.components"
-    v-bind="page.cslp.components"
+    v-bind="page.cslp && page.cslp.components"
     :class="page?.components.length === 0 ? VB_EmptyBlockParentClass : ''"
   >
     <component
@@ -27,7 +27,7 @@ const components = computed(() => {
       :key="(component?.props?._metadata.uid as string)"
       v-bind="component.props"
       :name="component?.name"
-      :data-cslp="page.cslp[`components__${index}`]['data-cslp']"
+      :data-cslp="page.cslp && page.cslp[`components__${index}`]['data-cslp']"
     />
   </section>
 </template>

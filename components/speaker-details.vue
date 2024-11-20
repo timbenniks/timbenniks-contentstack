@@ -23,15 +23,15 @@ defineProps(["deets", "title", "cslp"]);
             </dt>
             <dd class="text-xl" v-if="dd.detail.link.href">
               <a :href="dd.detail.link.href" target="_blank" rel="noopener">{{
-                dd.detail.value
+                dd.detail?.value
               }}</a>
             </dd>
             <dd
               class="text-xl"
               v-else
-              v-bind="dd.detail.value && dd.detail.cslp.value"
+              v-bind="dd.detail.value && dd.detail.cslp && dd.detail.cslp.value"
             >
-              {{ dd.detail.value }}
+              {{ dd.detail?.value }}
             </dd>
           </dl>
         </li>
