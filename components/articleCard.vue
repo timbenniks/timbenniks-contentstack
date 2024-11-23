@@ -102,7 +102,7 @@ const { livePreviewEnabled } = useNuxtApp().$contentstack as {
         </template>
       </div>
     </NuxtLink>
-    <p class="my-4 text-xs" v-if="livePreviewEnabled">
+    <p class="my-4 text-xs break-all" v-if="livePreviewEnabled">
       <span class="text-slate-400 block">Edit image URL in visual builder</span>
       <span v-bind="cslp && cslp?.image">{{
         parseImage(article.image).url
