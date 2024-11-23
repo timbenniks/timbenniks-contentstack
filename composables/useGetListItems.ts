@@ -15,12 +15,12 @@ export const useGetListItems = async ({ contentTypeUid, limit, tag, subQueryData
     livePreviewEnabled: boolean
   }
 
+  if (subQueryData) {
+    return { data: subQueryData }
+  }
+
   const { data, status, refresh } = await useAsyncData(`page-${contentTypeUid}-${limit}-${tag ? tag : ''}`, async () => {
     const { stack } = useNuxtApp().$contentstack as { stack: IStackSdk };
-
-    if (subQueryData) {
-      return subQueryData
-    }
 
     const query = stack.contentType(contentTypeUid)
       .entry()

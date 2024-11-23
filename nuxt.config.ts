@@ -69,10 +69,10 @@ export default defineNuxtConfig({
       },
     },
     livePreviewSdkOptions: {
-      editableTags: false, //process.env.CONTENTSTACK_PREVIEW === "true",
+      editableTags: process.env.CONTENTSTACK_PREVIEW === "true",
       mode: "builder",
       editButton: {
-        enable: false //process.env.CONTENTSTACK_PREVIEW === "true",
+        enable: process.env.CONTENTSTACK_PREVIEW === "true",
       },
     },
     personalizeSdkOptions: {

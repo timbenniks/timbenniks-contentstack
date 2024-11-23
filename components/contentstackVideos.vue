@@ -22,8 +22,8 @@ function cleanAndTruncate(text: string, cutoff: number) {
   return cleanedText;
 }
 
-const { data: videos } = await useGetListItems({
-  contentTypeUid: "article",
+const { data } = await useGetListItems({
+  contentTypeUid: "video",
   limit: Number(props.query.limit),
   subQueryData: props.subQueryData,
 });
@@ -31,7 +31,7 @@ const { data: videos } = await useGetListItems({
 
 <template>
   <videosList
-    :videos="(videos as Video[])"
+    :videos="subQueryData ? subQueryData : data"
     :title="title"
     :description="cleanAndTruncate(description, 100)"
     :extrasUrl="extra_s_url"
