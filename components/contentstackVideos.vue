@@ -8,13 +8,8 @@ const props = defineProps([
   "query",
   "design",
   "cslp",
+  "subQueryData",
 ]);
-
-const { data: videos } = await useGetListItems({
-  contentTypeUid: "video",
-  limit: Number(props.query.limit),
-  tag: props.query.tag,
-});
 
 function cleanAndTruncate(text: string, cutoff: number) {
   let cleanedText = text.replace(/[\r\n]/g, " ");
@@ -27,22 +22,18 @@ function cleanAndTruncate(text: string, cutoff: number) {
   return cleanedText;
 }
 
-const mappedVideos = computed(() => {
-  return videos.value?.map((video: any) => {
-    return {
-      ...video,
-      description: cleanAndTruncate(video.description, 100),
-      videoId: video.videoid,
-    };
-  });
+const { data } = await useGetListItems({
+  contentTypeUid: "video",
+  limit: Number(props.query.limit),
+  subQueryData: props.subQueryData,
 });
 </script>
 
 <template>
   <videosList
-    :videos="(mappedVideos as Video[])"
+    :videos="subQueryData ? subQueryData : data"
     :title="title"
-    :description="description"
+    :description="cleanAndTruncate(description, 100)"
     :extrasUrl="extra_s_url"
     :small="design.small"
     :firstFeatured="design.firstfeatured"
