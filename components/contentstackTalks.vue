@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import type { Talk } from "~/contentstack/generated";
 
-const props = defineProps(["title", "query", "design", "cslp"]);
+const props = defineProps(["title", "query", "design", "cslp", "subQueryData"]);
 
-const { data: talks, refresh } = await useGetListItems({
+const { data: talks } = await useGetListItems({
   contentTypeUid: "talk",
   limit: Number(props.query.limit),
+  subQueryData: props.subQueryData,
 });
 </script>
 

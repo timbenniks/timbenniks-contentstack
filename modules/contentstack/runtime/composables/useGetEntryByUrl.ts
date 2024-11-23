@@ -1,4 +1,4 @@
-import contentstack from '@contentstack/delivery-sdk'
+import contentstack, { QueryOperation } from '@contentstack/delivery-sdk'
 import type { EmbeddedItem } from '@contentstack/utils/dist/types/Models/embedded-object'
 import type { LivePreviewQuery } from '@contentstack/delivery-sdk'
 import { toRaw } from 'vue'
@@ -41,6 +41,7 @@ export const useGetEntryByUrl = async <T>(options: {
 
     const entryQuery = stack.contentType(contentTypeUid)
       .entry()
+      .except(['publish_details', 'updated_at', 'updated_by', '_in_progress', 'ACL', '_version', 'created_at', 'created_by'])
       .locale(locale)
       .includeFallback()
       .includeEmbeddedItems()
@@ -60,35 +61,121 @@ export const useGetEntryByUrl = async <T>(options: {
       }
     }
 
-    if (entryQuery) {
-      result = await entryQuery.query()
-        .equalTo('url', url)
-        .find() as { entries: T[] }
+    result = await entryQuery.query()
+      .equalTo('url', url)
+      .find() as { entries: T[] }
 
-      const data = result?.entries?.[0] as EmbeddedItem
+    const data = result?.entries?.[0] as EmbeddedItem
 
-      if (jsonRtePath && data) {
-        contentstack.Utils.jsonToHTML({
-          entry: data,
-          paths: jsonRtePath,
-          renderOption
-        })
-      }
-
-      if (editableTags) {
-        contentstack.Utils.addEditableTags(data, contentTypeUid, true, locale)
-      }
-
-      let finalData
-      if (replaceHtmlCslp) {
-        finalData = replaceCslp(data)
-      }
-      else {
-        finalData = data
-      }
-
-      return finalData
+    // any json rte fields in the data?
+    if (jsonRtePath && data) {
+      contentstack.Utils.jsonToHTML({
+        entry: data,
+        paths: jsonRtePath,
+        renderOption
+      })
     }
+
+    if (editableTags) {
+      contentstack.Utils.addEditableTags(data, contentTypeUid, true, locale)
+    }
+
+    let finalData
+    if (replaceHtmlCslp) {
+      finalData = replaceCslp(data)
+    }
+    else {
+      finalData = data
+    }
+
+    // find sub queries for components in the data of the page.
+    const queries: any = [];
+    data.components && data.components.forEach((element: any) => {
+      // @ts-ignore
+      const [name, props] = Object.entries(element)[0];
+
+      // if the components have a query field, do a sub query
+      if (props && props?.query) {
+        const type = name.slice(0, -1); // can be video, talk, article
+        const query = stack.contentType(type)
+          .entry()
+          .except(['locale', 'body', 'content', 'tags', 'tocs', 'faqs', 'publish_details', 'updated_at', 'updated_by', '_in_progress', 'ACL', '_version', 'created_at', 'created_by'])
+          .query()
+          .orderByDescending("date")
+
+        if (props.query.limit) {
+          query.limit(props.query.limit)
+        }
+
+        if (props.query.tag) {
+          query.where("tags", QueryOperation.INCLUDES, [props.query.tag])
+        }
+
+        queries.push({ type, promise: query.find() })
+      }
+    })
+
+    const subQueryResults = await Promise.all(queries.map((q: any) => q.promise));
+    const subQueryResultsWithTypes = subQueryResults.map((result, index) => ({
+      contentTypeUid: queries[index].type,
+      entries: result.entries
+    }));
+
+    let finalSubQueryResults
+
+    // add editable tags to the sub queries
+    if (editableTags) {
+      finalSubQueryResults = subQueryResultsWithTypes.map(queryResult => {
+        queryResult.entries.map((entry: any) => {
+          contentstack.Utils.addEditableTags(entry as any, queryResult.contentTypeUid, true);
+        })
+
+        return {
+          ...queryResult,
+          entries: replaceHtmlCslp ? replaceCslp(queryResult.entries) : queryResult.entries
+        }
+      })
+    }
+    else {
+      finalSubQueryResults = subQueryResultsWithTypes
+    }
+
+    const componentsAndSubQueryData = finalData.components.map((component: any) => {
+      const keys = Object.keys(component);
+      const matchingKey = keys.find(key =>
+        key === 'videos' || key === 'talks' || key === 'articles'
+      );
+
+      if (matchingKey) {
+        const contentType = matchingKey === 'videos' ? 'video' :
+          matchingKey === 'talks' ? 'talk' :
+            matchingKey === 'articles' ? 'article' : null;
+
+        const queryTag = component[matchingKey].query.tag;
+
+        const matchingSubQuery = finalSubQueryResults.find(
+          subQuery => subQuery.contentTypeUid === contentType &&
+            subQuery.entries.some((entry: any) => entry.subject === queryTag)
+        );
+
+        if (matchingSubQuery) {
+          const filteredEntries = matchingSubQuery.entries.filter((entry: any) => entry.subject === queryTag);
+          return {
+            ...component,
+            [matchingKey]: {
+              ...component[matchingKey],
+              subQueryData: filteredEntries
+            }
+          };
+        }
+      }
+
+      return component;
+    });
+
+    finalData.components = componentsAndSubQueryData;
+
+    return finalData
   })
 
   if (livePreviewEnabled) {

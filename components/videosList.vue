@@ -53,7 +53,7 @@ const smallOrBigClass = computed(() => {
       <VideoCard
         v-if="firstFeatured"
         v-for="video in videos.slice(1)"
-        :key="video.videoId"
+        :key="video.videoid"
         class="mb-4"
         :featured="false"
         :video="video"
