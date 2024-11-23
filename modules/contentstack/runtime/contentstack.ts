@@ -48,6 +48,12 @@ const contentstackPlugin: Plugin = async (_nuxtApp) => {
     }
   }
 
+  if (livePreviewEnabled) {
+    _nuxtApp.hook('page:finish', () => {
+      refreshNuxtData();
+    });
+  }
+
   return {
     provide: {
       contentstack: {

@@ -22,6 +22,10 @@ function parseImage(imageUrl: string) {
     provider,
   };
 }
+
+const { livePreviewEnabled } = useNuxtApp().$contentstack as {
+  livePreviewEnabled: boolean;
+};
 </script>
 
 <template>
@@ -98,5 +102,11 @@ function parseImage(imageUrl: string) {
         </template>
       </div>
     </NuxtLink>
+    <p class="my-4 text-xs" v-if="livePreviewEnabled">
+      <span class="text-slate-400 block">Edit image URL in visual builder</span>
+      <span v-bind="cslp && cslp?.image">{{
+        parseImage(article.image).url
+      }}</span>
+    </p>
   </li>
 </template>

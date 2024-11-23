@@ -35,7 +35,7 @@ const alignmentClass = computed(() => {
 });
 </script>
 <template>
-  <div class="md:relative mb-12 z-40">
+  <div class="md:relative mb-12 z-40 hero">
     <slot name="image" v-if="$slots.image" />
 
     <article
@@ -60,13 +60,8 @@ const alignmentClass = computed(() => {
       >
         {{ description }}
       </component>
-      <div
-        class="mt-4 flex space-x-4"
-        :class="right ? 'justify-start lg:justify-end' : 'justify-start'"
-        v-if="$slots.ctas"
-      >
-        <slot name="ctas" />
-      </div>
+
+      <slot name="ctas" v-if="$slots.ctas" />
     </article>
   </div>
 </template>

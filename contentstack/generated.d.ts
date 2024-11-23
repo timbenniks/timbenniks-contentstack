@@ -150,6 +150,8 @@ export interface Hero {
     right?: boolean;
     /** Smaller Title */
     smaller_title?: boolean;
+
+    darken_image?: number
   };
 }
 

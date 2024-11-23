@@ -11,10 +11,6 @@ const props = defineProps({
 const components = computed(() => {
   return mapComponentsToKV(props.page?.components);
 });
-
-const { VB_EmptyBlockParentClass } = useNuxtApp().$contentstack as {
-  VB_EmptyBlockParentClass: string;
-};
 </script>
 
 <template>
@@ -22,11 +18,7 @@ const { VB_EmptyBlockParentClass } = useNuxtApp().$contentstack as {
     class="mb-12"
     v-if="page && page?.components"
     v-bind="page.cslp && page.cslp.components"
-    :class="
-      page?.components.length === 0 && VB_EmptyBlockParentClass
-        ? VB_EmptyBlockParentClass
-        : ''
-    "
+    :class="components.length === 0 ? 'visual-builder__empty-block-parent' : ''"
   >
     <component
       v-for="(component, index) in components"

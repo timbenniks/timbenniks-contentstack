@@ -170,3 +170,19 @@
     }
   }
 }
+
+.hero {
+  .visual-builder__empty-block {
+    border: 2px dashed #715cdd;
+    background-color: rgba(108, 92, 321, 0.8);
+    padding: 0.5rem !important;
+    align-items: start !important;
+    justify-content: start !important;
+    gap: 0.5rem !important;
+    min-height: fit-content !important;
+  }
+
+  .visual-builder__empty-block-title {
+    color: #fff !important;
+  }
+}
