@@ -88,92 +88,94 @@ export const useGetEntryByUrl = async <T>(options: {
       finalData = data
     }
 
-    // find sub queries for components in the data of the page.
-    const queries: any = [];
-    data.components && data.components.forEach((element: any) => {
-      // @ts-ignore
-      const [name, props] = Object.entries(element)[0];
+    if (data.components) {
+      // find sub queries for components in the data of the page.
+      const queries: any = [];
+      data.components.forEach((element: any) => {
+        // @ts-ignore
+        const [name, props] = Object.entries(element)[0];
 
-      // if the components have a query field, do a sub query
-      if (props && props?.query) {
-        const type = name.slice(0, -1); // can be video, talk, article
-        const query = stack.contentType(type)
-          .entry()
-          .except(['locale', 'body', 'content', 'tags', 'tocs', 'faqs', 'publish_details', 'updated_at', 'updated_by', '_in_progress', 'ACL', '_version', 'created_at', 'created_by'])
-          .query()
-          .orderByDescending("date")
+        // if the components have a query field, do a sub query
+        if (props && props?.query) {
+          const type = name.slice(0, -1); // can be video, talk, article
+          const query = stack.contentType(type)
+            .entry()
+            .except(['locale', 'body', 'content', 'tags', 'tocs', 'faqs', 'publish_details', 'updated_at', 'updated_by', '_in_progress', 'ACL', '_version', 'created_at', 'created_by'])
+            .query()
+            .orderByDescending("date")
 
-        if (props.query.limit) {
-          query.limit(props.query.limit)
-        }
+          if (props.query.limit) {
+            query.limit(props.query.limit)
+          }
 
-        if (props.query.tag) {
-          query.where("tags", QueryOperation.INCLUDES, [props.query.tag])
-        }
+          if (props.query.tag) {
+            query.where("tags", QueryOperation.INCLUDES, [props.query.tag])
+          }
 
-        queries.push({ type, promise: query.find() })
-      }
-    })
-
-    const subQueryResults = await Promise.all(queries.map((q: any) => q.promise));
-    const subQueryResultsWithTypes = subQueryResults.map((result, index) => ({
-      contentTypeUid: queries[index].type,
-      entries: result.entries
-    }));
-
-    let finalSubQueryResults
-
-    // add editable tags to the sub queries
-    if (editableTags) {
-      finalSubQueryResults = subQueryResultsWithTypes.map(queryResult => {
-        queryResult.entries.map((entry: any) => {
-          contentstack.Utils.addEditableTags(entry as any, queryResult.contentTypeUid, true);
-        })
-
-        return {
-          ...queryResult,
-          entries: replaceHtmlCslp ? replaceCslp(queryResult.entries) : queryResult.entries
+          queries.push({ type, promise: query.find() })
         }
       })
-    }
-    else {
-      finalSubQueryResults = subQueryResultsWithTypes
-    }
 
-    const componentsAndSubQueryData = finalData.components.map((component: any) => {
-      const keys = Object.keys(component);
-      const matchingKey = keys.find(key =>
-        key === 'videos' || key === 'talks' || key === 'articles'
-      );
+      const subQueryResults = await Promise.all(queries.map((q: any) => q.promise));
+      const subQueryResultsWithTypes = subQueryResults.map((result, index) => ({
+        contentTypeUid: queries[index].type,
+        entries: result.entries
+      }));
 
-      if (matchingKey) {
-        const contentType = matchingKey === 'videos' ? 'video' :
-          matchingKey === 'talks' ? 'talk' :
-            matchingKey === 'articles' ? 'article' : null;
+      let finalSubQueryResults
 
-        const queryTag = component[matchingKey].query.tag;
+      // add editable tags to the sub queries
+      if (editableTags) {
+        finalSubQueryResults = subQueryResultsWithTypes.map(queryResult => {
+          queryResult.entries.map((entry: any) => {
+            contentstack.Utils.addEditableTags(entry as any, queryResult.contentTypeUid, true);
+          })
 
-        const matchingSubQuery = finalSubQueryResults.find(
-          subQuery => subQuery.contentTypeUid === contentType &&
-            subQuery.entries.some((entry: any) => entry.subject === queryTag)
-        );
-
-        if (matchingSubQuery) {
-          const filteredEntries = matchingSubQuery.entries.filter((entry: any) => entry.subject === queryTag);
           return {
-            ...component,
-            [matchingKey]: {
-              ...component[matchingKey],
-              subQueryData: filteredEntries
-            }
-          };
-        }
+            ...queryResult,
+            entries: replaceHtmlCslp ? replaceCslp(queryResult.entries) : queryResult.entries
+          }
+        })
+      }
+      else {
+        finalSubQueryResults = subQueryResultsWithTypes
       }
 
-      return component;
-    });
+      const componentsAndSubQueryData = finalData.components.map((component: any) => {
+        const keys = Object.keys(component);
+        const matchingKey = keys.find(key =>
+          key === 'videos' || key === 'talks' || key === 'articles'
+        );
 
-    finalData.components = componentsAndSubQueryData;
+        if (matchingKey) {
+          const contentType = matchingKey === 'videos' ? 'video' :
+            matchingKey === 'talks' ? 'talk' :
+              matchingKey === 'articles' ? 'article' : null;
+
+          const queryTag = component[matchingKey].query.tag;
+
+          const matchingSubQuery = finalSubQueryResults.find(
+            subQuery => subQuery.contentTypeUid === contentType &&
+              subQuery.entries.some((entry: any) => entry.subject === queryTag)
+          );
+
+          if (matchingSubQuery) {
+            const filteredEntries = matchingSubQuery.entries.filter((entry: any) => entry.subject === queryTag);
+            return {
+              ...component,
+              [matchingKey]: {
+                ...component[matchingKey],
+                subQueryData: filteredEntries
+              }
+            };
+          }
+        }
+
+        return component;
+      });
+
+      finalData.components = componentsAndSubQueryData;
+    }
 
     return finalData
   })

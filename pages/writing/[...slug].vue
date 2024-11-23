@@ -116,14 +116,30 @@ const { data: relatedPosts } = await useAsyncData(
 
     const { stack } = useNuxtApp().$contentstack as { stack: any };
 
-    const { entries } = await stack
+    const query = stack
       .contentType("article")
       .entry()
+      .except([
+        "publish_details",
+        "updated_at",
+        "updated_by",
+        "_in_progress",
+        "ACL",
+        "_version",
+        "created_at",
+        "created_by",
+        "body",
+        "content",
+        "tags",
+        "tocs",
+        "faqs",
+      ])
       .query()
       .where("uid", QueryOperation.NOT_EQUALS, post.value.uid)
       .containedIn("tags", post.value.tags)
-      .limit(3)
-      .find();
+      .limit(3);
+
+    const { entries } = await query.find();
 
     entries.map((entry: Article) => {
       contentstack.Utils.addEditableTags(entry as any, "article", true);
@@ -248,7 +264,6 @@ const faqs = computed(() => {
         <article
           class="prose prose-invert lg:prose-lg prose-headings:font-bold"
         >
-          <!-- <pre>{{ post?.content }}</pre> -->
           <div
             v-if="post?.content && post?.body"
             v-html="post?.content"
@@ -345,7 +360,7 @@ const faqs = computed(() => {
         </aside>
       </section>
 
-      <div class="my-12" v-if="relatedPosts.length">
+      <div class="my-12" v-if="relatedPosts">
         <h3 class="title inline-block mb-4">Related writing</h3>
         <ul class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <article-card

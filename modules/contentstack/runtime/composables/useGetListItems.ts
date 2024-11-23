@@ -1,5 +1,5 @@
 import contentstack, { QueryOperation } from "@contentstack/delivery-sdk";
-import { replaceCslp } from "../helpers"
+import { replaceCslp } from "../../../../helpers"
 import type { IStackSdk } from "@contentstack/live-preview-utils";
 
 type GetListItemProps = {
