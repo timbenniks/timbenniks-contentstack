@@ -1,9 +1,39 @@
 <script setup lang="ts">
 import type { Page } from "~/contentstack/generated";
 
+const { Personalize } = useNuxtApp().$contentstack as {
+  Personalize: any;
+};
+
 const route = useRoute();
 const path = route.path;
 
+// get page data
+const { data: page } = await useGetEntryByUrl<Page>({
+  contentTypeUid: "page",
+  url: path,
+  referenceFieldPath: [
+    "components.two_columns.two_column_connection",
+    "components.two_columns.two_column_connection.side_a.faq_connector.reference",
+    "components.two_columns.two_column_connection.side_b.faq_connector.reference",
+    "components.two_columns.two_column_connection.side_a.timeline_connector.reference",
+    "components.two_columns.two_column_connection.side_b.timeline_connector.reference",
+  ],
+  jsonRtePath: [],
+  locale: "en-us",
+  replaceHtmlCslp: true,
+});
+
+// Personalize Stuff
+if (
+  route.query.utm_source === "linkedin" &&
+  route.query.utm_campaign === "dxp"
+) {
+  // Send impression to experience 0 (LinkedIn campaign in CS)
+  Personalize.triggerImpression("0");
+}
+
+// OG tags Stuff
 const title = computed(() => {
   let title = "";
 
@@ -33,21 +63,6 @@ if (path !== "/") {
     item: `https://timbenniks.dev${route.path}`,
   });
 }
-
-const { data: page } = await useGetEntryByUrl<Page>({
-  contentTypeUid: "page",
-  url: path,
-  referenceFieldPath: [
-    "components.two_columns.two_column_connection",
-    "components.two_columns.two_column_connection.side_a.faq_connector.reference",
-    "components.two_columns.two_column_connection.side_b.faq_connector.reference",
-    "components.two_columns.two_column_connection.side_a.timeline_connector.reference",
-    "components.two_columns.two_column_connection.side_b.timeline_connector.reference",
-  ],
-  jsonRtePath: [],
-  locale: "en-us",
-  replaceHtmlCslp: true,
-});
 
 let FAQ: object = {};
 

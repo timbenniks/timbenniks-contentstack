@@ -5,6 +5,7 @@ const props = defineProps(["title", "query", "design", "cslp", "subQueryData"]);
 const { data } = await useGetListItems({
   contentTypeUid: "article",
   limit: Number(props.query.limit),
+  tag: props.query.tag,
   subQueryData: props.subQueryData,
 });
 </script>

@@ -72,7 +72,7 @@ export default defineNuxtConfig({
       editableTags: process.env.CONTENTSTACK_PREVIEW === "true",
       mode: "builder",
       editButton: {
-        enable: process.env.CONTENTSTACK_PREVIEW === "true",
+        enable: false,
       },
     },
     personalizeSdkOptions: {

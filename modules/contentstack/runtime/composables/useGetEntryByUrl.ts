@@ -100,14 +100,13 @@ export const useGetEntryByUrl = async <T>(options: {
           const type = name.slice(0, -1); // can be video, talk, article
           const query = stack.contentType(type)
             .entry()
-            .except(['locale', 'body', 'content', 'tags', 'tocs', 'faqs', 'publish_details', 'updated_at', 'updated_by', '_in_progress', 'ACL', '_version', 'created_at', 'created_by'])
+            .except(['locale', 'body', 'content', 'tocs', 'faqs', 'publish_details', 'updated_at', 'updated_by', '_in_progress', 'ACL', '_version', 'created_at', 'created_by'])
             .query()
             .orderByDescending("date")
 
           if (props.query.limit) {
             query.limit(props.query.limit)
           }
-
           if (props.query.tag) {
             query.where("tags", QueryOperation.INCLUDES, [props.query.tag])
           }
