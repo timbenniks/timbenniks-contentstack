@@ -37,25 +37,6 @@ export default defineNuxtConfig({
     },
   },
 
-  image: {
-    providers: {
-      cloudinaryFetch: {
-        name: 'cloudinaryFetch',
-        provider: 'cloudinary',
-        options: {
-          baseURL: "https://res.cloudinary.com/dwfcofnrd/image/fetch/"
-        }
-      },
-      cloudinaryNative: {
-        name: 'cloudinaryNative',
-        provider: 'cloudinary',
-        options: {
-          baseURL: "https://res.cloudinary.com/dwfcofnrd/image/upload/"
-        }
-      }
-    }
-  },
-
   'contentstack': {
     debug: false,
     deliverySdkOptions: {
@@ -79,5 +60,32 @@ export default defineNuxtConfig({
       enable: true,
       projectUid: process.env.CONTENTSTACK_PERSONALIZE_PROJECT_ID as string,
     },
+  },
+
+  image: {
+    providers: {
+      contentstack: {
+        name: "contentstack",
+        provider: "~/modules/contentstack/providers/contentstack",
+        options: {
+          baseURL: `https://eu-images.contentstack.com/v3/assets/`,
+          apiKey: process.env.CONTENTSTACK_API_KEY as string
+        }
+      },
+      cloudinaryFetch: {
+        name: 'cloudinaryFetch',
+        provider: 'cloudinary',
+        options: {
+          baseURL: "https://res.cloudinary.com/dwfcofnrd/image/fetch/"
+        }
+      },
+      cloudinaryNative: {
+        name: 'cloudinaryNative',
+        provider: 'cloudinary',
+        options: {
+          baseURL: "https://res.cloudinary.com/dwfcofnrd/image/upload/"
+        }
+      }
+    }
   },
 })

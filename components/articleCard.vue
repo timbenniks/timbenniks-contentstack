@@ -23,6 +23,19 @@ function parseImage(imageUrl: string) {
   };
 }
 
+function getCSImageVersion(thumbnail: any) {
+  const assetuid = thumbnail?.uid;
+  const url = thumbnail?.url;
+  const src = thumbnail?.filename;
+
+  const baseStr = url.split(src)[0];
+  const versionuid = baseStr.split(
+    `https://eu-images.contentstack.com/v3/assets/blt8699317c576dde05/${assetuid}/`
+  )[1];
+
+  return versionuid.slice(0, -1);
+}
+
 const { livePreviewEnabled } = useNuxtApp().$contentstack as {
   livePreviewEnabled: boolean;
 };
@@ -36,6 +49,32 @@ const { livePreviewEnabled } = useNuxtApp().$contentstack as {
       :class="small || featured ? 'md:flex-row md:space-x-4' : 'flex-col'"
     >
       <Image
+        v-if="article?.thumbnail"
+        v-bind="cslp?.thumbnail"
+        provider="contentstack"
+        :src="article?.thumbnail?.filename"
+        :quality="90"
+        :width="featured ? 1280 : 700"
+        :height="featured ? 720 : 394"
+        fit="cover"
+        format="pjpg"
+        :modifiers="{
+          assetuid: article?.thumbnail?.uid,
+          auto: 'avif',
+          versionuid: getCSImageVersion(article?.thumbnail),
+        }"
+        :loading="featured ? 'eager' : 'lazy'"
+        :fetchpriority="featured ? 'high' : 'auto'"
+        class="w-full mb-2"
+        :class="{
+          'md:w-64': small,
+          'w-full md:w-3/5 lg:w-[800px] lg:h-[450px] fancy-image-alt': featured,
+          'fancy-image': !featured,
+        }"
+      />
+
+      <Image
+        v-else
         v-bind="cslp?.image"
         :provider="parseImage(article.image).provider"
         :src="parseImage(article.image).url"
@@ -51,7 +90,6 @@ const { livePreviewEnabled } = useNuxtApp().$contentstack as {
         :height="featured ? 720 : 197"
         :loading="featured ? 'eager' : 'lazy'"
         :fetchpriority="featured ? 'high' : 'auto'"
-        fit="thumbnail"
       />
 
       <div>
@@ -102,11 +140,16 @@ const { livePreviewEnabled } = useNuxtApp().$contentstack as {
         </template>
       </div>
     </NuxtLink>
-    <p class="my-4 text-xs break-all" v-if="livePreviewEnabled">
+    <p
+      class="my-4 text-xs break-all"
+      v-if="livePreviewEnabled && !article?.thumbnail"
+    >
       <span class="text-slate-400 block">Edit image URL in visual builder</span>
-      <span v-bind="cslp && cslp?.image">{{
-        parseImage(article.image).url
-      }}</span>
+      <span v-bind="cslp && cslp?.image"
+        >https://res.cloudinary.com/dwfcofnrd/image/upload/{{
+          parseImage(article.image).url
+        }}</span
+      >
     </p>
   </li>
 </template>

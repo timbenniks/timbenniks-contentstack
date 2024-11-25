@@ -2,13 +2,20 @@
 interface Props {
   alt: string;
   src: string;
-  fit?: string
-  height: number
-  width: number
-  provider?: string
-  sizes?: string
-  fetchpriority?: string
-  loading?: "lazy" | "eager" | undefined,
+  fit?: string;
+  format?: string;
+  height: number;
+  width: number;
+  provider?: string;
+  sizes?: string;
+  quality?: string;
+  fetchpriority?: string;
+  loading?: "lazy" | "eager" | undefined;
+  modifiers?: {
+    assetuid: string;
+    auto: string;
+    url: string;
+  };
 }
 
 withDefaults(defineProps<Props>(), {
@@ -16,7 +23,7 @@ withDefaults(defineProps<Props>(), {
   provider: "cloudinaryNative",
   sizes: "sm:100vw",
   fetchpriority: "normal",
-  loading: "lazy"
+  loading: "lazy",
 });
 </script>
 
@@ -30,5 +37,8 @@ withDefaults(defineProps<Props>(), {
     :provider="provider"
     :sizes="sizes"
     :width="width"
+    :modifiers="modifiers && modifiers"
+    :quality="quality && quality"
+    :format="format && format"
   />
 </template>

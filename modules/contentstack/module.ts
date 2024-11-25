@@ -9,6 +9,9 @@ export interface ModuleOptions {
   deliverySdkOptions: DeliverySdkOptions
   livePreviewSdkOptions: LivePreviewSdkOptions
   personalizeSdkOptions: PersonalizeSdkOptions
+  assetOptions: {
+    baseURL: string
+  }
 }
 
 const logger = useLogger("contentstack")
@@ -55,6 +58,9 @@ export default defineNuxtModule<ModuleOptions>({
         position: 'top',
       },
     },
+    assetOptions: {
+      baseURL: ''
+    },
     personalizeSdkOptions: {
       projectUid: '',
       enable: false,
@@ -81,6 +87,20 @@ export default defineNuxtModule<ModuleOptions>({
 
     logger.success(`Contentstack region: ${chalk.bold(_options.deliverySdkOptions.region)}`)
     logger.success(`Contentstack branch: ${chalk.bold(_options.deliverySdkOptions.branch)}`)
+
+    // if (_nuxt.options.modules.includes('@nuxt/image')) {
+    //   _nuxt.options.image = _nuxt.options.image || {};
+    //   _nuxt.options.image.providers = _nuxt.options.image.providers || {};
+    //   _nuxt.options.image.providers.contentstack = {
+    //     name: 'contentstack',
+    //     provider: "~/modules/contentstack/providers/contentstack",
+    //     options: {
+    //       baseURL: _options.assetOptions.baseURL
+    //     },
+    //   };
+
+    //   logger.success(`Contentstack image provider initialized.`)
+    // }
 
     if (_options.deliverySdkOptions?.live_preview?.enable) {
       _options.livePreviewSdkOptions.enable = true
@@ -114,5 +134,6 @@ export default defineNuxtModule<ModuleOptions>({
       handler: resolver.resolve('./runtime/server/middleware/personalize'),
       middleware: true,
     })
+
   },
 })
