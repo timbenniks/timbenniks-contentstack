@@ -2,12 +2,30 @@
 import type { Article } from "~/contentstack/generated";
 const props = defineProps(["title", "query", "design", "cslp", "subQueryData"]);
 
-const { data } = await useGetListItems({
+type Options = {
+  contentTypeUid: "article" | "video" | "talk";
+  limit?: number;
+  tag?: string;
+  subQueryData?: Article[];
+};
+
+const options: Options = {
   contentTypeUid: "article",
-  limit: Number(props.query.limit),
-  tag: props.query.tag,
-  subQueryData: props.subQueryData,
-});
+};
+
+if (props.query.limit) {
+  options.limit = Number(props.query.limit);
+}
+
+if (props.query.tag) {
+  options.limit = props.query.tag;
+}
+
+if (props.query.subQueryData) {
+  options.subQueryData = props.query.subQueryData;
+}
+
+const { data } = await useGetListItems(options);
 </script>
 
 <template>

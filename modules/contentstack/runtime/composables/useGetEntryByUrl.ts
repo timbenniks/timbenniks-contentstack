@@ -110,7 +110,6 @@ export const useGetEntryByUrl = async <T>(options: {
           if (props.query.tag) {
             query.where("tags", QueryOperation.INCLUDES, [props.query.tag])
           }
-
           queries.push({ type, promise: query.find() })
         }
       })
@@ -155,11 +154,15 @@ export const useGetEntryByUrl = async <T>(options: {
 
           const matchingSubQuery = finalSubQueryResults.find(
             subQuery => subQuery.contentTypeUid === contentType &&
-              subQuery.entries.some((entry: any) => entry.subject === queryTag)
+              subQuery.entries.some((entry: any) =>
+                queryTag ? entry.subject === queryTag || (entry.tags && entry.tags.includes(queryTag)) : true
+              )
           );
 
           if (matchingSubQuery) {
-            const filteredEntries = matchingSubQuery.entries.filter((entry: any) => entry.subject === queryTag);
+            const filteredEntries = matchingSubQuery.entries.filter((entry: any) =>
+              queryTag ? entry.subject === queryTag || (entry.tags && entry.tags.includes(queryTag)) : true
+            );
             return {
               ...component,
               [matchingKey]: {

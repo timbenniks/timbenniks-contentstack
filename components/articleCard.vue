@@ -57,6 +57,7 @@ const { livePreviewEnabled } = useNuxtApp().$contentstack as {
         :width="featured ? 1280 : 700"
         :height="featured ? 720 : 394"
         fit="cover"
+        :alt="`Poster image for: ${article.title}` || ''"
         format="pjpg"
         :modifiers="{
           assetuid: article?.thumbnail?.uid,

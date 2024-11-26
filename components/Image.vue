@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 interface Props {
-  alt: string;
+  alt?: string;
   src: string;
   fit?: string;
   format?: string;
@@ -8,7 +8,7 @@ interface Props {
   width: number;
   provider?: string;
   sizes?: string;
-  quality?: string;
+  quality?: number;
   fetchpriority?: string;
   loading?: "lazy" | "eager" | undefined;
   modifiers?: {
