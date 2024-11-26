@@ -4,8 +4,8 @@ interface Props {
   src: string;
   fit?: string;
   format?: string;
-  height: number;
-  width: number;
+  height: number | string;
+  width: number | string;
   provider?: string;
   sizes?: string;
   quality?: number;

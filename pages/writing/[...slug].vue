@@ -106,7 +106,7 @@ useSeoMeta({
   titleTemplate: "%s - Tim Benniks",
   description: post.value?.description,
   title: post.value?.title,
-  ogImage: post.value?.image,
+  ogImage: post.value?.thumbnail?.url,
 });
 
 const { data: relatedPosts } = await useAsyncData(
@@ -152,15 +152,15 @@ const { data: relatedPosts } = await useAsyncData(
         uid: entry.uid,
         title: entry.title,
         url: entry.url,
-        image: entry.image,
+        thumbnail: entry.thumbnail,
         reading_time: entry.reading_time,
         description: entry.description,
         cslp: {
           title: {
             ...entry.cslp.title,
           },
-          image: {
-            ...entry.cslp.image,
+          thumbnail: {
+            ...entry.cslp.thumbnail,
           },
           description: {
             ...entry.cslp.description,
@@ -175,10 +175,6 @@ const { data: relatedPosts } = await useAsyncData(
     return result;
   }
 );
-
-const { livePreviewEnabled } = useNuxtApp().$contentstack as {
-  livePreviewEnabled: boolean;
-};
 
 const faqs = computed(() => {
   let result: any[] = [];
@@ -196,6 +192,24 @@ const faqs = computed(() => {
 
   return result;
 });
+
+function getCSImageVersion(thumbnail: any) {
+  const {
+    deliverySdkOptions: { apiKey },
+    assetHost,
+  } = useRuntimeConfig().public.contentstack;
+
+  const assetuid = thumbnail?.uid;
+  const url = thumbnail?.url;
+  const src = thumbnail?.filename;
+
+  const baseStr = url.split(src)[0];
+  const versionuid = baseStr.split(
+    `https://${assetHost}/${apiKey}/${assetuid}/`
+  )[1];
+
+  return versionuid.slice(0, -1);
+}
 </script>
 
 <template>
@@ -304,31 +318,28 @@ const faqs = computed(() => {
               />
               Tim Benniks
             </div>
-            <NuxtImg
-              v-if="post?.image"
-              provider="cloudinaryFetch"
-              :src="post.image"
+
+            <Image
+              v-if="post?.thumbnail"
+              v-bind="post.cslp?.thumbnail"
+              provider="contentstack"
+              :src="post?.thumbnail?.filename"
+              :quality="90"
+              width="700"
+              height="394"
+              fit="fill"
               :alt="post.title"
-              width="1920"
-              height="1080"
-              fit="cover"
-              loading="eager"
-              sizes="sm:30vw"
+              format="pjpg"
+              :modifiers="{
+                assetuid: post?.thumbnail?.uid,
+                auto: 'avif',
+                versionuid: getCSImageVersion(post?.thumbnail),
+              }"
+              sizes="sm:400px"
+              loading="lazy"
               fetchpriority="high"
               class="my-8 fancy-image-alt"
             />
-
-            <p
-              class="mb-4 text-xs max-w-96 break-words"
-              v-if="livePreviewEnabled"
-            >
-              <span class="text-slate-400 block"
-                >Edit image URL in visual builder</span
-              >
-              <span v-bind="post?.cslp && post?.cslp.image">{{
-                post?.image
-              }}</span>
-            </p>
 
             <p
               class="font-bold text-[#db97bf] mb-2"

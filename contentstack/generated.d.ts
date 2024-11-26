@@ -343,6 +343,7 @@ export interface Article {
   date?: string | null;
   /** Image */
   image?: string;
+  thumbnail?: any
   /** reading_time */
   reading_time?: string;
   /** Body */

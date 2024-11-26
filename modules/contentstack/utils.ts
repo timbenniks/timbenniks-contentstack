@@ -33,6 +33,7 @@ export type Urls = {
   app?: string
   preview?: string
   personalize?: string
+  assets?: string
 }
 
 export type IStackSdk = {
@@ -52,6 +53,7 @@ export function getURLsforRegion(region: Region = Region.US) {
         app: 'app.contentstack.com',
         preview: 'rest-preview.contentstack.com',
         personalize: 'personalize-edge.contentstack.com',
+        assets: 'images.contentstack.com/v3/assets'
       }
 
       break
@@ -61,6 +63,7 @@ export function getURLsforRegion(region: Region = Region.US) {
         app: 'eu-app.contentstack.com',
         preview: 'eu-rest-preview.contentstack.com',
         personalize: 'eu-personalize-edge.contentstack.com',
+        assets: 'eu-images.contentstack.com/v3/assets'
       }
 
       break

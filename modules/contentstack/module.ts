@@ -6,6 +6,7 @@ import { getURLsforRegion, type LivePreviewSdkOptions, type DeliverySdkOptions, 
 
 export interface ModuleOptions {
   debug: boolean
+  assetHost?: string,
   deliverySdkOptions: DeliverySdkOptions
   livePreviewSdkOptions: LivePreviewSdkOptions
   personalizeSdkOptions: PersonalizeSdkOptions
@@ -29,6 +30,7 @@ export default defineNuxtModule<ModuleOptions>({
 
   defaults: {
     debug: false,
+    assetHost: '',
     deliverySdkOptions: {
       apiKey: '',
       deliveryToken: '',
@@ -71,8 +73,6 @@ export default defineNuxtModule<ModuleOptions>({
   setup(_options, _nuxt) {
     const resolver = createResolver(import.meta.url)
 
-    _nuxt.options.runtimeConfig.public.contentstack = defu(_nuxt.options.runtimeConfig.public.contentstack, _options)
-
     if (!_options.deliverySdkOptions.apiKey) {
       logger.error(`No Contentstack apiKey. Make sure you specify an ${chalk.bold('apiKey')} in your Contentstack config.`)
     }
@@ -110,7 +110,7 @@ export default defineNuxtModule<ModuleOptions>({
         _options.livePreviewSdkOptions.clientUrlParams.host = getURLsforRegion(_options.deliverySdkOptions.region).app
       }
 
-      logger.box(`${chalk.bold('⚡️')} Contentstack Live preview enabled`)
+      logger.success(`Contentstack Live preview enabled ${chalk.bold('⚡️')} `)
     }
 
     if (_options.deliverySdkOptions?.live_preview?.enable && !_options.deliverySdkOptions.live_preview.preview_token) {
@@ -127,6 +127,13 @@ export default defineNuxtModule<ModuleOptions>({
       logger.box(`${chalk.bgYellow('DEBUG')} Contentstack options object\n\n${JSON.stringify(_options, null, 2)}`)
     }
 
+    if (_nuxt.options.modules.includes('@nuxt/image')) {
+      _options.assetHost = getURLsforRegion(_options.deliverySdkOptions.region).assets
+      logger.success('Detected @nuxt/image, adding asset url based on your region')
+    }
+
+    _nuxt.options.runtimeConfig.public.contentstack = defu(_nuxt.options.runtimeConfig.public.contentstack, _options)
+
     addPlugin(resolver.resolve('./runtime/contentstack'))
     addImportsDir(resolver.resolve('./runtime/composables'))
 
@@ -134,6 +141,5 @@ export default defineNuxtModule<ModuleOptions>({
       handler: resolver.resolve('./runtime/server/middleware/personalize'),
       middleware: true,
     })
-
   },
 })

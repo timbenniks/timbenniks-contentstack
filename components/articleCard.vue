@@ -1,6 +1,10 @@
 <script setup lang="ts">
 defineProps(["article", "small", "featured", "cslp"]);
 
+const { livePreviewEnabled } = useNuxtApp().$contentstack as {
+  livePreviewEnabled: boolean;
+};
+
 function parseImage(imageUrl: string) {
   let provider = "cloudinaryNative";
   let url = null;
@@ -24,21 +28,22 @@ function parseImage(imageUrl: string) {
 }
 
 function getCSImageVersion(thumbnail: any) {
+  const {
+    deliverySdkOptions: { apiKey },
+    assetHost,
+  } = useRuntimeConfig().public.contentstack;
+
   const assetuid = thumbnail?.uid;
   const url = thumbnail?.url;
   const src = thumbnail?.filename;
 
   const baseStr = url.split(src)[0];
   const versionuid = baseStr.split(
-    `https://eu-images.contentstack.com/v3/assets/blt8699317c576dde05/${assetuid}/`
+    `https://${assetHost}/${apiKey}/${assetuid}/`
   )[1];
 
   return versionuid.slice(0, -1);
 }
-
-const { livePreviewEnabled } = useNuxtApp().$contentstack as {
-  livePreviewEnabled: boolean;
-};
 </script>
 
 <template>
@@ -56,9 +61,10 @@ const { livePreviewEnabled } = useNuxtApp().$contentstack as {
         :quality="90"
         :width="featured ? 1280 : 700"
         :height="featured ? 720 : 394"
-        fit="cover"
+        fit="fill"
         :alt="`Poster image for: ${article.title}` || ''"
         format="pjpg"
+        sizes="sm:400px md:800px"
         :modifiers="{
           assetuid: article?.thumbnail?.uid,
           auto: 'avif',
@@ -76,7 +82,6 @@ const { livePreviewEnabled } = useNuxtApp().$contentstack as {
 
       <Image
         v-else
-        v-bind="cslp?.image"
         fit="thumb"
         :provider="parseImage(article.image).provider"
         :src="parseImage(article.image).url"
