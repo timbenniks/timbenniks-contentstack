@@ -77,6 +77,7 @@ const { livePreviewEnabled } = useNuxtApp().$contentstack as {
       <Image
         v-else
         v-bind="cslp?.image"
+        fit="thumb"
         :provider="parseImage(article.image).provider"
         :src="parseImage(article.image).url"
         :alt="`Poster image for: ${article.title}` || ''"
