@@ -3,7 +3,6 @@ import { Region } from '@contentstack/delivery-sdk'
 import { defu } from 'defu'
 import chalk from 'chalk'
 import { getURLsforRegion, type LivePreviewSdkOptions, type DeliverySdkOptions, type PersonalizeSdkOptions } from './utils'
-
 export interface ModuleOptions {
   debug: boolean
   assetHost?: string,
