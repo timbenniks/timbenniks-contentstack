@@ -1,6 +1,7 @@
 import { Region, type StackConfig } from '@contentstack/delivery-sdk'
 import type { EntryNode, Metadata, Next, Node, RenderOption } from '@contentstack/utils'
 import type { EmbeddedItem } from '@contentstack/utils/dist/types/Models/embedded-object'
+import { getContentstackEndpoints } from "@timbenniks/contentstack-endpoints";
 
 export type DeliverySdkOptions = StackConfig
 
@@ -46,31 +47,13 @@ export type IStackSdk = {
 
 
 export function getURLsforRegion(region: Region = Region.US) {
-  let urls: Urls = {}
-
-  switch (region) {
-    case Region.US:
-      urls = {
-        app: 'app.contentstack.com',
-        preview: 'rest-preview.contentstack.com',
-        personalize: 'personalize-edge.contentstack.com',
-        assets: 'images.contentstack.com/v3/assets'
-      }
-
-      break
-
-    case Region.EU:
-      urls = {
-        app: 'eu-app.contentstack.com',
-        preview: 'eu-rest-preview.contentstack.com',
-        personalize: 'eu-personalize-edge.contentstack.com',
-        assets: 'eu-images.contentstack.com/v3/assets'
-      }
-
-      break
-  }
-
-  return urls
+  const endpoints = getContentstackEndpoints(region, true);
+  return {
+    app: endpoints.application,
+    preview: endpoints.preview,
+    personalize: endpoints.personalizeEdge,
+    assets: `${endpoints.imageDelivery}/v3/assets`
+  } as Urls
 }
 
 export function replaceCslp(obj: any): any {

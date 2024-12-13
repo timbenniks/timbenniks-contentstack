@@ -13,6 +13,10 @@ export default defineNuxtConfig({
     preset: 'node-server'
   },
 
+  build: {
+    transpile: ['@timbenniks/contentstack-endpoints']
+  },
+
   modules: [
     "@nuxt/image",
     "@nuxtjs/tailwindcss",

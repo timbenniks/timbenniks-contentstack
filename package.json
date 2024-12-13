@@ -19,7 +19,7 @@
     "@nuxt/image": "^1.8.1",
     "@nuxtjs/tailwindcss": "^6.12.2",
     "@tailwindcss/typography": "^0.5.15",
-    "@timbenniks/contentstack-endpoints": "^1.0.1",
+    "@timbenniks/contentstack-endpoints": "^1.0.5",
     "date-fns": "^4.1.0",
     "dotenv": "^16.4.7",
     "nuxt": "^3.14.1592",
