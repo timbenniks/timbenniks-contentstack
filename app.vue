@@ -121,10 +121,14 @@ useJsonld({
   ],
 });
 
-onMounted(() => {
-  //@ts-ignore
-  window.jstag.pageView();
-});
+watch(
+  () => route.path,
+  (newPath, oldPath) => {
+    console.log("Route changed from", oldPath, "to", newPath);
+    //@ts-ignore
+    window.jstag.pageView();
+  }
+);
 </script>
 
 <template>
