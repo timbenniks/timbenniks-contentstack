@@ -67,7 +67,6 @@ useHead({
           }
         }
       });
-      jstag.pageView();
     `,
     },
   ],
@@ -120,6 +119,11 @@ useJsonld({
       },
     },
   ],
+});
+
+onMounted(() => {
+  //@ts-ignore
+  window.jstag.pageView();
 });
 </script>
 
