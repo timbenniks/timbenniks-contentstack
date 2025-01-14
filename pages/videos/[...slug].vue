@@ -147,6 +147,7 @@ useSeoMeta({
   description: video.value?.description,
   title: video.value?.title,
   ogImage: video.value?.image,
+  keywords: video.value?.tags?.join(", "),
 });
 </script>
 

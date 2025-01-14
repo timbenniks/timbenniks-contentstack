@@ -107,6 +107,7 @@ useSeoMeta({
   description: post.value?.description,
   title: post.value?.title,
   ogImage: post.value?.thumbnail?.url,
+  keywords: post.value?.tags?.join(", "),
 });
 
 const { data: relatedPosts } = await useAsyncData(
