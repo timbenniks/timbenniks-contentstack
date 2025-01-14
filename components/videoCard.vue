@@ -9,8 +9,7 @@ const { livePreviewEnabled } = useNuxtApp().$contentstack as {
 <template>
   <li class="relative" :class="featured ? 'mb-12' : 'mb-4'">
     <NuxtLink
-      :to="`https://www.youtube.com/watch?v=${video.videoid}`"
-      target="_blank"
+      :to="`/videos/${video.videoid}`"
       class="md:flex"
       :class="small || featured ? 'md:flex-row md:space-x-4' : 'flex-col'"
     >

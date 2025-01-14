@@ -13,6 +13,12 @@ export default defineNuxtConfig({
     preset: 'node-server'
   },
 
+  vue: {
+    compilerOptions: {
+      isCustomElement: tag => ['lite-youtube'].includes(tag)
+    }
+  },
+
   build: {
     transpile: ['@timbenniks/contentstack-endpoints']
   },

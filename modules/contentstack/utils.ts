@@ -167,7 +167,7 @@ export const renderOption: RenderOption = {
   ['social-embeds']: (node: Node, next: Next) => {
     const splitOnEmbed = node.attrs.src.split('embed/')[1];
     const videoid = splitOnEmbed.split('?si=')[0];
-    return `<lite-youtube i="${videoid}"></lite-youtube>`
+    return `<lite-youtube videoid="${videoid}"></lite-youtube>`
   },
 
   code: (node: Node, next: Next) => {

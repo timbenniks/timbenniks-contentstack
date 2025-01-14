@@ -47,7 +47,7 @@ export class LiteYTEmbed extends HTMLElement {
     return this.hasAttribute("nocookie");
   }
   get posterQuality() {
-    return this.getAttribute("posterquality") || "hqdefault";
+    return this.getAttribute("posterquality") || "maxresdefault";
   }
   get posterLoading() {
     return this.getAttribute("posterloading") || "lazy";

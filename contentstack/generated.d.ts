@@ -385,6 +385,7 @@ export interface Talk {
 }
 
 export interface Video {
+  uid: string;
   /** Version */
   _version?: 11;
   /** Title */
@@ -397,6 +398,8 @@ export interface Video {
   image?: string;
   /** Video ID */
   videoid?: string;
+  tags: string[];
+  cslp: any
 }
 
 export interface Page {
