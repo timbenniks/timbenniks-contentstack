@@ -70,6 +70,7 @@ useHead({
           entityPush: {
             disabled: false,
             personalizeProjectId: '673de37a605735e17555d300',
+            contentstackEdgeApi: 'https://eu-personalize-edge.contentstack.com'
           }
         }
       });
