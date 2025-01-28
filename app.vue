@@ -65,6 +65,12 @@ useHead({
           dataLayerPull: {
             disabled: true
           }
+        },
+        contentStack: {
+          entityPush: {
+            disabled: false,
+            personalizeProjectId: '673de37a605735e17555d300',
+          }
         }
       });
     `,
