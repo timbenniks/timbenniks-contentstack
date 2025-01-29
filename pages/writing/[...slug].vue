@@ -186,7 +186,6 @@ const faqs = computed(() => {
       result.push({
         question: qa.qa.question,
         answer: qa.qa.answer,
-        wrapperCslp: qa.cslp.qa,
         innerCslp: qa.qa.cslp,
       });
     });
