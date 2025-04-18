@@ -68,6 +68,9 @@ useHead({
         },
         contentStack: {
           entityPush: {
+            poll: {
+              disabled: false
+            },
             disabled: false,
             personalizeProjectId: '673de37a605735e17555d300',
             baseUrl: 'https://eu-personalize-edge.contentstack.com'

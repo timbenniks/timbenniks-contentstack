@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-app",
+  "name": "timbenniks",
   "private": true,
   "type": "module",
   "scripts": {
@@ -12,17 +12,17 @@
     "types": "csdx tsgen -a 'delivery' -o 'contentstack/generated.d.ts'"
   },
   "dependencies": {
-    "@contentstack/delivery-sdk": "4.4.4",
-    "@contentstack/live-preview-utils": "3.0.2",
-    "@contentstack/personalize-edge-sdk": "^1.0.4",
-    "@nuxt/fonts": "^0.10.3",
-    "@nuxt/image": "^1.9.0",
-    "@nuxtjs/tailwindcss": "^6.12.2",
+    "@contentstack/delivery-sdk": "4.6.1",
+    "@contentstack/live-preview-utils": "3.2.0",
+    "@contentstack/personalize-edge-sdk": "^1.0.12",
+    "@nuxt/fonts": "^0.11.1",
+    "@nuxt/image": "^1.10.0",
+    "@nuxtjs/tailwindcss": "^6.13.2",
     "@tailwindcss/typography": "^0.5.16",
-    "@timbenniks/contentstack-endpoints": "^1.0.5",
+    "@timbenniks/contentstack-endpoints": "^1.0.8",
     "date-fns": "^4.1.0",
-    "dotenv": "^16.4.7",
-    "nuxt": "^3.15.1",
+    "dotenv": "^16.5.0",
+    "nuxt": "^3.16.2",
     "nuxt-jsonld": "^2.1.0",
     "rss": "^1.2.2",
     "sitemap": "^8.0.0",
